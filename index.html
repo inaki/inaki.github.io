@@ -1,21 +1,29 @@
----
-layout: default
----
-
-<div class="home">
-
-  <h1 class="page-heading">Stuff</h1>
-
-<!--   <ul class="post-list">
-  {% for post in site.posts %}
-    <li>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-      <h2>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </h2>
-    </li>
-  {% endfor %}
-</ul> -->
-
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Imanol Aranzadi</title>
+  <style>
+    .container {
+      width: 100%;
+    }
+    .content {
+      position: relative;
+      top: 100px;
+    }
+    img.me {
+      width: 300px;
+      border-radius: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <img class="me" src="images/inaki.png" alt="">
+    </div>
+  </div>
+</body>
+</html>
