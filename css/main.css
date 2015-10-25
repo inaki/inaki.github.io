@@ -16,7 +16,8 @@ svg * {
   display: block;
   margin: 0 auto;
   width: 300px; height: 300px;
-  padding: 0px;}
+  padding: 0px;
+  margin-top: 100px}
 
 .content {
   max-width: 767px;
@@ -61,15 +62,11 @@ svg * {
   width: 100%;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  margin: 40px 0;
 }
 
 .android {
-  color: #4CAF50;
-}
-
-.st6 {
   color: #E91E63;
-  fill: #E91E63;
 }
 
 .disappearing {
@@ -90,11 +87,12 @@ svg * {
 /*Media queries*/
 
 @media (max-width: 767px) {
-  #me, #iam { width: 100%; max-height: 300px; }
+  #me{ width: 100%; max-height: 300px; }
 }
 @media (min-width: 481px) and (max-width: 767px) {
-  #me, #iam { width: 100%; margin: 0 auto;}
+  #me{ width: 100%; margin: 0 auto;}
 }
 @media (max-width: 480px) {
   .col-3 { width: 100%; margin: 0 auto; }
+  #me {margin-top: 40px}
 }
