@@ -30,16 +30,6 @@ svg * {
   margin: 0 auto;
 }
 
-@media (max-width: 767px) {
-  #me, #iam { width: 100%; max-height: 300px; }
-}
-@media (min-width: 481px) and (max-width: 767px) {
-  #me, #iam { width: 100%; margin: 0 auto;}
-}
-@media (max-width: 480px) {
-  .col-3 { width: 100%; margin: 0 auto; }
-}
-
 /*animation code*/
 
 @-webkit-keyframes EASI-IN {
@@ -96,3 +86,15 @@ svg * {
 .red {color: #FF5252;}
 .yellow {color: #FFC107;}
 .green {color: #4CAF50;}
+
+/*Media queries*/
+
+@media (max-width: 767px) {
+  #me, #iam { width: 100%; max-height: 300px; }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  #me, #iam { width: 100%; margin: 0 auto;}
+}
+@media (max-width: 480px) {
+  .col-3 { width: 100%; margin: 0 auto; }
+}
