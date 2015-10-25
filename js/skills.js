@@ -4,3 +4,10 @@ var skills = new Vivus('skills', {
           // myVivus.el.setAttribute('height', 'auto');
     }
 });
+
+setTimeout('$("#skills").attr("class", "gray");', 100);
+
+var goToHome = function(){
+	skills.play(-3);
+	setTimeout('window.location.href = "/";', 1000);
+}

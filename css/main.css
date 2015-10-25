@@ -2,7 +2,16 @@
 svg * {
   fill: none;
   stroke: currentColor;}
-      
+   
+#mySVG * {
+  fill-opacity: 0;
+  transition: fill-opacity 1s;
+}
+
+#mySVG.finished * {
+  fill-opacity: 1;
+}
+
 #me{
   display: block;
   margin: 0 auto;
@@ -31,6 +40,32 @@ svg * {
   .col-3 { width: 100%; margin: 0 auto; }
 }
 
+/*animation code*/
+
+@-webkit-keyframes EASI-IN {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes EASI-IN {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes EASI-IN {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes EASI-IN {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.quote, .android {
+  -webkit-animation: EASI-IN 5s; /* Safari 4+ */
+  -moz-animation:    EASI-IN 5s; /* Fx 5+ */
+  -o-animation:      EASI-IN 5s; /* Opera 12+ */
+  animation:         EASI-IN 5s; /* IE 10+, Fx 29+ */
+}
+
 .quote {
   color: #727272;
   width: 100%;
@@ -44,8 +79,20 @@ svg * {
 
 .st6 {
   color: #E91E63;
+  fill: #E91E63;
 }
 
 .disappearing {
   color: white;
 }
+
+.white {
+  color: white;
+}
+.gray {
+  color: #9E9E9E;
+}
+
+.red {color: #FF5252;}
+.yellow {color: #FFC107;}
+.green {color: #4CAF50;}
