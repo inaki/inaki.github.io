@@ -62,7 +62,7 @@ svg * {
   width: 100%;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  margin: 40px 0;
+  margin: 0 auto;
 }
 
 .android {
@@ -95,4 +95,5 @@ svg * {
 @media (max-width: 480px) {
   .col-3 { width: 100%; margin: 0 auto; }
   #me {margin-top: 40px}
+  .quote {width: 300px; text-align: center; padding-top: 30px; font-size: 1.4em;}
 }
