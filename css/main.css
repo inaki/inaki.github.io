@@ -97,11 +97,13 @@ textarea[type='text']:focus{
   width: 287px;
   height: 139px;
 }
-.thanks-wrapper a {
+.thanks-wrapper button {
   float: right;
   color: #EC1561;
   margin-right: 32px;
-  margin-top: -23px;
+  background-color: #fff;
+  border: none;
+  font-size: 1em;
 }
 
 svg * {
