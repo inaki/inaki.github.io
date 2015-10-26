@@ -5,9 +5,67 @@ layout: page
 <div class="content">
 	{% include head4page.html %}
 
-	<a onclick="goToHome()">index</a>
+	<div class="resume-content animated fadeInUp">
+	<div class="title">
+		<h1>Resume</h1>
+	</div>
+		<!-- <a onclick="goToHome()">index</a> -->
+	<h2>Imanol Aranzadi - Web Develper</h2>
+      <p class="section-tagline">Recent Experience</p>
+      <!-- Recent Experience: Product Design @ Pinterest-->
+      <p>
+        <b>Code for America</b>
+        <span class="right"><i>2015-present</i></span>
+        <br>
+        <b>Full Stack Developer</b>
+        <span class="right"><i>San Francisco, CA</i></span>
+        <br>
+        <br>
+        <p class="resume-description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+        </p>
+        <br>
+        <button class="skill">Python</button>
+        <button class="skill">Javascript</button>
+        <button class="skill">Flask</button>
+        <button class="skill">Twillio</button>
+        <button class="skill">AngularJS</button>
+        <button class="skill">LeafletJS</button>
+        <button class="skill">Heroku</button>
+        <button class="skill">PostgreSQL</button>
+      </p>
+      <br>
+      <!-- Recent Experience: Product Designer -->
+      <p>
+        <b>i-comm tech</b>
+        <span class="right"><i>2013-2015</i></span>
+        <br>
+        <b>Front End Developer</b>
+        <span class="right"><i>San Francisco, CA</i></span>
+        <br>
+        <br>
+        <p class="resume-description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+        </p>
+        <br>
+        <button class="skill">Javascript</button>
+        <button class="skill">CSS</button>
+        <button class="skill">HTML</button>
+        <button class="skill">AngularJS</button>
+        <button class="skill">Appcelerator</button>
+      </p>
+      <br>
+	</div>
 
-	{% include cfa.html %}
+	<div class="side-content">
+		<br>
+		<img src="../images/yo.jpg" alt="" class="yo animated fadeInDown"> 
+		<ul>
+			<li>{% include github.html %}</li>
+			<li>{% include linkedin.html %}</li>
+		</ul>
+	</div>
+	
 </div>
 
 

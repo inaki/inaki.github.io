@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300italic);
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .emphasis {
   font-weight: bolder;
   color: gray;
@@ -162,7 +166,7 @@ svg * {
   100% { opacity: 1; }
 }
 
-.quote, .android {
+.quote{
   -webkit-animation: EASI-IN 5s; /* Safari 4+ */
   -moz-animation:    EASI-IN 5s; /* Fx 5+ */
   -o-animation:      EASI-IN 5s; /* Opera 12+ */
@@ -207,4 +211,60 @@ svg * {
   #me {margin-top: 40px}
   .quote {width: 300px; text-align: center; padding-top: 30px; font-size: 1.4em;}
 }
+
+
+
+/*Resume styles*/
+.title {
+  margin-top: 50px;
+  width: 100%;
+  clear: both;
+}
+.yo {
+  width: 150px;
+  border-radius: 100%;
+  display: block;
+  margin: 0 auto;
+  -webkit-animation-duration: 2s;
+}
+.resume-content {
+  margin-top: 25px;
+  max-width: 500px; 
+  float: left;
+  padding-right: 15px;
+  -webkit-animation-duration: 2s;
+}
+.side-content {
+  padding: 25px;
+  width: 200px;
+  float: left;
+}
+.side-content ul{
+  list-style: none;
+}
+.side-content ul > li{
+  display: inline;
+  width: 50px;
+}
+.side-content > ul:nth-child(2) > li:nth-child(2) > svg:nth-child(1){
+  height: 70px;
+  width: 56px;
+}
+.gray{
+  height: 70px;
+  width: 56px;
+}
+.right {
+  float: right;
+}
+.skill {
+  background-color: white;
+  border-radius: 4px;
+  height: 30px;
+  width: 80px;
+  border: 1px solid #ccc;
+  margin: 5px;
+}
+
+
 
