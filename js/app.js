@@ -26,32 +26,34 @@ setTimeout('exec()', 100);
 
 var goToWork = function(){
 	me.play(-3);
-	skills.play(-3);
-	contact.play(-3);
-	work.play(-3);
 	setTimeout('window.location.href = "/work";', 1000);
 	$( "h2" ).switchClass( "quote", "disappearing", 1000, "easeInOutQuad" );
     $( "span" ).switchClass( "android", "disappearing", 1000, "easeInOutQuad" );
+    $( "ul.nav" ).switchClass( "fadeInUp", "fadeOutDown", 1000, "easeInOutQuad" );
 }
 
-var goToSkills = function(){
+var goToAbout = function(){
 	me.play(-3);
-	skills.play(-3);
-	contact.play(-3);
-	work.play(-3);
-	setTimeout('window.location.href = "/skills";', 1200);
+	setTimeout('window.location.href = "/about";', 1200);
 	$( "h2" ).switchClass( "quote", "disappearing", 1000, "easeInOutQuad" );
     $( "span" ).switchClass( "android", "disappearing", 1000, "easeInOutQuad" );
+    $( ".nav" ).switchClass( "fadeInUp", "fadeOutDown", 1000);
+}
+
+var goToResume = function(){
+	me.play(-3);
+	setTimeout('window.location.href = "/resume";', 1200);
+	$( "h2" ).switchClass( "quote", "disappearing", 1000, "easeInOutQuad" );
+    $( "span" ).switchClass( "android", "disappearing", 1000, "easeInOutQuad" );
+    $( ".nav" ).switchClass( "fadeInUp", "fadeOutDown", 1000);
 }
 
 var goToContact = function(){
 	me.play(-3);
-	skills.play(-3);
-	contact.play(-3);
-	work.play(-3);
 	setTimeout('window.location.href = "/contact";', 1200);
 	$( "h2" ).switchClass( "quote", "disappearing", 1000, "easeInOutQuad" );
     $( "span" ).switchClass( "android", "disappearing", 1000, "easeInOutQuad" );
+    $( ".nav" ).switchClass( "fadeInUp", "fadeOutDown", 1000);
 }
 
 // If persisted then it is in the page cache, force a reload of the page.

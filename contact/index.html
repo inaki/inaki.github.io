@@ -7,8 +7,24 @@ layout: page
 
 	<a onclick="goToHome()">index</a>
 
-	{% include contact.html %}
+	<div class="content-form">
+		{% include contactForm.html %}
+
+		<form id="form" class="contact-form" action="//formspree.io/iiaranzadi@gmail.com" method="POST" novalidate >
+	 		<label class="label animated fadeInUp" for="">email</label> <br>
+	 		<input class="contact-input" type="text" autofocus="true"> <br>
+	 		<label class="label animated fadeInUp" for="">message</label> <br>
+	 		<textarea rows="4" class="contact-input" type="text" autofocus="true"> </textarea> <br>
+	 		
+	 		<div class="send">{% include send.html %}</div>
+
+	 		<input type="hidden" name="_next" value="contact/thanks.html" />
+		</form>
+	</div>
+	
+	
+
 </div>
 
-
 {% include jsWork.html %}
+

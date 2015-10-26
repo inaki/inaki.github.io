@@ -1,8 +1,97 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300italic);
+
+ul.nav {
+  width: 465px;
+  margin: 0 auto;
+  padding-top: 25px;
+  -webkit-animation-duration: 2s;
+  /*-webkit-animation-delay: 2s;*/
+}
+
+.nav > li {
+  list-style: none;
+  display: inline;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  color: gray;
+  padding: 25px;
+}
+
+.nav > li:link, .nav > li:visited,.nav > li:active{
+  text-decoration: none;
+  color: gray;
+  padding: 25px;
+}
+.nav > li:hover {
+  color: #EC1561;
+}
+
+/*form styles*/
+input[type='text']:focus{
+    outline:none;
+}
+textarea[type='text']:focus{
+    outline:none;
+}
+
+.content-form {
+  width: 287px;
+  margin: 0 auto;
+}
+.contact-form textarea {
+  height: 7.9em;
+  padding-top: 10px;
+  margin-top: 8px;
+}
+
+.contact-form .label {
+  color: #9DA1A5;
+  -webkit-animation-duration: 2s;
+}
+
+#contactForm {
+  position: absolute;
+  z-index: -999;
+  font-family: "Roboto",sans-serif;
+  width: 326px;
+  margin: auto -19px;
+  top: 112px;
+  height: 255px;
+}
+
+
+.contact-form{
+  position: absolute;
+  z-index: 999;
+  font-family: 'Roboto', sans-serif;
+  width: 321px;
+  top: 104px;
+}
+
+.contact-input {
+  padding-left: 10px;
+  color: #666;
+  font-family: "Roboto",sans-serif;
+  font-size: 1em;
+  height: 28px;
+  width: 275px;
+  border: 1px solid transparent;
+  margin-bottom: 20px;
+  margin-top: 4px;
+}
+
+#send {
+  float: right;
+  padding-right: 30px;
+  color: gray;
+  -webkit-animation-duration: 2s;
+}
+
 svg * {
   fill: none;
   stroke: currentColor;}
-   
+ 
 #mySVG * {
   fill-opacity: 0;
   transition: fill-opacity 1s;
@@ -63,6 +152,7 @@ svg * {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
+  padding-top: 30px;
 }
 
 .android {
@@ -97,3 +187,4 @@ svg * {
   #me {margin-top: 40px}
   .quote {width: 300px; text-align: center; padding-top: 30px; font-size: 1.4em;}
 }
+
