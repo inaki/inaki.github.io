@@ -5,9 +5,12 @@ layout: page
 <div class="content">
 	{% include head4page.html %}
 
-	<a onclick="goToHome()">index</a>
+	
 
-	{% include thanksSvg.html %}
+	<div class="thanks-wrapper">
+		{% include thanksSvg.html %}
+		<a onclick="goToHome()">come back home!</a>
+	</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>

@@ -88,6 +88,22 @@ textarea[type='text']:focus{
   -webkit-animation-duration: 2s;
 }
 
+.thanks-wrapper {
+  width: 287px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+#thanks {
+  width: 287px;
+  height: 139px;
+}
+.thanks-wrapper a {
+  float: right;
+  color: #EC1561;
+  margin-right: 32px;
+  margin-top: -23px;
+}
+
 svg * {
   fill: none;
   stroke: currentColor;}
