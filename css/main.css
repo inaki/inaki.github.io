@@ -3,6 +3,22 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+a {
+  color: #EC1561;
+  text-decoration: none;
+}
+
+#iaminaki {
+  height: 70px;
+  width: 100%;
+  stroke-width: 3px;
+}
+
+#shootMessage {
+  height: 70px;
+  width: 100%;
+  stroke-width: 3px;
+}
 
 .emphasis {
   font-weight: bolder;
@@ -46,7 +62,7 @@ textarea[type='text']:focus{
 
 .content-form {
   width: 287px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 .contact-form textarea {
   height: 7.9em;
@@ -267,4 +283,49 @@ svg * {
 }
 
 
+/*projects page styles*/
+.projects .title{
+  color: #ccc;
+  float: left;
+  width: 118px;
+  margin-top: 11px;
+  font-size: 0.9em;
+}
+.project-wrapper{
+  float: left;
+  width: 620px;
+}
+.project{
+  width: 100%;
+  height: 190px;
+  float: left;
+}
+.project svg{
+  width: 200px;
+  height: 200px;
+}
+
+.project svg:hover{
+  background-image: url('../images/acres.png');
+  border: 1px;
+  background-size: 170px ;
+  background-position: 18px 28px;
+  background-repeat: no-repeat;
+  color: transparent;
+}
+
+.img-thumb {
+  width: 200px;
+  float: left;
+}
+
+.text {
+  color: #666;
+  width: 350px;
+  padding: 15px 11px 0px 31px;
+  float: left;
+}
+.text h3 {
+  line-height: 0px;
+}
 

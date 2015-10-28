@@ -1,4 +1,13 @@
 var contactForm = new Vivus('contactForm', {
+	duration: 90,
+   	onReady: function (myVivus) {
+          // `el` property is the SVG element
+          // myVivus.el.setAttribute('height', 'auto');
+    }
+});
+
+var shootMessage = new Vivus('shootMessage', {
+	duration: 890,
    	onReady: function (myVivus) {
           // `el` property is the SVG element
           // myVivus.el.setAttribute('height', 'auto');
@@ -6,6 +15,7 @@ var contactForm = new Vivus('contactForm', {
 });
 
 var send = new Vivus('send', {
+	duration: 100,
    	onReady: function (myVivus) {
           // `el` property is the SVG element
           // myVivus.el.setAttribute('height', 'auto');
@@ -14,6 +24,7 @@ var send = new Vivus('send', {
 
 setTimeout('$("#contactForm").attr("class", "gray");', 100);
 setTimeout('$("#send").attr("class", "gray");', 100);
+setTimeout('$("#shootMessage").attr("class", "gray");', 100);
 
 var goToHome = function(){
 	contactForm.play(-3);
