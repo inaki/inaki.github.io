@@ -2,47 +2,68 @@
 layout: page
 ---
 
-<div class="content projects">
-	{% include head4page.html %}
+{% include head4page.html %}
 
-	<div class="title">
-		<h3>projects</h3>
-		<a href="">back home</a>
-	</div>
-	
-	<div class="project-wrapper">
-		<div class="project">
+<nav>
+	 <ul id="menu nav-project" class="nav animated fadeInUp">
+	 	<li><a href="#">home</a></li>
+	 	<li data-menuanchor="project"><a href="#project">project a</a></li>
+	 	<li data-menuanchor="project"><a href="#project/1">project b</a></li>
+	 	<li data-menuanchor="project"><a href="#project/2">project c</a></li>
+	 </ul>
+</nav>
+
+<div id="fullPage">
+	<section class="vertical-scrolling">
+    <div class="horizontal-scrolling" >
+        <div class="project">
 			<div class="img-thumb">
-				{% include markets.html %}
+				<img class="animated fadeInUp" src="/images/acres.png" alt="">
 			</div>
 			<div class="text animated fadeInUp">
 				<h3>Markets App</h3>
 				<p>Market's App help you find places where you can find fresh local food. Is open source and design to be easy redeployable in any city. The backend is a simple google sheet so no costly maintainance is needed.</p>
-				<a href="">CLICK HERE TO READ MORE</a>
+				<a href="">VISIT THE APP HERE</a>
 			</div>
 		</div>
-
-		<div class="project">
+    </div>
+    <div class="horizontal-scrolling" >
+        <div class="project">
 			<div class="img-thumb">
-				{% include farmstand.html %}
+				<img class="animated fadeInUp" src="/images/acres.png" alt="">
 			</div>
 			<div class="text animated fadeInUp">
 				<h3>FarmStand App</h3>
 				<p>Now "Urban Farmers" create awareness around the communities they operate. You will be able to know what they are producing, selling prices and time to buy. It integrates a small sms app to improve accesibility between people who lack of data on their phones.</p>
+				<a href="">VISIT THE APP HERE</a>
 			</div>
 		</div>
-
-		<div class="project">
+    </div>
+    <div class="horizontal-scrolling" >
+    	<div class="project">
 			<div class="img-thumb">
-				{% include acres.html %}
+				<img class="animated fadeInUp" src="/images/acres.png" alt="">
 			</div>
 			<div class="text animated fadeInUp">
 				<h3>Acres App</h3>
 				<p>This smart tool help city governments to identify and share data about under utilized land within the city which is suitable for farming. It also help aspiring farmers to find the land the need faster and requested from the city or third parties.</p>
+				<a href="">VISIT THE APP HERE</a>
 			</div>
 		</div>
-	</div>
-	
+    </div>
+</section>
 </div>
 
+
+
 {% include jsWork.html %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js"></script>
+<script>
+	$('#fullpage').fullpage({
+    sectionSelector: '.vertical-scrolling',
+    slideSelector: '.horizontal-scrolling',
+    controlArrows: false,
+    anchors: ['project']
+    // more options here
+});
+</script>
