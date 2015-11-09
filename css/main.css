@@ -41,6 +41,10 @@ a {
   svg#iaminaki.gray {
     height: 40px;
   }
+  h2.quote {
+    width: 80%;
+    font-size: 1.2em;
+  }
   #menu {
     display:none;
   }
