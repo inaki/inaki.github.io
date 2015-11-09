@@ -26,7 +26,7 @@ a {
 }
 
 ul.nav {
-  width: 465px;
+  width: 350px;
   margin: 0 auto;
   padding-top: 25px;
   -webkit-animation-duration: 2s;
@@ -48,7 +48,7 @@ ul.nav {
   color: #EC1561;
   padding: 25px;
 }
-.nav > li:hover {
+.nav > li > a:hover {
   color: pink;
 }
 
@@ -81,7 +81,7 @@ textarea[type='text']:focus{
   font-family: "Roboto",sans-serif;
   width: 326px;
   margin: auto -19px;
-  top: 112px;
+  top: 152px;
   height: 255px;
 }
 
@@ -91,7 +91,7 @@ textarea[type='text']:focus{
   z-index: 999;
   font-family: 'Roboto', sans-serif;
   width: 321px;
-  top: 104px;
+  top: 144px;
 }
 
 .contact-input {
