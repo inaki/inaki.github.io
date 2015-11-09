@@ -4,7 +4,7 @@ email: iiaranzadi@gmail.com
 description: > # description of my personal website
 
 url:              http://inaki.github.io
-baseurl:          /
+baseurl:          
 
 twitter_username: iaranzadi
 github_username:  inaki
