@@ -35,8 +35,11 @@ a {
 
   svg#me.gray {
     margin-top: 0px;
-    width: 220px;
-    height: 220px;
+    width: 60%;
+    height: 60%;
+  }
+  svg#iaminaki.gray {
+    height: 40px;
   }
   #menu {
     display:none;
