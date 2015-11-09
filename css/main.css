@@ -35,6 +35,8 @@ a {
 
   svg#me.gray {
     margin-top: 0px;
+    width: 220px;
+    height: 220px;
   }
   #menu {
     display:none;
