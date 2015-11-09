@@ -31,37 +31,6 @@ a {
   display:none;
 }
 
-@media screen and (max-width: 40em) {
-
-  svg#me.gray {
-    margin-top: 0px;
-    width: 60%;
-    height: 60%;
-  }
-  svg#iaminaki.gray {
-    height: 40px;
-  }
-  h2.quote {
-    width: 80%;
-    font-size: 1.2em;
-  }
-  #menu {
-    display:none;
-  }
-  .slicknav_menu {
-    display:block;
-    background: none;
-  }
-  .slicknav_menu a{
-    color: #EC1561;
-    background: white;
-  }
-  .slicknav_menu .slicknav_icon-bar {
-    background-color: #EC1561;
-    box-shadow: none;
-  }
-}
-
 ul.nav {
   width: 350px;
   margin: 0 auto;
@@ -290,7 +259,7 @@ svg * {
 .side-content {
   padding: 25px;
   width: 200px;
-  float: left;
+  float: right;
 }
 .side-content ul{
   list-style: none;
@@ -365,4 +334,53 @@ svg * {
 .text p {
   margin-bottom: 5px;
 }
+
+
+
+/*media queries style code*/
+
+@media screen and (max-width: 40em) {
+
+  svg#me.gray {
+    margin-top: 0px;
+    width: 60%;
+    height: 60%;
+  }
+  svg#iaminaki.gray {
+    height: 40px;
+  }
+  h2.quote {
+    width: 80%;
+    font-size: 1.2em;
+  }
+  #menu {
+    display:none;
+  }
+  .slicknav_menu {
+    display:block;
+    background: none;
+  }
+  .slicknav_menu a{
+    color: #EC1561;
+    background: white;
+  }
+  .slicknav_menu .slicknav_icon-bar {
+    background-color: #EC1561;
+    box-shadow: none;
+  }
+
+  /*resume media query styles*/
+  .side-content {
+      padding: 0px;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      height: 190px;
+  }
+  .side-content ul {
+    padding: 0px;
+}
+
+}
+
 
