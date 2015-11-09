@@ -110,6 +110,7 @@ textarea[type='text']:focus{
   border: 1px solid transparent;
   margin-bottom: 20px;
   margin-top: 4px;
+  background: transparent;
 }
 
 #send {
@@ -379,7 +380,28 @@ svg * {
   }
   .side-content ul {
     padding: 0px;
-}
+  }
+  .contact-form {
+    position: relative;
+    z-index: 999;
+    width: 100%;
+    top: -258px;
+    left: 16px;
+  }
+  #contactForm {
+      position: relative;
+      z-index: -999;
+      width: 100%;
+      margin: 0 auto;
+      top: 0px;
+      height: 267px;
+  }
+  .contact-input {
+      width: 85%;
+      margin-top: 0px;
+      resize: none;
+  }
+
 
 }
 
