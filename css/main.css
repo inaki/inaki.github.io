@@ -25,6 +25,34 @@ a {
   color: gray;
 }
 
+/*navbar style code*/
+
+.slicknav_menu {
+  display:none;
+}
+
+@media screen and (max-width: 40em) {
+
+  svg#me.gray {
+    margin-top: 0px;
+  }
+  #menu {
+    display:none;
+  }
+  .slicknav_menu {
+    display:block;
+    background: none;
+  }
+  .slicknav_menu a{
+    color: #EC1561;
+    background: white;
+  }
+  .slicknav_menu .slicknav_icon-bar {
+    background-color: #EC1561;
+    box-shadow: none;
+  }
+}
+
 ul.nav {
   width: 350px;
   margin: 0 auto;
