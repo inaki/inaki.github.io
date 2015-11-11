@@ -252,24 +252,26 @@ svg * {
 }
 .resume-content {
   margin-top: 25px;
-  max-width: 500px; 
-  float: left;
+  max-width: 77%; 
+  margin: 0 auto;
   padding-right: 15px;
   -webkit-animation-duration: 2s;
 }
-.side-content {
+.profile-pic {
   padding: 25px;
   width: 200px;
-  float: right;
+  text-align: center;
+  margin: 0 auto;
 }
-.side-content ul{
+.profile-pic ul{
   list-style: none;
+  padding: 0px;
 }
-.side-content ul > li{
+.profile-pic ul > li{
   display: inline;
   width: 50px;
 }
-.side-content > ul:nth-child(2) > li:nth-child(2) > svg:nth-child(1){
+.profile-pic > ul:nth-child(2) > li:nth-child(2) > svg:nth-child(1){
   height: 70px;
   width: 56px;
 }
