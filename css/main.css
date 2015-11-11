@@ -2,6 +2,8 @@
 
 body, .content {
   font-family: 'Roboto', sans-serif;
+  letter-spacing: .02em;
+  line-height: 1.3em;
 }
 a {
   color: #EC1561;
