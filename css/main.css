@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300italic);
 
-body {
+body, .content {
   font-family: 'Roboto', sans-serif;
 }
 a {
