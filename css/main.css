@@ -34,7 +34,7 @@ a {
 }
 
 ul.nav {
-  width: 350px;
+  width: 450px;
   margin: 0 auto;
   padding-top: 25px;
   -webkit-animation-duration: 2s;
@@ -295,43 +295,51 @@ svg * {
 
 
 /*projects page styles*/
-#nav-project {
-  position: fixed;
-  top: 15%;
-  left: 50%;
-  margin-top: -100px;
-  margin-left: -250px;
-}
-.projects .title{
+
+.project .title{
   color: #ccc;
   float: left;
   width: 118px;
   margin-top: 11px;
   font-size: 0.9em;
 }
-
+.project .pull-right {
+  text-align: right;
+  float: right;
+  width: 290px;
+}
+.project .pull-left {
+  float: left;
+  width: 290px;
+}
+.project .btn {
+  border: 1px solid #EC1561;
+  padding: 10px 51px;
+  border-radius: 4px;
+  line-height: 70px;
+}
+.project .description {
+  margin-bottom: 10px;
+}
+.project .role, .project .tools {
+  margin-bottom: 10px;
+}
 .project{
-  width: 80%;
-  height: 430px;
+  max-width: 610px;
+  height: 240px;
   margin: 0 auto;
-  padding: 150px 10px;
+  padding: 0px 25px;
+  margin-top: 150px;
+  margin-bottom: 200px;
 }
-.project svg{
-  width: 400;
-  height: 400;
+.project img {
+  width: 270px;
 }
-
-.project .img-thumb img{
-  width: 45%;
-  float: left;
-  color: transparent;
-  height: 320px;
+.project-line-right {
+  border-right: 3px solid #EC1561;
 }
-.project .text {
-  color: #666;
-  width: 45%;
-  padding: 15px 11px 0px 31px;
-  float: left;
+.project-line-left {
+  border-left: 3px solid #EC1561;
 }
 .text h3 {
   line-height: 0px;
