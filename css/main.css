@@ -422,6 +422,14 @@ svg * {
     margin: 0px auto;
   }
 
+  /*project style code*/
+  .project-line-left {
+    border-left: none;
+  }
+  .project {  
+      margin-top: 20px;
+  }
+
 }
 
 
