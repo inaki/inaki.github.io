@@ -261,6 +261,12 @@ svg * {
   padding-right: 15px;
   -webkit-animation-duration: 2s;
 }
+.resume-content h2 {
+  color: gray;
+}
+.resume-content h2.my-name {
+  color: black;
+}
 .profile-pic {
   padding: 25px;
   width: 200px;
