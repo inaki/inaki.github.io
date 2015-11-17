@@ -259,7 +259,7 @@ svg * {
   max-width: 77%; 
   margin: 0 auto;
   padding-right: 15px;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 1s;
 }
 .resume-content h2 {
   color: gray;
