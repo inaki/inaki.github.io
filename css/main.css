@@ -385,7 +385,7 @@ svg * {
     color: #EC1561;
     background: white;
   }
-  .slicknav_nav a:hover,  .slicknav_nav a:focus {
+  .slicknav_nav a:hover,  .slicknav_nav a:focus, .slicknav_nav a:active, .slicknav_nav a:mHover {
     background: #EF075F;
     color: white;
   }
