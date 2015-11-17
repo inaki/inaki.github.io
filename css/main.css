@@ -385,6 +385,10 @@ svg * {
     color: #EC1561;
     background: white;
   }
+  .slicknav_nav a:hover {
+    background: #EF075F;
+    color: white;
+  }
   .slicknav_menu .slicknav_icon-bar {
     background-color: #EC1561;
     box-shadow: none;
