@@ -439,15 +439,12 @@ svg * {
     width: 100%;
     float: left;
     padding-left: 0px;
-    width: 270px;
     padding-bottom: 30px;
+    padding-top: 30px;
   }
   .project .info {
     width: 96%;
     margin: 0 auto;
-  }
-  .project .role, .project .tools {
-      float: right;
   }
   .project-line-left, .project-line-right {
     border-left: none;
@@ -458,10 +455,15 @@ svg * {
   }
   .project .pull-right, .project .pull-left {
       text-align: left;
-      padding-left: 10px;
+      padding-left: 0px;
   }
   .project .btn {
     padding: 10px 70px;
+    line-height: 7em;
+}
+  }
+  .role, .tools {
+    text-align: left;
   }
 
 }
