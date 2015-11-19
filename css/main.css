@@ -356,6 +356,30 @@ svg * {
   margin-bottom: 5px;
 }
 
+/*about style code*/
+#about .content{
+  font-family: 'Roboto', sans-serif;
+  width: 700px;
+  margin: 0 auto;
+}
+#about .intro, #about .cool-stuff {
+  width: 700px;
+  margin: 0 auto;
+}
+#about .cool-thing{
+  width: 200px;
+  float: left;
+  padding: 10px;
+}
+#about .cool-thing .image-data4change svg#data4change, #about .cool-thing .image-plane svg#plane, #about .cool-thing .image-nenas svg#nenas{
+  width: 100%;
+  height: 150px;
+}
+#about .content h2 {
+  color: #EC1561;
+  line-height: 0em;
+}
+
 
 
 /*media queries style code*/
