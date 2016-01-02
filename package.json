@@ -1,0 +1,27 @@
+{
+  "name": "inaki-website",
+  "version": "1.0.0",
+  "description": "Frontend Developer Professional Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "frontend",
+    "sass",
+    "grunt",
+    "css",
+    "developer",
+    "san",
+    "francisco"
+  ],
+  "author": "inaki",
+  "license": "ISC",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compass": "^1.0.4",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "matchdep": "^1.0.0"
+  }
+}
