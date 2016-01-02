@@ -1,2 +1,0 @@
-# iaminaki
-Personal portfolio site
