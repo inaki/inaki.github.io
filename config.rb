@@ -1,5 +1,5 @@
 require 'susy'
-css_dir = '_/css'
-sass_dir = '_/components/sass'
-javascript_dir = '_/js'
+css_dir = 'assets/css'
+sass_dir = 'assets/components/sass'
+javascript_dir = 'assets/js'
 output_style = :nested

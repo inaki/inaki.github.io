@@ -7,7 +7,7 @@ module.exports = function(grunt){
     uglify: {
       my_target: {
         files: {
-          '_/js/script.js': ['_/components/js/*.js']
+          'assets/js/script.js': ['assets/components/js/*.js']
         } // files
       } // my target
     }, // uglify
@@ -21,11 +21,11 @@ module.exports = function(grunt){
     watch: {
       options: { livereload: true },
       scripts: {
-        files: ['_/components/js/*.js'],
+        files: ['assets/components/js/*.js'],
         tasks: ['uglify']
       }, // scripts
       sass: {
-          files: ['_/components/sass/*.scss'],
+          files: ['assets/components/sass/*.scss'],
           tasks: ['compass:dev']
       }, // sass
       html: {
