@@ -443,7 +443,12 @@ form {
       width: 50%;
       margin-top: 25%; } }
   /* line 325, ../components/sass/_modules.scss */
+  form h2 {
+    margin-bottom: 1rem; }
+  /* line 328, ../components/sass/_modules.scss */
   form input, form textarea {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
     min-height: 2rem;
     width: 100%;
     padding: 5px;
@@ -452,7 +457,7 @@ form {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
-  /* line 333, ../components/sass/_modules.scss */
+  /* line 338, ../components/sass/_modules.scss */
   form button {
     float: right;
     background: #F1246E;

@@ -322,7 +322,12 @@ form {
   @include respond-to(medium-screens) { width: 50%;  margin-top:  25%;}
   @include respond-to(wide-screens) { width: 50%;  margin-top:  25%;}
   margin: 0 auto;
+  h2 {
+    margin-bottom: 1rem;
+  }
   input, textarea {
+    font-family: $font-primary;
+    font-size: $base-font-size;
     min-height: 2rem;
     width: 100%;
     padding: 5px;
