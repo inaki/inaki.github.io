@@ -267,12 +267,16 @@
 } // project
 
 .resume {
+  @include respond-to(handhelds) { width: 100% ;}
+  @include respond-to(medium-screens) { width: 90%; margin: 0 auto;}
+  @include respond-to(wide-screens) { width: 52%; margin: 0 auto;}
   padding: 20px;
   .resume-header {
-    line-height: 3rem;
+    line-height: 2rem;
+    margin-bottom: 2rem;
     text-align: center;
     img.yo {
-      width: 50vw;
+      width: 170px;
       @include border-radius(50rem);
     }
     ul {
@@ -286,7 +290,7 @@
       }
     }
     h2 {
-      font-size: 2rem;
+      font-size: 1.7rem;
     }
   } // resume-header
   .resume-content {
@@ -304,8 +308,10 @@
       float: right;
     }
     .skill {
+      @include respond-to(handhelds) { width: 45% ;}
+      @include respond-to(medium-screens) { width: 30%; }
+      @include respond-to(wide-screens) { width: 31%; }
       padding: 10px 20px;
-      width: 45%;
       background: none;
       border: 1px solid lighten($color-border-primary,30%);
       margin: 5px;
