@@ -267,9 +267,6 @@
 } // project
 
 .resume {
-  @include respond-to(handhelds) { width: 100% ;}
-  @include respond-to(medium-screens) { width: 90%; margin: 0 auto;}
-  @include respond-to(wide-screens) { width: 52%; margin: 0 auto;}
   padding: 20px;
   .resume-header {
     line-height: 2rem;
@@ -317,5 +314,28 @@
       margin: 5px;
       @include border-radius(5px);
     }
+  }
+} // resume
+
+form {
+  @include respond-to(handhelds) { width: 85%; margin-top: 30%;}
+  @include respond-to(medium-screens) { width: 50%;  margin-top:  25%;}
+  @include respond-to(wide-screens) { width: 50%;  margin-top:  25%;}
+  margin: 0 auto;
+  input, textarea {
+    min-height: 2rem;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 1rem;
+    border: 1px solid $color-main;
+    @include border-radius(5px);
+  }
+  button {
+    float: right;
+    background: $color-main;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    @include border-radius(5px);
   }
 }

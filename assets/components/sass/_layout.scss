@@ -12,13 +12,9 @@ $large                  : 75em;
 
 // Content ------------------------
 .content {
-  @include respond-to(handhelds) { margin-top: 15% ;}
-  @include respond-to(medium-screens) { margin-top: 5%; }
-  @include respond-to(wide-screens) { margin-top: 5%; }
-  .layout {
-    @include container;
-    padding: 3%;
-  } // layout
+  @include respond-to(handhelds) { width: 100%; margin-top: 15% ;}
+  @include respond-to(medium-screens) { width: 90%; margin: 5% auto;}
+  @include respond-to(wide-screens) { width: 52%; margin: 5% auto;}
 }
 
 // Footer -------------------------
