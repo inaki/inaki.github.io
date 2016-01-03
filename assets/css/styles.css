@@ -72,7 +72,43 @@ a {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 15, ../components/sass/_layout.scss */
+/* line 14, ../components/sass/_layout.scss */
+.content {
+  margin-top: 15%; }
+  /* line 18, ../components/sass/_layout.scss */
+  .content .layout {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3%; }
+    /* line 12, ../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+    .content .layout:after {
+      content: " ";
+      display: block;
+      clear: both; }
+
+/* line 25, ../components/sass/_layout.scss */
+footer {
+  background: #ccc; }
+
+/* line 2, ../components/sass/_modules.scss */
+.intro-animation {
+  text-align: center; }
+  /* line 4, ../components/sass/_modules.scss */
+  .intro-animation svg {
+    width: 100%; }
+  /* line 7, ../components/sass/_modules.scss */
+  .intro-animation h2 {
+    width: 85%;
+    color: silver;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    margin: 0 auto; }
+    /* line 13, ../components/sass/_modules.scss */
+    .intro-animation h2 .emphasis {
+      color: gray; }
+
+/* line 20, ../components/sass/_modules.scss */
 .button_container {
   position: fixed;
   top: 5%;
@@ -82,22 +118,22 @@ a {
   cursor: pointer;
   z-index: 100;
   transition: opacity .25s ease; }
-  /* line 26, ../components/sass/_layout.scss */
+  /* line 31, ../components/sass/_modules.scss */
   .button_container:hover {
     opacity: .7; }
-  /* line 31, ../components/sass/_layout.scss */
+  /* line 36, ../components/sass/_modules.scss */
   .button_container.active .top {
     transform: translateY(10px) translateX(0) rotate(45deg);
     background: #FFF; }
-  /* line 35, ../components/sass/_layout.scss */
+  /* line 40, ../components/sass/_modules.scss */
   .button_container.active .middle {
     opacity: 0;
     background: #FFF; }
-  /* line 40, ../components/sass/_layout.scss */
+  /* line 45, ../components/sass/_modules.scss */
   .button_container.active .bottom {
     transform: translateY(-10px) translateX(0) rotate(-45deg);
     background: #FFF; }
-  /* line 46, ../components/sass/_layout.scss */
+  /* line 51, ../components/sass/_modules.scss */
   .button_container span {
     background: #F1246E;
     border: none;
@@ -108,14 +144,14 @@ a {
     left: 0;
     transition: all .35s ease;
     cursor: pointer; }
-    /* line 57, ../components/sass/_layout.scss */
+    /* line 62, ../components/sass/_modules.scss */
     .button_container span:nth-of-type(2) {
       top: 10px; }
-    /* line 61, ../components/sass/_layout.scss */
+    /* line 66, ../components/sass/_modules.scss */
     .button_container span:nth-of-type(3) {
       top: 20px; }
 
-/* line 67, ../components/sass/_layout.scss */
+/* line 72, ../components/sass/_modules.scss */
 .overlay {
   position: fixed;
   top: 0;
@@ -126,7 +162,7 @@ a {
   visibility: hidden;
   transition: opacity .35s, visibility .35s, width .35s;
   z-index: 50; }
-  /* line 78, ../components/sass/_layout.scss */
+  /* line 83, ../components/sass/_modules.scss */
   .overlay:before {
     content: '';
     background: #F1246E;
@@ -136,7 +172,7 @@ a {
     height: 100%;
     position: absolute;
     transition: left .35s ease; }
-  /* line 89, ../components/sass/_layout.scss */
+  /* line 94, ../components/sass/_modules.scss */
   .overlay:after {
     content: '';
     background: #F1246E;
@@ -146,31 +182,31 @@ a {
     height: 100%;
     position: absolute;
     transition: all .35s ease; }
-  /* line 100, ../components/sass/_layout.scss */
+  /* line 105, ../components/sass/_modules.scss */
   .overlay.open {
     opacity: .9;
     visibility: visible;
     height: 100%; }
-    /* line 105, ../components/sass/_layout.scss */
+    /* line 110, ../components/sass/_modules.scss */
     .overlay.open:before {
       left: 0; }
-    /* line 109, ../components/sass/_layout.scss */
+    /* line 114, ../components/sass/_modules.scss */
     .overlay.open:after {
       right: 0; }
-    /* line 113, ../components/sass/_layout.scss */
+    /* line 118, ../components/sass/_modules.scss */
     .overlay.open li {
       animation: fadeInRight .5s ease forwards;
       animation-delay: .35s; }
-      /* line 117, ../components/sass/_layout.scss */
+      /* line 122, ../components/sass/_modules.scss */
       .overlay.open li:nth-of-type(2) {
         animation-delay: .45s; }
-      /* line 120, ../components/sass/_layout.scss */
+      /* line 125, ../components/sass/_modules.scss */
       .overlay.open li:nth-of-type(3) {
         animation-delay: .55s; }
-      /* line 123, ../components/sass/_layout.scss */
+      /* line 128, ../components/sass/_modules.scss */
       .overlay.open li:nth-of-type(4) {
         animation-delay: .65s; }
-  /* line 128, ../components/sass/_layout.scss */
+  /* line 133, ../components/sass/_modules.scss */
   .overlay nav {
     position: relative;
     height: 70%;
@@ -181,7 +217,7 @@ a {
     font-weight: 400;
     text-align: center;
     z-index: 100; }
-  /* line 139, ../components/sass/_layout.scss */
+  /* line 144, ../components/sass/_modules.scss */
   .overlay ul {
     list-style: none;
     padding: 0;
@@ -189,7 +225,7 @@ a {
     display: inline-block;
     position: relative;
     height: 100%; }
-    /* line 147, ../components/sass/_layout.scss */
+    /* line 152, ../components/sass/_modules.scss */
     .overlay ul li {
       display: block;
       height: 35%;
@@ -197,17 +233,17 @@ a {
       min-height: 50px;
       position: relative;
       opacity: 0; }
-      /* line 155, ../components/sass/_layout.scss */
+      /* line 160, ../components/sass/_modules.scss */
       .overlay ul li a {
         display: block;
         position: relative;
         color: #FFF;
         text-decoration: none;
         overflow: hidden; }
-        /* line 162, ../components/sass/_layout.scss */
+        /* line 167, ../components/sass/_modules.scss */
         .overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
           width: 100%; }
-        /* line 168, ../components/sass/_layout.scss */
+        /* line 173, ../components/sass/_modules.scss */
         .overlay ul li a:after {
           content: '';
           position: absolute;
@@ -226,56 +262,81 @@ a {
   100% {
     opacity: 1;
     left: 0; } }
-/* line 196, ../components/sass/_layout.scss */
-.content {
-  margin-top: 15%; }
-  /* line 200, ../components/sass/_layout.scss */
-  .content .layout {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 3%; }
-    /* line 12, ../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
-    .content .layout:after {
-      content: " ";
-      display: block;
-      clear: both; }
-
-/* line 207, ../components/sass/_layout.scss */
-footer {
-  background: #ccc; }
-
-/* line 1, ../components/sass/_modules.scss */
-.intro-animation {
-  text-align: center; }
-  /* line 3, ../components/sass/_modules.scss */
-  .intro-animation svg {
-    width: 100%; }
-  /* line 6, ../components/sass/_modules.scss */
-  .intro-animation h2 {
-    width: 85%;
-    color: silver;
-    font-size: 1.4rem;
-    line-height: 1.9rem;
-    margin: 0 auto; }
-    /* line 12, ../components/sass/_modules.scss */
-    .intro-animation h2 .emphasis {
-      color: gray; }
-
-/* line 18, ../components/sass/_modules.scss */
+/* line 201, ../components/sass/_modules.scss */
 .project {
   line-height: 2rem;
-  height: 32rem;
+  height: 25rem;
+  margin: 0 auto;
   padding-top: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px; }
-  /* line 27, ../components/sass/_modules.scss */
+  @media only screen and (max-width: 320px) {
+    /* line 201, ../components/sass/_modules.scss */
+    .project {
+      width: 100%; } }
+  @media only screen and (min-width: 321px) and (max-width: 1023px) {
+    /* line 201, ../components/sass/_modules.scss */
+    .project {
+      width: 90%; } }
+  @media only screen and (min-width: 1024px) {
+    /* line 201, ../components/sass/_modules.scss */
+    .project {
+      width: 750px; } }
+  @media only screen and (max-width: 320px) {
+    /* line 214, ../components/sass/_modules.scss */
+    .project .info-right, .project .info-left {
+      width: 100%; } }
+  @media only screen and (min-width: 321px) and (max-width: 1023px) {
+    /* line 214, ../components/sass/_modules.scss */
+    .project .info-right, .project .info-left {
+      width: 50%; } }
+  @media only screen and (min-width: 1024px) {
+    /* line 214, ../components/sass/_modules.scss */
+    .project .info-right, .project .info-left {
+      width: 50%;
+      height: 285px; } }
+  /* line 219, ../components/sass/_modules.scss */
+  .project .info-right {
+    float: right; }
+    @media only screen and (min-width: 1024px) {
+      /* line 219, ../components/sass/_modules.scss */
+      .project .info-right {
+        border-right: 3px solid #F1246E;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        padding-left: 5px; } }
+    @media only screen and (min-width: 321px) and (max-width: 1023px) {
+      /* line 219, ../components/sass/_modules.scss */
+      .project .info-right {
+        line-height: 1.5rem;
+        padding-left: 1rem; } }
+  /* line 230, ../components/sass/_modules.scss */
+  .project .info-left {
+    float: left; }
+    @media only screen and (min-width: 1024px) {
+      /* line 230, ../components/sass/_modules.scss */
+      .project .info-left {
+        border-left: 3px solid #F1246E;
+        padding-left: 1rem; } }
+    @media only screen and (min-width: 321px) and (max-width: 1023px) {
+      /* line 230, ../components/sass/_modules.scss */
+      .project .info-left {
+        line-height: 1.5rem; } }
+  /* line 238, ../components/sass/_modules.scss */
   .project h3 {
+    padding-top: 0.5rem;
     font-weight: bold;
-    font-size: 1.5rem;
-    border-bottom: 1px solid #cdcdcd; }
-  /* line 35, ../components/sass/_modules.scss */
+    font-size: 1.5rem; }
+    @media only screen and (max-width: 320px) {
+      /* line 238, ../components/sass/_modules.scss */
+      .project h3 {
+        border-bottom: 1px solid #cdcdcd; } }
+    @media only screen and (min-width: 1024px) {
+      /* line 238, ../components/sass/_modules.scss */
+      .project h3 {
+        border: none; } }
+  /* line 248, ../components/sass/_modules.scss */
   .project .btn {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -284,50 +345,62 @@ footer {
     min-width: 100%;
     padding: 10px 90px;
     line-height: 5rem; }
-  /* line 48, ../components/sass/_modules.scss */
+  /* line 261, ../components/sass/_modules.scss */
   .project img {
     width: 100%; }
+    @media only screen and (max-width: 320px) {
+      /* line 261, ../components/sass/_modules.scss */
+      .project img {
+        width: 100%; } }
+    @media only screen and (min-width: 321px) and (max-width: 1023px) {
+      /* line 261, ../components/sass/_modules.scss */
+      .project img {
+        width: 50%; } }
+    @media only screen and (min-width: 1024px) {
+      /* line 261, ../components/sass/_modules.scss */
+      .project img {
+        width: 45%; } }
 
-/* line 53, ../components/sass/_modules.scss */
+/* line 269, ../components/sass/_modules.scss */
 .resume {
   padding: 20px; }
-  /* line 55, ../components/sass/_modules.scss */
+  /* line 271, ../components/sass/_modules.scss */
   .resume .resume-header {
     line-height: 3rem;
     text-align: center; }
-    /* line 58, ../components/sass/_modules.scss */
+    /* line 274, ../components/sass/_modules.scss */
     .resume .resume-header img.yo {
       width: 50vw;
       -moz-border-radius: 50rem;
       -webkit-border-radius: 50rem;
       border-radius: 50rem; }
-    /* line 63, ../components/sass/_modules.scss */
+    /* line 279, ../components/sass/_modules.scss */
     .resume .resume-header ul li {
       display: inline-block; }
-      /* line 65, ../components/sass/_modules.scss */
+      /* line 281, ../components/sass/_modules.scss */
       .resume .resume-header ul li a {
         color: #f4548e;
         font-size: 3rem;
         padding: 10px; }
-    /* line 72, ../components/sass/_modules.scss */
+    /* line 288, ../components/sass/_modules.scss */
     .resume .resume-header h2 {
       font-size: 2rem; }
-  /* line 76, ../components/sass/_modules.scss */
+  /* line 292, ../components/sass/_modules.scss */
   .resume .resume-content {
     line-height: 1.5rem; }
-    /* line 78, ../components/sass/_modules.scss */
+    /* line 294, ../components/sass/_modules.scss */
     .resume .resume-content h2 {
       color: gray;
       font-size: 1.7rem;
       height: 3rem; }
-    /* line 83, ../components/sass/_modules.scss */
+    /* line 299, ../components/sass/_modules.scss */
     .resume .resume-content b {
       color: black;
       font-weight: bolder; }
-    /* line 87, ../components/sass/_modules.scss */
+    /* line 303, ../components/sass/_modules.scss */
     .resume .resume-content .right {
       float: right; }
-    /* line 90, ../components/sass/_modules.scss */
+    /* line 306, ../components/sass/_modules.scss */
     .resume .resume-content .skill {
       padding: 10px 20px;
       width: 45%;

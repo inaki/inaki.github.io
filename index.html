@@ -115,5 +115,19 @@
   <script src="bower_components/vivus/dist/vivus.min.js"></script>
   <script src="assets/js/script.js"></script>
   <script src="http://localhost:35729/livereload.js"></script>
+  <script>
+    var exec = function(){
+      new Vivus('me', {
+        duration: 50,
+          onReady: function (myVivus) {
+                // `el` property is the SVG element
+                // myVivus.el.setAttribute('height', 'auto');
+          }
+      });
+    };
+
+
+    setTimeout('exec()', 100);
+  </script>
 </body>
 </html>
