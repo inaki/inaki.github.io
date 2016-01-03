@@ -8,7 +8,24 @@
 </head>
 <body>
 <div class="content">
-  <div class="thanks">
+  <div class="button_container" id="toggle">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <nav class="overlay-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="thx">
     <svg id="thanks" width="70%" viewBox="0 0 520 246" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="246px">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
     <g id="thanks" sketch:type="MSArtboardGroup" fill="#4A4A4A">
@@ -26,7 +43,7 @@
 <script>
   var exec = function(){
     new Vivus('thanks', {
-      duration: 50,
+      duration: 800,
         onReady: function (myVivus) {
               // `el` property is the SVG element
               // myVivus.el.setAttribute('height', 'auto');
