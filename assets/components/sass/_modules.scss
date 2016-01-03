@@ -321,9 +321,11 @@ form {
   @include respond-to(handhelds) { width: 85%; margin-top: 30%;}
   @include respond-to(medium-screens) { width: 50%;  margin-top:  25%;}
   @include respond-to(wide-screens) { width: 50%;  margin-top:  25%;}
+  -webkit-appearance: none;
   margin: 0 auto;
   h2 {
     margin-bottom: 1rem;
+    color: lighten($font-base-color, 10%);
   }
   input, textarea {
     font-family: $font-primary;
