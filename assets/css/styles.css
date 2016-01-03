@@ -426,7 +426,6 @@ footer {
 
 /* line 320, ../components/sass/_modules.scss */
 form {
-  -webkit-appearance: none;
   margin: 0 auto; }
   @media only screen and (max-width: 320px) {
     /* line 320, ../components/sass/_modules.scss */
@@ -443,12 +442,14 @@ form {
     form {
       width: 50%;
       margin-top: 25%; } }
-  /* line 326, ../components/sass/_modules.scss */
+  /* line 325, ../components/sass/_modules.scss */
   form h2 {
     margin-bottom: 1rem;
     color: #c3c3c3; }
-  /* line 330, ../components/sass/_modules.scss */
+  /* line 329, ../components/sass/_modules.scss */
   form input, form textarea {
+    -webkit-appearance: none;
+    box-shadow: none !important;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     min-height: 2rem;
@@ -459,7 +460,7 @@ form {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
-  /* line 340, ../components/sass/_modules.scss */
+  /* line 341, ../components/sass/_modules.scss */
   form .submit {
     float: right;
     background: #F1246E;
@@ -469,11 +470,11 @@ form {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
-    /* line 347, ../components/sass/_modules.scss */
+    /* line 348, ../components/sass/_modules.scss */
     form .submit:hover {
       background: #f4548e; }
 
-/* line 352, ../components/sass/_modules.scss */
+/* line 353, ../components/sass/_modules.scss */
 .thx {
   text-align: center;
   margin: 0 auto; }
