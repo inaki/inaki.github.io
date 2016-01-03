@@ -16,8 +16,3 @@ $large                  : 75em;
   @include respond-to(medium-screens) { width: 90%; margin: 10% auto;}
   @include respond-to(wide-screens) { width: 52%; margin: 5% auto;}
 }
-
-// Footer -------------------------
-footer {
-  background: #ccc;
-} // footer
