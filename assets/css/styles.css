@@ -470,3 +470,8 @@ form {
     /* line 345, ../components/sass/_modules.scss */
     form .submit:hover {
       background: #f4548e; }
+
+/* line 350, ../components/sass/_modules.scss */
+.thanks {
+  text-align: center;
+  margin: 0 auto; }
