@@ -81,7 +81,7 @@ a {
   /* line 14, ../components/sass/_layout.scss */
   .content {
     width: 90%;
-    margin: 5% auto; } }
+    margin: 10% auto; } }
 @media only screen and (min-width: 1024px) {
   /* line 14, ../components/sass/_layout.scss */
   .content {
