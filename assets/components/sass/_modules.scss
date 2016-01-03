@@ -324,13 +324,14 @@ form {
   margin: 0 auto;
   h2 {
     margin-bottom: 1rem;
-    color: lighten($font-base-color, 10%);
+    color: darken($font-base-color, 30%);
   }
   input, textarea {
     -webkit-appearance: none;
     box-shadow: none !important;
     font-family: $font-primary;
     font-size: $base-font-size;
+    color: $font-base-color;
     min-height: 2rem;
     width: 100%;
     padding: 5px;

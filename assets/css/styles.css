@@ -445,13 +445,14 @@ form {
   /* line 325, ../components/sass/_modules.scss */
   form h2 {
     margin-bottom: 1rem;
-    color: #c3c3c3; }
+    color: #5d5d5d; }
   /* line 329, ../components/sass/_modules.scss */
   form input, form textarea {
     -webkit-appearance: none;
     box-shadow: none !important;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
+    color: darkgray;
     min-height: 2rem;
     width: 100%;
     padding: 5px;
@@ -460,7 +461,7 @@ form {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
-  /* line 341, ../components/sass/_modules.scss */
+  /* line 342, ../components/sass/_modules.scss */
   form .submit {
     float: right;
     background: #F1246E;
@@ -470,11 +471,11 @@ form {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
-    /* line 348, ../components/sass/_modules.scss */
+    /* line 349, ../components/sass/_modules.scss */
     form .submit:hover {
       background: #f4548e; }
 
-/* line 353, ../components/sass/_modules.scss */
+/* line 354, ../components/sass/_modules.scss */
 .thx {
   text-align: center;
   margin: 0 auto; }
