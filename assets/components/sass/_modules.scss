@@ -335,12 +335,15 @@ form {
     border: 1px solid $color-main;
     @include border-radius(5px);
   }
-  button {
+  .submit {
     float: right;
     background: $color-main;
     color: white;
     border: none;
     padding: 10px 25px;
     @include border-radius(5px);
+    &:hover {
+      background: lighten($color-main, 10%);;
+    }
   }
 }
