@@ -12,6 +12,7 @@ $large                  : 75em;
 
 // Content ------------------------
 .content {
+  @include fadeIn();
   @include respond-to(handhelds) { width: 100%; margin-top: 15% ;}
   @include respond-to(medium-screens) { width: 90%; margin: 10% auto;}
   @include respond-to(wide-screens) { width: 52%; margin: 5% auto;}

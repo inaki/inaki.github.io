@@ -1,0 +1,33 @@
+{
+  "name": "inaki-website",
+  "description": "Frontend Developer Professional Website",
+  "main": "index.js",
+  "authors": [
+    "inaki"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "frontend",
+    "sass",
+    "grunt",
+    "css",
+    "developer",
+    "san",
+    "francisco"
+  ],
+  "homepage": "http://www.iaminaki.com",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "vivus": "~0.2.3",
+    "animatewithsass": "~3.2.2"
+  }
+}
