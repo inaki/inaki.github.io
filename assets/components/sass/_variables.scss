@@ -1,23 +1,21 @@
 // Color variables with descriptive names
 $white                  :   #fff;
 $black                  :   #000;
-$gray                   :   #808080;
-$darkgray               :   #a9a9a9;
+$grey                   :   #808080;
+$darkgrey               :   #a9a9a9;
 $razzmatazz             :   #F1246E;
 
 
 $font-primary           :   'Roboto', sans-serif;
-$font-base-color        :   $darkgray;
-$font-emphasis          :   $gray;
-$font-quote             :   silver;
+$font-base-color        :   $darkgrey;
+$font-emphasis          :   $grey;
+$font-quote             :   lighten($font-base-color, 5%);
 
 $color-primary          :   $razzmatazz;
-$color-border-primary   :   $gray;
+$color-border-primary   :   $grey;
 
-$color-background       :   #F1246E;
-$color-main             :   #F1246E;
-$color-active           :   #FFF;
-$color-link             :   #FFF;
+$color-active           :   $white;
+$color-link             :   $white;
 
 $button-height          :   27px;
 $button-width           :   35px;
