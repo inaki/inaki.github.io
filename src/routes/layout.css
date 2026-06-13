@@ -1,0 +1,671 @@
+@import 'tailwindcss';
+
+/* ============================================
+   INAKI @ PORTFOLIO — EXACT DESIGN HANDOUT TOKENS
+   Neon 80s soul, modern-first, two synced palettes
+   ============================================ */
+
+:root {
+	/* DARK (default) */
+	--mg: #ff2bd6;
+	--cyan: #34e7f5;
+	--purple: #b06bff;
+	--green: #39ff9f;
+
+	--bg: #07000f;
+	--win: #0b0117;
+	--panel: rgba(176, 107, 255, 0.05); /* 5% purple wash */
+	--text: #e9e2f5;
+	--dim: #9a8cba;
+
+	--winbar: #0b0117;
+	--border: rgba(176, 107, 255, 0.16);
+
+	/* Glows (accents only) */
+	--glow: #ff2bd6;
+	--cyanglow: #34e7f5;
+
+	/* Typography */
+	--font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+	/* Radii per handout */
+	--r-window: 14px;
+	--r-card: 12px;
+	--r-field: 8px;
+	--r-pill: 20px;
+
+	/* Misc */
+	--scanline: rgba(255,255,255,0.025);
+}
+
+/* LIGHT palette (one keystroke away via /theme or header button) */
+:root.light,
+[data-theme="light"] {
+	--mg: #c81f9e;
+	--cyan: #0e7d96;
+	--purple: #7c3aed;
+	--green: #0a9d63;
+
+	--bg: #ece5f7;
+	--win: #f4f0fa;
+	--panel: rgba(124, 58, 237, 0.04);
+	--text: #241038;
+	--dim: #6b5a86;
+
+	--winbar: #f4f0fa;
+	--border: rgba(124, 58, 237, 0.16);
+
+	--glow: #c81f9e;
+	--cyanglow: #0e7d96;
+}
+
+/* Base page */
+html, body {
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-mono);
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Synthwave atmosphere + corner glows (handout) */
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background:
+		/* perspective synthwave grid */
+		linear-gradient(transparent 50%, rgba(176,107,255,0.035) 51%),
+		repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(52,231,245,0.04) 40px),
+		repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(176,107,255,0.035) 40px);
+	background-size: 100% 100%, 80px 80px, 80px 80px;
+	background-position: center bottom;
+	opacity: 0.65;
+	pointer-events: none;
+	z-index: 0;
+	mask-image: linear-gradient(to bottom, transparent 5%, black 25%, black 82%, transparent 98%);
+}
+
+/* Two soft corner radials behind the window */
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background:
+		radial-gradient(420px 320px at 12% 8%, rgba(52,231,245,0.12), transparent 70%),
+		radial-gradient(380px 280px at 88% 92%, rgba(255,43,214,0.10), transparent 68%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* The main terminal window frame */
+.terminal-window {
+	position: relative;
+	z-index: 1;
+	width: min(1080px, 96vw);
+	height: min(720px, 94vh);
+	margin: 3vh auto;
+	background: var(--win);
+	border-radius: var(--r-window);
+	border: 1px solid var(--border);
+	box-shadow:
+		0 30px 90px -20px rgba(0,0,0,0.65),
+		0 0 0 1px rgba(176,107,255,0.08) inset;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Window chrome / header bar */
+.winbar {
+	height: 38px;
+	background: var(--winbar);
+	border-bottom: 1px solid var(--border);
+	display: flex;
+	align-items: center;
+	padding: 0 12px;
+	gap: 10px;
+	user-select: none;
+	flex-shrink: 0;
+}
+
+.winbar .traffic {
+	display: flex;
+	gap: 7px;
+}
+.winbar .traffic .dot {
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	border: 0.5px solid rgba(0,0,0,0.2);
+}
+.winbar .traffic .dot.red { background: #ff5f56; }
+.winbar .traffic .dot.yellow { background: #ffbd2e; }
+.winbar .traffic .dot.green { background: #27c93f; }
+
+.winbar .title {
+	flex: 1;
+	text-align: center;
+	font-size: 12px;
+	letter-spacing: 0.5px;
+	color: var(--dim);
+	font-weight: 500;
+}
+
+.winbar .actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.winbar .actions button {
+	font-size: 11px;
+	padding: 2px 9px;
+	border-radius: 6px;
+	border: 1px solid var(--border);
+	color: var(--dim);
+	background: transparent;
+	cursor: pointer;
+	transition: all 80ms ease;
+}
+.winbar .actions button:hover {
+	color: var(--text);
+	border-color: var(--mg);
+	box-shadow: 0 0 0 3px rgba(255,43,214,0.1);
+}
+
+/* ============================================
+   DARK-MODE SCROLLBAR (never white)
+   ============================================ */
+
+/* Tell the browser we want dark scrollbars in this component */
+.terminal-window {
+	color-scheme: dark;
+}
+
+/* The actual scrolling container */
+.terminal-body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 18px 22px 12px;
+	background: var(--win);
+	scrollbar-width: thin;                    /* Firefox */
+	scrollbar-color: var(--dim) var(--win);   /* Firefox: thumb | track */
+}
+
+/* WebKit browsers (Chrome, Edge, Safari) — fully dark themed */
+.terminal-body::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+	background: var(--win);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+	background-color: var(--dim);
+	border-radius: 4px;
+	border: 2px solid var(--win);   /* creates a nice inset look */
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+	background-color: var(--text);
+}
+
+/* === OPTIONAL: COMPLETELY HIDE SCROLLBAR ===
+   If you prefer a terminal with zero visible scrollbar (still fully scrollable
+   via wheel / trackpad / keyboard), uncomment the block below.
+   (Note: the inner comments were removed to avoid breaking the CSS parser.)
+*/
+/*
+.terminal-body {
+	scrollbar-width: none;
+}
+.terminal-body::-webkit-scrollbar {
+	display: none;
+}
+*/
+
+/* History entries */
+.history-entry {
+	margin-bottom: 10px;
+}
+
+/* Plain text lines (terminal feel) */
+.term-line {
+	white-space: pre-wrap;
+	line-height: 1.45;
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--text);
+}
+
+/* Prompt line styling */
+.prompt-prefix {
+	color: var(--cyan);
+}
+.prompt-prefix .at { color: var(--purple); }
+.prompt-prefix .host { color: var(--mg); }
+
+/* Rich output cards (the heart of the spec) */
+.output-card {
+	background: var(--panel);
+	border: 1px solid var(--border);
+	border-radius: var(--r-card);
+	padding: 14px 16px;
+	margin: 8px 0;
+}
+.output-card .kicker {
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--mg);
+	margin-bottom: 6px;
+}
+
+/* Pills / chips (quick commands + skills) */
+.pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	padding: 4px 14px;
+	border-radius: var(--r-pill);
+	border: 1px solid var(--border);
+	background: rgba(255,255,255,0.02);
+	color: var(--text);
+	cursor: pointer;
+	transition: transform 80ms ease, box-shadow 80ms ease, border-color 80ms ease;
+	user-select: none;
+}
+.pill:hover {
+	transform: translateY(-1px);
+	border-color: var(--mg);
+	box-shadow: 0 0 0 4px rgba(255,43,214,0.08);
+}
+.pill:active { transform: scale(0.985); }
+
+/* Resume card specifics (matches mock) */
+.resume-card h1 { font-size: 21px; font-weight: 700; letter-spacing: -0.2px; margin: 0 0 2px; color: var(--text); }
+.resume-card .title { font-size: 13px; color: var(--cyan); margin-bottom: 12px; }
+.resume-card .section { margin-top: 14px; }
+.resume-card .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mg); margin-bottom: 4px; }
+.resume-card .row { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; line-height: 1.35; padding: 3px 0; border-bottom: 1px dashed var(--border); }
+.resume-card .row:last-child { border-bottom: none; }
+.resume-card .meta { color: var(--dim); font-size: 12px; white-space: nowrap; }
+.resume-card .skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+
+/* Game cards grid (for /game) */
+.game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.game-card {
+	border: 1px solid var(--border);
+	background: var(--panel);
+	border-radius: var(--r-card);
+	padding: 12px 14px;
+	cursor: pointer;
+}
+.game-card:hover { border-color: var(--mg); }
+.game-card .name { font-weight: 600; color: var(--cyan); }
+.game-card .desc { font-size: 12px; color: var(--dim); margin-top: 2px; }
+
+/* Canvas game container */
+.game-canvas-wrap {
+	position: relative;
+	background: #050308;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	overflow: hidden;
+}
+.game-canvas-wrap canvas { display: block; width: 100%; image-rendering: pixelated; }
+
+/* Music player */
+.music-player {
+	display: grid;
+	grid-template-columns: 1fr 260px;
+	gap: 12px;
+}
+.music-player .tracklist {
+	border-right: 1px solid var(--border);
+}
+.music-player .track,
+.music-player button.track {
+	padding: 6px 8px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 13px;
+	width: 100%;
+	text-align: left;
+	background: transparent;
+	border: none;
+	color: inherit;
+	font-family: inherit;
+}
+.music-player .track.active,
+.music-player button.track.active { background: rgba(176,107,255,0.12); color: var(--mg); }
+.music-player .now-playing .eq {
+	display: flex; gap: 3px; align-items: flex-end; height: 28px;
+}
+.music-player .bar { width: 4px; background: var(--cyan); animation: eq 820ms infinite ease-in-out alternate; border-radius: 1px; }
+.music-player .bar:nth-child(2) { animation-delay: 120ms; height: 60%; }
+.music-player .bar:nth-child(3) { animation-delay: 240ms; height: 40%; }
+
+@keyframes eq { from { height: 20%; } to { height: 95%; } }
+
+/* Slash /help floating menu (exact from mock) */
+.slash-menu {
+	position: absolute;
+	bottom: 100%;          /* sit directly above the prompt bar */
+	margin-bottom: 2px;    /* the tiny gap the user requested */
+	left: 0;
+	right: 0;
+	max-height: 260px;
+	overflow: auto;
+	background: #0b0117;
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	box-shadow: 0 20px 60px -10px rgba(0,0,0,0.6);
+	z-index: 50;
+	color-scheme: dark; /* helps browser pick dark scrollbars */
+	scrollbar-width: thin;
+	scrollbar-color: var(--dim) var(--win);
+}
+
+/* Make sure the history content has bottom breathing room */
+.terminal-body {
+	padding-bottom: 12px;
+}
+
+.slash-menu .row,
+.slash-menu button.row {
+	padding: 7px 14px;
+	display: flex;
+	gap: 14px;
+	font-size: 13px;
+	cursor: pointer;
+	width: 100%;
+	text-align: left;
+	background: transparent;
+	border: none;
+	color: inherit;
+	font-family: inherit;
+}
+.slash-menu .row.selected,
+.slash-menu button.row.selected {
+	background: rgba(255,43,214,0.08);
+	border-left: 3px solid var(--mg);
+}
+.slash-menu .cmd { color: var(--mg); min-width: 92px; font-weight: 600; }
+.slash-menu .desc { color: var(--dim); }
+
+/* Fixed prompt bar at bottom of window */
+.prompt-bar {
+	flex-shrink: 0;
+	height: 48px;
+	background: var(--winbar);
+	border-top: 1px solid var(--border);
+	display: flex;
+	align-items: center;
+	padding: 0 18px;
+	font-size: 14px;
+	gap: 8px;
+	position: relative;   /* positioning context for the slash menu */
+}
+.prompt-bar .prefix {
+	white-space: pre;
+}
+.prompt-bar input {
+	flex: 1;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--text);
+	font-family: inherit;
+	font-size: 14px;
+	caret-color: var(--mg);
+}
+.prompt-bar .cursor {
+	display: inline-block;
+	width: 9px;
+	height: 17px;
+	background: var(--mg);
+	margin-left: 1px;
+	animation: blink 1s step-end infinite;
+	vertical-align: middle;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Subtle scanlines (off by default per handout; can be toggled via prop or /neofetch etc) */
+.scanlines {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: repeating-linear-gradient(
+		transparent 0 2px,
+		var(--scanline) 2px 4px
+	);
+	opacity: 0.3;
+	z-index: 2;
+	mix-blend-mode: screen;
+}
+
+/* Small utility */
+.kbd { font-family: inherit; background: rgba(0,0,0,0.2); padding: 1px 5px; border-radius: 3px; font-size: 11px; }
+
+/* Global page - full dark immersive feel */
+html,
+body {
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-mono);
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+/* Subtle noise texture for that old display feel (lightweight) */
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background-image: 
+		linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+	background-size: 3px 3px;
+	pointer-events: none;
+	z-index: 1;
+}
+
+/* CRT Container - the "monitor" bezel */
+.crt-container {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #020203;
+	overflow: hidden;
+}
+
+/* The physical screen area with curvature simulation */
+.crt-screen {
+	position: relative;
+	width: min(96vw, 1100px);
+	height: min(92vh, 720px);
+	background: var(--terminal-bg);
+	border: 12px solid #111317;
+	border-radius: 12px;
+	box-shadow:
+		0 0 0 1px #22262e,
+		0 25px 80px -15px rgba(0, 0, 0, 0.9),
+		inset 0 0 120px rgba(0, 0, 0, 0.7);
+	overflow: hidden;
+}
+
+/* Inner glow / phosphor bloom */
+.crt-screen::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 4px;
+	box-shadow: inset 0 0 80px rgba(0, 255, 159, 0.035);
+	pointer-events: none;
+	z-index: 2;
+}
+
+/* Scanlines overlay (classic CRT) */
+.crt-screen::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(
+		transparent 0px,
+		transparent 2px,
+		var(--scanline) 2px,
+		var(--scanline) 4px
+	);
+	pointer-events: none;
+	z-index: 3;
+	opacity: 0.65;
+	mix-blend-mode: screen;
+}
+
+/* Vignette for screen edges */
+.crt-vignette {
+	position: absolute;
+	inset: 0;
+	border-radius: 4px;
+	box-shadow: 
+		inset 0 0 140px var(--vignette),
+		inset 0 0 60px rgba(0, 0, 0, 0.85);
+	pointer-events: none;
+	z-index: 4;
+}
+
+/* Subtle flicker on the whole screen */
+.crt-flicker {
+	animation: crt-flicker-anim 4s infinite linear;
+}
+
+@keyframes crt-flicker-anim {
+	0% { opacity: 1; }
+	92% { opacity: 1; }
+	93% { opacity: 0.97; }
+	94% { opacity: 1; }
+	97% { opacity: 0.985; }
+	100% { opacity: 1; }
+}
+
+/* Terminal header bar (window chrome) */
+.terminal-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 32px;
+	background: #111317;
+	border-bottom: 1px solid var(--border);
+	display: flex;
+	align-items: center;
+	padding: 0 12px;
+	z-index: 10;
+	user-select: none;
+}
+
+.terminal-header .dots {
+	display: flex;
+	gap: 6px;
+}
+
+.terminal-header .dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+
+.terminal-header .dot.red { background: #ff5f56; }
+.terminal-header .dot.yellow { background: #ffbd2e; }
+.terminal-header .dot.green { background: #27c93f; }
+
+.terminal-header .title {
+	flex: 1;
+	text-align: center;
+	font-size: 12px;
+	letter-spacing: 1px;
+	color: #66707e;
+	font-weight: 500;
+}
+
+/* The actual xterm host - make sure it fills nicely */
+.terminal-wrapper {
+	position: absolute;
+	top: 32px; /* below header */
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 12px 16px;
+	background: var(--terminal-bg);
+}
+
+/* Phosphor text glow for anything we manually style outside xterm */
+.phosphor {
+	color: var(--text);
+	text-shadow:
+		0 0 4px var(--text),
+		0 0 10px var(--text-dim);
+}
+
+/* Command output styling helpers */
+.output-success { color: var(--text-dim); }
+.output-error { color: var(--red); }
+.output-info { color: var(--blue); }
+.output-muted { color: var(--text-muted); }
+
+/* Boot / typing animations */
+.boot-line {
+	opacity: 0;
+	animation: boot-fade-in 80ms forwards;
+}
+
+@keyframes boot-fade-in {
+	to { opacity: 1; }
+}
+
+/* Status bar at bottom (optional professional touch) */
+.status-bar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 22px;
+	background: #0d1014;
+	border-top: 1px solid var(--border);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 14px;
+	font-size: 10px;
+	color: #4a5566;
+	z-index: 10;
+	letter-spacing: 0.5px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+	.crt-screen {
+		width: 100vw;
+		height: 100vh;
+		border-radius: 0;
+		border-width: 0;
+	}
+	.terminal-header {
+		height: 28px;
+	}
+	.terminal-wrapper {
+		top: 28px;
+		padding: 8px 10px;
+	}
+}
