@@ -5,6 +5,12 @@
 	import GamePanel from './GamePanel.svelte';
 	import MusicPlayer from './MusicPlayer.svelte';
 	import SlashMenu from './SlashMenu.svelte';
+import GitHubProfile from './GitHubProfile.svelte';
+import WhoAmICard from './WhoAmICard.svelte';
+import CurrentlyCard from './CurrentlyCard.svelte';
+import ExperienceCard from './ExperienceCard.svelte';
+import HobbiesCard from './HobbiesCard.svelte';
+import ContactCard from './ContactCard.svelte';
 	import {
 		HANDLE, OWNER, BIO, CURRENTLY, EXPERIENCE, QUICK_COMMANDS, COMMAND_META, ALIASES, EASTER_EGGS, GITHUB_PROJECTS, CONTACT
 	} from '$lib/content';
@@ -172,30 +178,22 @@
 		}
 
 		if (cmd === '/experience' || cmd === '/exp') {
-			const lines = EXPERIENCE.map(e =>
-				`${e.role} · ${e.company}   ${e.dates}${e.note ? '\n  ' + e.note : ''}`
-			);
-			pushText(lines);
+			pushRich('experience', ExperienceCard);
 			return;
 		}
 
 		if (cmd === '/currently' || cmd === '/now') {
-			pushText([CURRENTLY]);
+			pushRich('currently', CurrentlyCard, { text: CURRENTLY });
 			return;
 		}
 
 		if (cmd === '/whoami') {
-			pushText([
-				`${OWNER} — Product Engineer`,
-				'I build the surfaces between people and complex systems.',
-				'React/TypeScript/Full-stack. Obsessed with craft that feels inevitable.'
-			]);
+			pushRich('whoami', WhoAmICard);
 			return;
 		}
 
 		if (cmd === '/github' || cmd === '/gh') {
-			const lines = GITHUB_PROJECTS.map(p => `${p.name} — ${p.desc}\n  ${p.url}`);
-			pushText(lines);
+			pushRich('github-profile', GitHubProfile, { projects: GITHUB_PROJECTS });
 			return;
 		}
 
@@ -206,7 +204,12 @@
 		}
 
 		if (cmd === '/hobbies') {
-			pushText(['making music, riding motorcycles, building small beautiful things in public, mentoring.']);
+			pushRich('hobbies', HobbiesCard);
+			return;
+		}
+
+		if (cmd === '/contact') {
+			pushRich('contact', ContactCard);
 			return;
 		}
 
@@ -247,7 +250,6 @@
 		if (EASTER_EGGS.includes(cmd)) {
 			if (cmd === '/matrix') pushText(['(green rain would drop here — 6.5s overlay)']);
 			else if (cmd === '/neofetch') pushText([`${OWNER} — Product Engineer`, 'neon soul • modern tools • zero corporate']);
-			else if (cmd === '/contact') pushText([`email: ${CONTACT.email}`, `linkedin: ${CONTACT.linkedin}`]);
 			else pushText([`nice try. this is still a browser.`]);
 			return;
 		}
@@ -401,13 +403,18 @@
 				{:else if entry.id === 'help'}
 					<!-- Static help list card (the interactive floating menu appears when typing /) -->
 					<div class="output-card">
-						<div class="kicker mb-1">AVAILABLE COMMANDS</div>
-						{#each COMMAND_META as c}
-							<div class="flex gap-3 py-px text-sm">
-								<span class="text-[var(--mg)] w-[92px] font-medium">{c.cmd}</span>
-								<span class="text-[var(--dim)]">{c.desc}</span>
-							</div>
-						{/each}
+						<div class="kicker mb-2">AVAILABLE COMMANDS</div>
+						<div class="grid grid-cols-1 gap-x-4 gap-y-1 text-sm">
+							{#each COMMAND_META as c}
+								<div class="flex items-baseline gap-2">
+									<span class="font-medium text-[var(--cyan)] tabular-nums w-20">{c.cmd}</span>
+									<span class="text-[var(--dim)] text-xs flex-1">{c.desc}</span>
+								</div>
+							{/each}
+						</div>
+						<div class="mt-3 text-[10px] text-[var(--dim)] border-t border-[var(--border)] pt-2">
+							Type any command or use ↑↓ in the live menu.
+						</div>
 					</div>
 				{:else if entry.id === 'quick-pills'}
 					<!-- Boot pills -->
@@ -435,8 +442,20 @@
 								<div class="desc">you vs. the CPU. first to 7.</div>
 							</button>
 						</div>
-						<div class="text-[10px] text-[var(--dim)] mt-2">click a game to give it focus, then use your keyboard.</div>
+						<div class="text-[10px] text-[var(--dim)] mt-2">use arrows/wasd to play • esc/q to close • r to restart</div>
 					</div>
+				{:else if entry.id === 'github-profile'}
+					<GitHubProfile projects={entry.props?.projects} />
+				{:else if entry.id === 'whoami'}
+					<WhoAmICard />
+				{:else if entry.id === 'currently'}
+					<CurrentlyCard text={entry.props?.text} />
+				{:else if entry.id === 'experience'}
+					<ExperienceCard />
+				{:else if entry.id === 'hobbies'}
+					<HobbiesCard />
+				{:else if entry.id === 'contact'}
+					<ContactCard />
 				{:else}
 					<!-- Unknown rich entry (developer only) -->
 					<div class="output-card text-[var(--dim)] text-xs">rich content placeholder</div>

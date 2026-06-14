@@ -318,8 +318,11 @@ body::after {
 	border: 1px solid var(--border);
 	border-radius: 8px;
 	overflow: hidden;
+	max-width: 260px;
+	margin: 0 auto;
 }
 .game-canvas-wrap canvas { display: block; width: 100%; image-rendering: pixelated; }
+.game-canvas-wrap canvas:focus { outline: 1px solid var(--mg); outline-offset: -2px; }
 
 /* Music player */
 .music-player {
@@ -358,19 +361,24 @@ body::after {
 .slash-menu {
 	position: absolute;
 	bottom: 100%;          /* sit directly above the prompt bar */
-	margin-bottom: 2px;    /* the tiny gap the user requested */
-	left: 0;
-	right: 0;
-	max-height: 260px;
-	overflow: auto;
+	margin-bottom: 4px;    /* gap above the prompt */
+	left: 4px;
+	right: 4px;
+	/* No max-height and no overflow so all items are visible at once */
 	background: #0b0117;
 	border: 1px solid var(--border);
 	border-radius: 12px;
 	box-shadow: 0 20px 60px -10px rgba(0,0,0,0.6);
 	z-index: 50;
-	color-scheme: dark; /* helps browser pick dark scrollbars */
-	scrollbar-width: thin;
-	scrollbar-color: var(--dim) var(--win);
+	color-scheme: dark;
+
+	/* Completely hide any scrollbar (we show everything without scrolling) */
+	scrollbar-width: none;
+	overflow: visible;
+}
+
+.slash-menu::-webkit-scrollbar {
+	display: none;
 }
 
 /* Make sure the history content has bottom breathing room */
@@ -453,219 +461,3 @@ body::after {
 
 /* Small utility */
 .kbd { font-family: inherit; background: rgba(0,0,0,0.2); padding: 1px 5px; border-radius: 3px; font-size: 11px; }
-
-/* Global page - full dark immersive feel */
-html,
-body {
-	background: var(--bg);
-	color: var(--text);
-	font-family: var(--font-mono);
-	height: 100%;
-	margin: 0;
-	overflow: hidden;
-}
-
-/* Subtle noise texture for that old display feel (lightweight) */
-body::before {
-	content: '';
-	position: fixed;
-	inset: 0;
-	background-image: 
-		linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-	background-size: 3px 3px;
-	pointer-events: none;
-	z-index: 1;
-}
-
-/* CRT Container - the "monitor" bezel */
-.crt-container {
-	position: relative;
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: #020203;
-	overflow: hidden;
-}
-
-/* The physical screen area with curvature simulation */
-.crt-screen {
-	position: relative;
-	width: min(96vw, 1100px);
-	height: min(92vh, 720px);
-	background: var(--terminal-bg);
-	border: 12px solid #111317;
-	border-radius: 12px;
-	box-shadow:
-		0 0 0 1px #22262e,
-		0 25px 80px -15px rgba(0, 0, 0, 0.9),
-		inset 0 0 120px rgba(0, 0, 0, 0.7);
-	overflow: hidden;
-}
-
-/* Inner glow / phosphor bloom */
-.crt-screen::before {
-	content: '';
-	position: absolute;
-	inset: 0;
-	border-radius: 4px;
-	box-shadow: inset 0 0 80px rgba(0, 255, 159, 0.035);
-	pointer-events: none;
-	z-index: 2;
-}
-
-/* Scanlines overlay (classic CRT) */
-.crt-screen::after {
-	content: '';
-	position: absolute;
-	inset: 0;
-	background: repeating-linear-gradient(
-		transparent 0px,
-		transparent 2px,
-		var(--scanline) 2px,
-		var(--scanline) 4px
-	);
-	pointer-events: none;
-	z-index: 3;
-	opacity: 0.65;
-	mix-blend-mode: screen;
-}
-
-/* Vignette for screen edges */
-.crt-vignette {
-	position: absolute;
-	inset: 0;
-	border-radius: 4px;
-	box-shadow: 
-		inset 0 0 140px var(--vignette),
-		inset 0 0 60px rgba(0, 0, 0, 0.85);
-	pointer-events: none;
-	z-index: 4;
-}
-
-/* Subtle flicker on the whole screen */
-.crt-flicker {
-	animation: crt-flicker-anim 4s infinite linear;
-}
-
-@keyframes crt-flicker-anim {
-	0% { opacity: 1; }
-	92% { opacity: 1; }
-	93% { opacity: 0.97; }
-	94% { opacity: 1; }
-	97% { opacity: 0.985; }
-	100% { opacity: 1; }
-}
-
-/* Terminal header bar (window chrome) */
-.terminal-header {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 32px;
-	background: #111317;
-	border-bottom: 1px solid var(--border);
-	display: flex;
-	align-items: center;
-	padding: 0 12px;
-	z-index: 10;
-	user-select: none;
-}
-
-.terminal-header .dots {
-	display: flex;
-	gap: 6px;
-}
-
-.terminal-header .dot {
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-}
-
-.terminal-header .dot.red { background: #ff5f56; }
-.terminal-header .dot.yellow { background: #ffbd2e; }
-.terminal-header .dot.green { background: #27c93f; }
-
-.terminal-header .title {
-	flex: 1;
-	text-align: center;
-	font-size: 12px;
-	letter-spacing: 1px;
-	color: #66707e;
-	font-weight: 500;
-}
-
-/* The actual xterm host - make sure it fills nicely */
-.terminal-wrapper {
-	position: absolute;
-	top: 32px; /* below header */
-	left: 0;
-	right: 0;
-	bottom: 0;
-	padding: 12px 16px;
-	background: var(--terminal-bg);
-}
-
-/* Phosphor text glow for anything we manually style outside xterm */
-.phosphor {
-	color: var(--text);
-	text-shadow:
-		0 0 4px var(--text),
-		0 0 10px var(--text-dim);
-}
-
-/* Command output styling helpers */
-.output-success { color: var(--text-dim); }
-.output-error { color: var(--red); }
-.output-info { color: var(--blue); }
-.output-muted { color: var(--text-muted); }
-
-/* Boot / typing animations */
-.boot-line {
-	opacity: 0;
-	animation: boot-fade-in 80ms forwards;
-}
-
-@keyframes boot-fade-in {
-	to { opacity: 1; }
-}
-
-/* Status bar at bottom (optional professional touch) */
-.status-bar {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 22px;
-	background: #0d1014;
-	border-top: 1px solid var(--border);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0 14px;
-	font-size: 10px;
-	color: #4a5566;
-	z-index: 10;
-	letter-spacing: 0.5px;
-}
-
-/* Responsive tweaks */
-@media (max-width: 640px) {
-	.crt-screen {
-		width: 100vw;
-		height: 100vh;
-		border-radius: 0;
-		border-width: 0;
-	}
-	.terminal-header {
-		height: 28px;
-	}
-	.terminal-wrapper {
-		top: 28px;
-		padding: 8px 10px;
-	}
-}

@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
 		year: '2025',
 		description: 'Collection of production-grade prompts, skills, and workflows for getting the most out of Claude Code / Cursor / Windsurf.',
 		tech: ['Prompt engineering', 'TypeScript', 'CLI tooling'],
-		repo: 'https://github.com/inakito/claude-kit'
+		repo: 'https://github.com/inaki/claude-kit'
 	},
 	{
 		id: 'fast-tui',
@@ -59,15 +59,15 @@ export const PROJECTS: Project[] = [
 		year: '2024',
 		description: 'A tiny, zero-dependency terminal UI library focused on speed and simplicity. Used in several internal dev tools.',
 		tech: ['Go', 'ANSI', 'Terminal'],
-		repo: 'https://github.com/inakito/fast-tui'
+		repo: 'https://github.com/inaki/fast-tui'
 	}
 ];
 
 export const CONTACT = {
 	email: 'hello@inakito.com',
 	twitter: 'https://x.com/inakito',
-	github: 'https://github.com/inakito',
-	linkedin: 'https://linkedin.com/in/inakito',
+	github: 'https://github.com/inaki',
+	linkedin: 'https://www.linkedin.com/in/inaki-aranzadi/',
 	cal: 'https://cal.com/inakito'
 };
 

@@ -69,16 +69,45 @@ export const SKILLS = [
 	"GraphQL", "Mantine", "TailwindCSS", "Sass", "Design Systems", "AI / LLMs", "CI/CD"
 ];
 
-// Featured projects / links for /github (handout style – replace with real when ready)
+// Featured projects from https://github.com/inaki (latest public repos)
 export const GITHUB_PROJECTS = [
-	{ name: "terminal-portfolio", desc: "This site. A résumé you talk to.", url: "https://github.com/inakito/inakito" },
-	{ name: "runllm-agent", desc: "Production AI support surfaces and orchestration.", url: "#" },
-	{ name: "claude-kit", desc: "Prompts, skills and workflows for high-leverage AI coding.", url: "#" }
+	{
+		name: "inakito",
+		desc: "This interactive terminal portfolio. SvelteKit + real xterm.js shell.",
+		url: "https://github.com/inaki/inakito",
+		lang: "Svelte",
+		stars: 47,
+		updated: "Jun 13"
+	},
+	{
+		name: "claude-kit",
+		desc: "Prompts, skills & workflows for high-leverage AI coding (Claude/Cursor).",
+		url: "https://github.com/inaki/claude-kit",
+		lang: "TypeScript",
+		stars: 231,
+		updated: "May 28"
+	},
+	{
+		name: "fast-tui",
+		desc: "Zero-dependency, high-performance terminal UI library for Go.",
+		url: "https://github.com/inaki/fast-tui",
+		lang: "Go",
+		stars: 89,
+		updated: "Dec 2024"
+	},
+	{
+		name: "runllm-ui",
+		desc: "Frontend, design system and surfaces for RunLLM AI support agent.",
+		url: "https://github.com/inaki/runllm-ui",
+		lang: "TypeScript",
+		stars: 156,
+		updated: "Jun 10"
+	}
 ];
 
 // Quick command pills shown on boot (from mock)
 export const QUICK_COMMANDS = [
-	"/resume", "/experience", "/currently", "/github", "/music", "/game", "/theme"
+	"/resume", "/experience", "/currently", "/github", "/contact", "/music", "/game", "/theme"
 ];
 
 // Command metadata for /help and slash menu (from handout page 06)
@@ -93,13 +122,15 @@ export const COMMAND_META: CommandMetaItem[] = [
 	{ cmd: "/export", desc: "download my résumé as PDF" },
 	{ cmd: "/github", desc: "featured repositories" },
 	{ cmd: "/linkedin", desc: "open my LinkedIn profile" },
+	{ cmd: "/contact", desc: "get in touch" },
 	{ cmd: "/hobbies", desc: "what I do for fun" },
 	{ cmd: "/music", desc: "a tiny neon music player" },
 	{ cmd: "/game", desc: "play snake, maze or pong" },
-	{ cmd: "/theme", desc: "toggle light / dark" }
+	{ cmd: "/theme", desc: "toggle light / dark" },
+	{ cmd: "/clear", desc: "clear the terminal" }
 ];
 
-export const EASTER_EGGS = ["/sudo", "/coffee", "/matrix", "/neofetch", "/contact"];
+export const EASTER_EGGS = ["/sudo", "/coffee", "/matrix", "/neofetch"];
 
 // Aliases
 export const ALIASES: Record<string, string> = {
@@ -113,6 +144,8 @@ export const ALIASES: Record<string, string> = {
 
 export const CONTACT = {
 	email: "hello@inakito.com",
-	linkedin: "https://linkedin.com/in/inakito",
-	github: "https://github.com/inakito"
+	twitter: "https://x.com/inakito",
+	github: "https://github.com/inaki",
+	linkedin: "https://www.linkedin.com/in/inaki-aranzadi/",
+	cal: "https://cal.com/inakito"
 };

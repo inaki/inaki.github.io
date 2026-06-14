@@ -43,8 +43,8 @@
 
 	function resizeCanvas() {
 		if (!canvas) return;
-		canvas.width = 360;
-		canvas.height = game === 'pong' ? 200 : 280;
+		canvas.width = 260;
+		canvas.height = game === 'pong' ? 150 : 200;
 		ctx = canvas.getContext('2d', { alpha: true });
 	}
 
@@ -107,53 +107,53 @@
 			ball.x += ball.vx;
 			ball.y += ball.vy;
 
-			if (ball.y < 8 || ball.y > canvas.height-8) ball.vy *= -1;
+			if (ball.y < 6 || ball.y > canvas.height-6) ball.vy *= -1;
 
 			// player paddle
-			if (ball.x < 22 && ball.y > paddleY && ball.y < paddleY + 46) {
+			if (ball.x < 12 && ball.y > paddleY && ball.y < paddleY + 32) {
 				ball.vx = Math.abs(ball.vx) * 1.02;
-				ball.x = 23;
+				ball.x = 13;
 			}
 			// cpu
-			if (ball.x > canvas.width-22 && ball.y > cpuY && ball.y < cpuY+46) {
+			if (ball.x > canvas.width-12 && ball.y > cpuY && ball.y < cpuY+32) {
 				ball.vx = -Math.abs(ball.vx) * 1.02;
-				ball.x = canvas.width-23;
+				ball.x = canvas.width-13;
 			}
 
 			// miss
-			if (ball.x < 6) { cScore++; resetBall(1); }
-			if (ball.x > canvas.width-6) { pScore++; resetBall(-1); }
+			if (ball.x < 4) { cScore++; resetBall(1); }
+			if (ball.x > canvas.width-4) { pScore++; resetBall(-1); }
 
 			// simple cpu
-			cpuY += (ball.y - (cpuY + 23)) * 0.08;
+			cpuY += (ball.y - (cpuY + 16)) * 0.08;
 
 			// draw
 			ctx.strokeStyle = '#34e7f5';
 			ctx.lineWidth = 2;
-			ctx.beginPath(); ctx.moveTo(180,4); ctx.lineTo(180,196); ctx.stroke();
+			ctx.beginPath(); ctx.moveTo(130,3); ctx.lineTo(130,147); ctx.stroke();
 
 			// paddles
 			ctx.fillStyle = '#ff2bd6';
-			ctx.fillRect(8, paddleY, 8, 46);
+			ctx.fillRect(5, paddleY, 5, 32);
 			ctx.fillStyle = '#39ff9f';
-			ctx.fillRect(canvas.width-16, cpuY, 8, 46);
+			ctx.fillRect(canvas.width-10, cpuY, 5, 32);
 
 			// ball
 			ctx.fillStyle = '#b06bff';
 			ctx.beginPath();
-			ctx.arc(ball.x, ball.y, 5, 0, Math.PI*2);
+			ctx.arc(ball.x, ball.y, 4, 0, Math.PI*2);
 			ctx.fill();
 
 			ctx.fillStyle = '#e9e2f5';
-			ctx.font = '600 12px JetBrains Mono';
-			ctx.fillText(`${pScore}`, 70, 18);
-			ctx.fillText(`${cScore}`, 280, 18);
-			ctx.fillText('FIRST TO 7', 130, 18);
+			ctx.font = '600 11px JetBrains Mono';
+			ctx.fillText(`${pScore}`, 40, 12);
+			ctx.fillText(`${cScore}`, 200, 12);
+			ctx.fillText('FIRST TO 7', 85, 12);
 		}
 
 		else if (game === 'maze') {
-			const cell = 26;
-			const ox = 28, oy = 20;
+			const cell = 18;
+			const ox = 22, oy = 8;
 
 			// draw walls
 			ctx.strokeStyle = '#b06bff';
@@ -168,15 +168,15 @@
 
 			// exit
 			ctx.fillStyle = '#39ff9f';
-			ctx.fillRect(ox + exit.x*cell + 4, oy + exit.y*cell + 4, cell-8, cell-8);
+			ctx.fillRect(ox + exit.x*cell + 3, oy + exit.y*cell + 3, cell-6, cell-6);
 
 			// player
 			ctx.fillStyle = '#ff2bd6';
-			ctx.fillRect(ox + player.x*cell + 5, oy + player.y*cell + 5, cell-10, cell-10);
+			ctx.fillRect(ox + player.x*cell + 4, oy + player.y*cell + 4, cell-8, cell-8);
 
 			ctx.fillStyle = '#e9e2f5';
-			ctx.font = '600 11px JetBrains Mono';
-			ctx.fillText(mazeWon ? 'EXIT FOUND' : 'FIND THE GREEN EXIT', 10, 15);
+			ctx.font = '600 10px JetBrains Mono';
+			ctx.fillText(mazeWon ? 'EXIT FOUND' : 'FIND THE GREEN EXIT', 8, 12);
 
 			if (player.x === exit.x && player.y === exit.y && !mazeWon) {
 				mazeWon = true;
@@ -205,13 +205,13 @@
 	}
 
 	function resetBall(sx = 1) {
-		ball = {x:160, y: 70 + Math.random()*60, vx: 2.4 * sx, vy: 1.6 * (Math.random()*2-1)};
+		ball = {x:130, y: 50 + Math.random()*40, vx: 1.8 * sx, vy: 1.2 * (Math.random()*2-1)};
 	}
 
 	function resetPong() {
 		pScore = cScore = 0;
-		paddleY = 70;
-		cpuY = 70;
+		paddleY = 50;
+		cpuY = 50;
 		resetBall(Math.random() > 0.5 ? 1 : -1);
 		running = true;
 	}
@@ -240,8 +240,8 @@
 			if (e.key === 'ArrowRight' || e.key.toLowerCase()==='d') dir = {x:1,y:0};
 		}
 		if (game === 'pong') {
-			if (e.key === 'ArrowUp' || e.key.toLowerCase()==='w') paddleY = Math.max(4, paddleY - 18);
-			if (e.key === 'ArrowDown' || e.key.toLowerCase()==='s') paddleY = Math.min(canvas.height-50, paddleY + 18);
+			if (e.key === 'ArrowUp' || e.key.toLowerCase()==='w') paddleY = Math.max(4, paddleY - 10);
+			if (e.key === 'ArrowDown' || e.key.toLowerCase()==='s') paddleY = Math.min(canvas.height-36, paddleY + 10);
 		}
 		if (game === 'maze') {
 			let nx = player.x, ny = player.y;
@@ -255,6 +255,7 @@
 		}
 		if (e.key.toLowerCase() === 'escape' || e.key === 'q') {
 			onClose?.();
+			running = false;
 		}
 		e.preventDefault();
 	}
@@ -268,7 +269,10 @@
 		window.addEventListener('keydown', keyHandler);
 		raf = requestAnimationFrame(loop);
 
-		// click to focus hint
+		// Auto-focus the game board so keyboard controls work immediately (Escape to close, arrows/wasd to play)
+		canvas.focus();
+
+		// click to refocus if needed (e.g. after clicking elsewhere)
 		canvas.addEventListener('click', () => canvas.focus());
 	});
 
@@ -286,7 +290,7 @@
 	</div>
 
 	<div class="game-canvas-wrap">
-		<canvas bind:this={canvas} width="360" height={game==='pong'?200:280}></canvas>
+		<canvas bind:this={canvas} width="260" height={game==='pong'?150:200} tabindex="0"></canvas>
 	</div>
 
 	<div class="text-[11px] text-[var(--dim)] mt-2">
