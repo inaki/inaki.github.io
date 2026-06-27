@@ -1,15 +1,17 @@
 <script lang="ts">
 	import TerminalShell from '$lib/components/TerminalShell.svelte';
+	import HelpDialog from '$lib/components/HelpDialog.svelte';
 	import { Sun, Moon, HelpCircle } from '@lucide/svelte';
 
 	let shellRef = $state<any>(null);
+	let helpOpen = $state(false);
 
 	function toggleTheme() {
 		shellRef?.toggleThemeFromChrome?.();
 	}
 
 	function openHelp() {
-		shellRef?.runFromOutside?.('/help');
+		helpOpen = true;
 	}
 </script>
 
@@ -44,6 +46,8 @@
 		<!-- <div class="scanlines"></div> -->
 	</div>
 </div>
+
+<HelpDialog open={helpOpen} onClose={() => (helpOpen = false)} />
 
 <!-- Very subtle global hint -->
 <div class="fixed bottom-2 right-3 text-[10px] text-[var(--dim)] hidden lg:block pointer-events-none">

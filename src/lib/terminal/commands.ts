@@ -7,15 +7,15 @@ import type { Command, CommandRegistry, Project, Skill } from './types';
 
 export const ABOUT_TEXT = `Inaki (inakito)
 
-Software engineer focused on delightful developer tools, 
-performant web experiences, and terminal UIs that don't suck.
+Senior Design Engineer — I bridge design and engineering,
+turning intent into interfaces people trust.
 
 I build things that feel fast, look sharp, and get out of the way.
 Currently exploring SvelteKit + xterm.js + Cloudflare for 
 this very site.
 
-Background: systems thinking, product-minded engineering,
-and an unhealthy love for monospace fonts and CRT aesthetics.`;
+Background: design systems, pixel-level craft, and an unhealthy
+love for monospace fonts and CRT aesthetics.`;
 
 export const SKILLS: Skill[] = [
 	{
@@ -71,7 +71,7 @@ export const CONTACT = {
 	cal: 'https://cal.com/inakito'
 };
 
-export const RESUME_URL = '/resume.pdf'; // TODO: add real PDF to /static when ready
+export const RESUME_URL = '/resume';
 
 // ============================================
 // COMMAND IMPLEMENTATIONS
@@ -192,7 +192,7 @@ export const commands: Command[] = [
 		handler: () => {
 			// In real usage we can trigger a download or open in new tab
 			// For now just give instructions + toast will be triggered from caller if needed
-			return `Resume available at: ${RESUME_URL}\n(Replace with real PDF in /static when ready)`;
+			return `Résumé: ${RESUME_URL}\nUse /export to open the print view and save as PDF.`;
 		}
 	},
 	{

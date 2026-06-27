@@ -1,5 +1,7 @@
 <script lang="ts">
-	let { projects = [] }: { projects?: any[] } = $props();
+	import { OWNER, ROLE, GITHUB_MORE_URL, type GitHubProject } from '$lib/content';
+
+	let { projects = [] }: { projects?: GitHubProject[] } = $props();
 
 	// Simple language color helper (terminal friendly)
 	function langColor(lang?: string) {
@@ -30,7 +32,7 @@
 				</a>
 			</div>
 			<div class="text-[var(--dim)] text-xs mt-0.5">
-				Iñaki Aranzadi • Product Engineer • Building tools that feel inevitable
+				{OWNER} • {ROLE} • Building tools that feel inevitable
 			</div>
 			<div class="flex gap-3 mt-1.5 text-[10px] text-[var(--dim)]">
 				<div><span class="text-[var(--text)] font-medium">12</span> repos</div>
@@ -39,7 +41,7 @@
 		</div>
 	</div>
 
-	<div class="text-[10px] font-bold tracking-wider text-[var(--mg)] mb-1.5">LATEST PUBLIC REPOSITORIES</div>
+	<div class="text-[10px] font-bold tracking-wider text-[var(--mg)] mb-1.5">FEATURED PROJECTS</div>
 
 	<div class="space-y-1.5">
 		{#each projects as p}
@@ -87,12 +89,13 @@
 	</div>
 
 	<div class="mt-3 text-center">
-		<a 
-			href="https://github.com/inaki?tab=repositories" 
+		<a
+			href={GITHUB_MORE_URL}
 			target="_blank"
+			rel="noreferrer"
 			class="text-[10px] text-[var(--cyan)] hover:underline"
 		>
-			View all public repositories on GitHub →
+			See more on GitHub →
 		</a>
 	</div>
 </div>

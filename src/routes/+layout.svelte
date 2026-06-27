@@ -10,7 +10,7 @@
 	<link rel="icon" href={favicon} type="image/svg+xml" />
 	<link rel="alternate icon" href="/favicon.ico" />
 	<title>inakito • terminal</title>
-	<meta name="description" content="Inaki — Software engineer & builder. Interactive terminal portfolio." />
+	<meta name="description" content="Iñaki Aranzadi — Senior Design Engineer. Interactive terminal portfolio." />
 </svelte:head>
 
 {@render children()}

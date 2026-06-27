@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 
-	let { game = 'snake', onClose }: { game?: 'snake' | 'maze' | 'pong'; onClose?: () => void } = $props();
+	let { game = 'snake', onClose, onEscape }: { game?: 'snake' | 'maze' | 'pong'; onClose?: () => void; onEscape?: () => void } = $props();
 
 	let canvas: HTMLCanvasElement;
 	let ctx: CanvasRenderingContext2D | null;
@@ -25,21 +25,73 @@
 	let pScore = 0;
 	let cScore = 0;
 
-	// Maze (very small 9x9)
-	const MAZE = [
-		[1,1,1,1,1,1,1,1,1],
-		[1,0,0,0,1,0,0,0,1],
-		[1,1,1,0,1,0,1,0,1],
-		[1,0,0,0,0,0,1,0,1],
-		[1,0,1,1,1,1,1,0,1],
-		[1,0,0,0,0,0,0,0,1],
-		[1,1,1,0,1,1,1,1,1],
-		[1,0,0,0,0,0,0,0,1],
-		[1,1,1,1,1,1,1,1,1]
+	// Maze levels - each with its own layout, start and exit
+	// All mazes are guaranteed solvable from start to exit.
+	const levels = [
+		// Level 1
+		{
+			maze: [
+				[1,1,1,1,1,1,1,1,1],
+				[1,0,0,0,1,0,0,0,1],
+				[1,1,1,0,1,0,1,0,1],
+				[1,0,0,0,0,0,1,0,1],
+				[1,0,1,1,1,1,1,0,1],
+				[1,0,0,0,0,0,0,0,1],
+				[1,1,1,0,1,1,1,1,1],
+				[1,0,0,0,0,0,0,0,1],
+				[1,1,1,1,1,1,1,1,1]
+			],
+			start: {x:1, y:1},
+			exit: {x:7, y:7}
+		},
+		// Level 2 - solvable (clear path: right along top, down right column to exit)
+		{
+			maze: [
+				[1,1,1,1,1,1,1,1,1],
+				[1,0,0,0,0,0,0,0,1],
+				[1,0,1,1,1,1,1,0,1],
+				[1,0,1,0,0,0,1,0,1],
+				[1,0,1,0,1,0,1,0,1],
+				[1,0,0,0,1,0,0,0,1],
+				[1,1,1,1,1,1,1,0,1],
+				[1,0,0,0,0,0,0,0,1],
+				[1,1,1,1,1,1,1,1,1]
+			],
+			start: {x:1, y:1},
+			exit: {x:7, y:7}
+		},
+		// Level 3 - solvable (path snakes left side down, bottom across, right up a bit)
+		{
+			maze: [
+				[1,1,1,1,1,1,1,1,1],
+				[1,0,1,0,0,0,1,0,1],
+				[1,0,1,0,1,0,1,0,1],
+				[1,0,0,0,1,0,0,0,1],
+				[1,1,1,0,1,1,1,1,1],
+				[1,0,0,0,0,0,0,1,1],
+				[1,0,1,1,1,1,0,0,1],
+				[1,0,0,0,0,0,0,0,1],
+				[1,1,1,1,1,1,1,1,1]
+			],
+			start: {x:1, y:1},
+			exit: {x:7, y:7}
+		}
 	];
-	let player = {x:1,y:1};
-	let exit = {x:7,y:7};
-	let mazeWon = false;
+
+	let currentLevel = $state(0);
+	let MAZE = $state(structuredClone(levels[0].maze));
+	let player = $state({...levels[0].start});
+	let exit = $state({...levels[0].exit});
+	let mazeWon = $state(false);
+
+	function loadLevel(level: number) {
+		currentLevel = level;
+		MAZE = structuredClone(levels[level].maze);
+		player = {...levels[level].start};
+		exit = {...levels[level].exit};
+		mazeWon = false;
+		status = '';
+	}
 
 	function resizeCanvas() {
 		if (!canvas) return;
@@ -153,7 +205,10 @@
 
 		else if (game === 'maze') {
 			const cell = 18;
-			const ox = 22, oy = 8;
+			const mazeW = 9 * cell;
+			const mazeH = 9 * cell;
+			const ox = Math.floor((canvas.width - mazeW) / 2);
+			const oy = Math.floor((canvas.height - mazeH) / 2);
 
 			// draw walls
 			ctx.strokeStyle = '#b06bff';
@@ -176,11 +231,17 @@
 
 			ctx.fillStyle = '#e9e2f5';
 			ctx.font = '600 10px JetBrains Mono';
-			ctx.fillText(mazeWon ? 'EXIT FOUND' : 'FIND THE GREEN EXIT', 8, 12);
+			let label = mazeWon ? status : `LEVEL ${currentLevel + 1}/${levels.length} - FIND THE EXIT`;
+			const labelW = ctx.measureText(label).width;
+			ctx.fillText(label, Math.floor((canvas.width - labelW) / 2), 12);
 
 			if (player.x === exit.x && player.y === exit.y && !mazeWon) {
 				mazeWon = true;
-				status = 'nice!';
+				if (currentLevel < levels.length - 1) {
+					status = `LEVEL ${currentLevel + 1} COMPLETE! Press any key (or r to restart)`;
+				} else {
+					status = `YOU WIN ALL LEVELS! Press r to restart from level 1`;
+				}
 			}
 		}
 
@@ -217,17 +278,50 @@
 	}
 
 	function resetMaze() {
-		player = {x:1, y:1};
-		mazeWon = false;
-		status = '';
+		// legacy, now use loadLevel
+		loadLevel(currentLevel);
+	}
+
+	let closed = false;
+
+	function close() {
+		if (closed) return;
+		closed = true;
+		running = false;
+		cancelAnimationFrame(raf);
+		window.removeEventListener('keydown', keyHandler);
+		onClose?.();
 	}
 
 	function keyHandler(e: KeyboardEvent) {
+		// Escape / q always closes — even after game over (running === false)
+		if (e.key === 'Escape' || e.key.toLowerCase() === 'q') {
+			e.preventDefault();
+			if (e.key.toLowerCase() === 'q') {
+				// Q always does full close (pops game + focuses prompt)
+				close();
+				return;
+			}
+			// ESC key: use onEscape (two-stage: first press surfaces the /game picker) when provided
+			if (onEscape) {
+				if (closed) return;
+				closed = true;
+				running = false;
+				cancelAnimationFrame(raf);
+				window.removeEventListener('keydown', keyHandler);
+				onEscape();
+				return;
+			}
+			close();
+			return;
+		}
+
 		if (!running) {
 			if (e.key.toLowerCase() === 'r') {
+				e.preventDefault();
 				if (game === 'snake') resetSnake();
 				if (game === 'pong') resetPong();
-				if (game === 'maze') resetMaze();
+				if (game === 'maze') loadLevel(currentLevel);
 				loop();
 			}
 			return;
@@ -244,6 +338,18 @@
 			if (e.key === 'ArrowDown' || e.key.toLowerCase()==='s') paddleY = Math.min(canvas.height-36, paddleY + 10);
 		}
 		if (game === 'maze') {
+			if (mazeWon) {
+				if (e.key.toLowerCase() === 'r') {
+					loadLevel(currentLevel);
+				} else if (currentLevel < levels.length - 1) {
+					loadLevel(currentLevel + 1);
+				} else {
+					loadLevel(0);
+				}
+				loop();
+				e.preventDefault();
+				return;
+			}
 			let nx = player.x, ny = player.y;
 			if (e.key === 'ArrowUp' || e.key.toLowerCase()==='w') ny--;
 			if (e.key === 'ArrowDown' || e.key.toLowerCase()==='s') ny++;
@@ -253,10 +359,6 @@
 				player.x = nx; player.y = ny;
 			}
 		}
-		if (e.key.toLowerCase() === 'escape' || e.key === 'q') {
-			onClose?.();
-			running = false;
-		}
 		e.preventDefault();
 	}
 
@@ -264,7 +366,7 @@
 		resizeCanvas();
 		if (game === 'snake') resetSnake();
 		if (game === 'pong') resetPong();
-		if (game === 'maze') resetMaze();
+		if (game === 'maze') loadLevel(0);
 
 		window.addEventListener('keydown', keyHandler);
 		raf = requestAnimationFrame(loop);
@@ -286,7 +388,7 @@
 <div class="output-card">
 	<div class="flex items-center justify-between mb-2">
 		<div class="kicker">{game.toUpperCase()} — ARCADE</div>
-		<button onclick={onClose} class="text-[11px] text-[var(--dim)] hover:text-[var(--mg)]">CLOSE (ESC)</button>
+		<button onclick={close} class="text-[11px] text-[var(--dim)] hover:text-[var(--mg)]">CLOSE (ESC)</button>
 	</div>
 
 	<div class="game-canvas-wrap">
@@ -294,8 +396,8 @@
 	</div>
 
 	<div class="text-[11px] text-[var(--dim)] mt-2">
-		{game === 'snake' && 'arrows / wasd • r = restart'}
-		{game === 'pong' && 'arrows / w s • first to 7 • r = restart'}
-		{game === 'maze' && 'arrows / wasd • find the exit • r = restart'}
+		{#if game === 'snake'}arrows / wasd • r = restart • esc to close{/if}
+		{#if game === 'pong'}arrows / w s • first to 7 • r = restart • esc to close{/if}
+		{#if game === 'maze'}arrows / wasd • r = restart level • any key for next when complete • esc to close{/if}
 	</div>
 </div>

@@ -12,8 +12,10 @@ import ExperienceCard from './ExperienceCard.svelte';
 import HobbiesCard from './HobbiesCard.svelte';
 import ContactCard from './ContactCard.svelte';
 	import {
-		HANDLE, OWNER, BIO, CURRENTLY, EXPERIENCE, QUICK_COMMANDS, COMMAND_META, ALIASES, EASTER_EGGS, GITHUB_PROJECTS, CONTACT
+		HANDLE, OWNER, ROLE, BIO, CURRENTLY, EXPERIENCE, QUICK_COMMANDS, COMMAND_META, ALIASES, EASTER_EGGS, GITHUB_PROJECTS, CONTACT
 	} from '$lib/content';
+	import { exportResumePdf } from '$lib/resume/export';
+	import bannerArt from '$lib/assets/banner.txt?raw';
 
 	// History entries can be plain text or rich component descriptors
 	// Using any for Comp to be compatible with Svelte 5 runes components
@@ -25,12 +27,12 @@ import ContactCard from './ContactCard.svelte';
 	let input = $state('');
 	let showSlashMenu = $state(false);
 	let slashIndex = $state(0);
+	let gamePickerIndex = $state(0);
 	let commandHistory: string[] = $state([]);
 	let historyPos = $state(-1);
 
 	let shellEl = $state<HTMLDivElement | null>(null);
 	let inputEl = $state<HTMLInputElement | null>(null);
-	let isInputFocused = $state(false);
 
 	let theme: 'dark' | 'light' = $state('dark');
 
@@ -88,19 +90,9 @@ import ContactCard from './ContactCard.svelte';
 	function boot() {
 		history = [];
 
-		// Big neon INAKI wordmark + bio (from mock 3 + handout)
-		const banner = [
-			'',
-			'  ██╗███╗   ██╗ █████╗ ██╗  ██╗██╗',
-			'  ██║████╗  ██║██╔══██╗██║ ██╔╝██║',
-			'  ██║██╔██╗ ██║███████║█████╔╝ ██║',
-			'  ██║██║╚██╗██║██╔══██║██╔═██╗ ██║',
-			'  ██║██║ ╚████║██║  ██║██║  ██╗██║',
-			'  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝',
-			''
-		];
-
-		pushText(banner, true);
+		// Big neon "inaki" wordmark (centered) + bio.
+		// Art lives in banner.txt and is imported raw so backslashes/backticks survive.
+		pushRich('banner', null, { text: bannerArt.replace(/\s+$/, '') });
 		pushText([BIO], true);
 
 		// Quick command pills (clickable)
@@ -165,13 +157,8 @@ import ContactCard from './ContactCard.svelte';
 		if (cmd === '/resume' || cmd === '/cv') {
 			pushRich('resume', ResumeCard, {
 				onExport: () => {
-					const a = document.createElement('a');
-					a.href = '/resume/Inaki-Aranzadi-Resume.pdf';
-					a.download = 'Inaki-Aranzadi-Resume.pdf';
-					document.body.appendChild(a);
-					a.click();
-					a.remove();
-					pushText(['(Drop the real PDF at static/resume/Inaki-Aranzadi-Resume.pdf to enable download)']);
+					exportResumePdf();
+					pushText([`opening résumé export — click Download PDF or Print in the new tab.`]);
 				}
 			});
 			return;
@@ -219,10 +206,29 @@ import ContactCard from './ContactCard.svelte';
 		}
 
 		if (cmd === '/game') {
+			gamePickerIndex = 0;
 			// Show the arcade picker grid (rendered inline in the template)
 			pushRich('games', null, {
 				onPick: (g: 'snake' | 'maze' | 'pong') => {
-					pushRich('game-' + g, GamePanel, { game: g, onClose: () => focusPrompt() });
+					pushRich('game-' + g, GamePanel, {
+						game: g,
+						onClose: () => {
+							// Button / Q: remove the game card (picker underneath stays in scrollback) then focus prompt
+							const last = history[history.length - 1];
+							if (last && last.type === 'rich' && last.id?.startsWith('game-')) {
+								history = history.slice(0, -1);
+							}
+							focusPrompt();
+						},
+						onEscape: () => {
+							// ESC from game (first press): pop game card to surface the picker, focus input so picker keyboard (arrows + esc) works
+							const last = history[history.length - 1];
+							if (last && last.type === 'rich' && last.id?.startsWith('game-')) {
+								history = history.slice(0, -1);
+							}
+							focusPrompt();
+						}
+					});
 				}
 			});
 			return;
@@ -237,19 +243,15 @@ import ContactCard from './ContactCard.svelte';
 		}
 
 		if (cmd === '/export') {
-			// Same as resume export
-			const a = document.createElement('a');
-			a.href = '/resume/Inaki-Aranzadi-Resume.pdf';
-			a.download = '';
-			document.body.appendChild(a); a.click(); a.remove();
-			pushText(['trying to export résumé PDF…']);
+			exportResumePdf();
+			pushText([`opening résumé export — click Download PDF or Print in the new tab.`]);
 			return;
 		}
 
 		// Easter eggs (friendly, per handout voice)
 		if (EASTER_EGGS.includes(cmd)) {
 			if (cmd === '/matrix') pushText(['(green rain would drop here — 6.5s overlay)']);
-			else if (cmd === '/neofetch') pushText([`${OWNER} — Product Engineer`, 'neon soul • modern tools • zero corporate']);
+			else if (cmd === '/neofetch') pushText([`${OWNER} — ${ROLE}`, 'neon soul • modern tools • zero corporate']);
 			else pushText([`nice try. this is still a browser.`]);
 			return;
 		}
@@ -297,6 +299,37 @@ import ContactCard from './ContactCard.svelte';
 				if (e.key === 'Escape') {
 					e.preventDefault();
 					showSlashMenu = false;
+					return;
+				}
+			}
+		}
+
+		// Game picker keyboard navigation (if the last history entry is the 'games' picker)
+		if (!showSlashMenu) {
+			const lastEntry = history[history.length - 1];
+			if (lastEntry && lastEntry.type === 'rich' && lastEntry.id === 'games') {
+				const gameList = ['snake', 'maze', 'pong'] as const;
+				const max = gameList.length - 1;
+				if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+					e.preventDefault();
+					gamePickerIndex = (gamePickerIndex - 1 + max + 1) % (max + 1);
+					return;
+				}
+				if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+					e.preventDefault();
+					gamePickerIndex = (gamePickerIndex + 1) % (max + 1);
+					return;
+				}
+				if (e.key === 'Enter' || e.key === 'Tab') {
+					e.preventDefault();
+					const chosen = gameList[gamePickerIndex];
+					lastEntry.props.onPick(chosen);
+					gamePickerIndex = 0;
+					return;
+				}
+				if (e.key === 'Escape') {
+					e.preventDefault();
+					focusPrompt();
 					return;
 				}
 			}
@@ -394,10 +427,12 @@ import ContactCard from './ContactCard.svelte';
 					<div class="term-line">{line}</div>
 				{/each}
 			{:else if entry.type === 'rich'}
-				{#if entry.id === 'resume'}
+				{#if entry.id === 'banner'}
+					<div class="banner-wrap"><pre class="banner">{entry.props?.text}</pre></div>
+				{:else if entry.id === 'resume'}
 					<ResumeCard onExport={entry.props?.onExport} />
 				{:else if entry.id.startsWith('game-')}
-					<GamePanel game={entry.props?.game} onClose={entry.props?.onClose} />
+					<GamePanel game={entry.props?.game} onClose={entry.props?.onClose} onEscape={entry.props?.onEscape} />
 				{:else if entry.id === 'music'}
 					<MusicPlayer onClose={entry.props?.onClose} />
 				{:else if entry.id === 'help'}
@@ -429,20 +464,20 @@ import ContactCard from './ContactCard.svelte';
 					<div class="output-card">
 						<div class="kicker mb-2">ARCADE</div>
 						<div class="game-grid">
-							<button class="game-card text-left" onclick={() => entry.props.onPick('snake')}>
+							<button class="game-card text-left {gamePickerIndex === 0 ? 'selected' : ''}" onclick={() => entry.props.onPick('snake')}>
 								<div class="name">▸ Snake</div>
 								<div class="desc">classic. arrows / WASD.</div>
 							</button>
-							<button class="game-card text-left" onclick={() => entry.props.onPick('maze')}>
+							<button class="game-card text-left {gamePickerIndex === 1 ? 'selected' : ''}" onclick={() => entry.props.onPick('maze')}>
 								<div class="name">▸ ASCII Maze</div>
 								<div class="desc">find the exit +.</div>
 							</button>
-							<button class="game-card text-left" onclick={() => entry.props.onPick('pong')}>
+							<button class="game-card text-left {gamePickerIndex === 2 ? 'selected' : ''}" onclick={() => entry.props.onPick('pong')}>
 								<div class="name">▸ Pong</div>
 								<div class="desc">you vs. the CPU. first to 7.</div>
 							</button>
 						</div>
-						<div class="text-[10px] text-[var(--dim)] mt-2">use arrows/wasd to play • esc/q to close • r to restart</div>
+						<div class="text-[10px] text-[var(--dim)] mt-2">↑↓←→ to select • enter/tab to play • esc to cancel</div>
 					</div>
 				{:else if entry.id === 'github-profile'}
 					<GitHubProfile projects={entry.props?.projects} />
@@ -455,7 +490,7 @@ import ContactCard from './ContactCard.svelte';
 				{:else if entry.id === 'hobbies'}
 					<HobbiesCard />
 				{:else if entry.id === 'contact'}
-					<ContactCard />
+					<ContactCard onEscape={() => focusPrompt()} onSent={() => focusPrompt()} />
 				{:else}
 					<!-- Unknown rich entry (developer only) -->
 					<div class="output-card text-[var(--dim)] text-xs">rich content placeholder</div>
@@ -485,8 +520,6 @@ import ContactCard from './ContactCard.svelte';
 		bind:this={inputEl}
 		bind:value={input}
 		onkeydown={handleInputKey}
-		onfocus={() => (isInputFocused = true)}
-		onblur={() => (isInputFocused = false)}
 		oninput={() => {
 			if (input.startsWith('/')) showSlashMenu = true;
 		}}
@@ -494,13 +527,28 @@ import ContactCard from './ContactCard.svelte';
 		autocomplete="off"
 		spellcheck="false"
 	/>
-
-	<!-- Custom blinking block cursor hint (visible when input focused) -->
-	{#if isInputFocused}
-		<span class="cursor" aria-hidden="true"></span>
-	{/if}
 </div>
 
 <style>
-	/* extra local tweaks if needed */
+	/* Centered ASCII wordmark banner */
+	.banner-wrap {
+		display: flex;
+		justify-content: center;
+		margin: 4px 0 32px;
+	}
+	.banner {
+		display: inline-block;
+		margin: 0;
+		font-family: inherit;
+		font-size: clamp(6px, 1.5vw, 12px);
+		line-height: 1;
+		text-align: left;
+		white-space: pre;
+		background: linear-gradient(100deg, var(--cyan), var(--purple) 55%, var(--mg));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		filter: drop-shadow(0 0 7px rgba(176, 107, 255, 0.35));
+	}
 </style>

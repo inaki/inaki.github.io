@@ -308,6 +308,10 @@ body::after {
 	cursor: pointer;
 }
 .game-card:hover { border-color: var(--mg); }
+.game-card.selected {
+	border-color: var(--mg);
+	background: rgba(255, 43, 214, 0.08);
+}
 .game-card .name { font-weight: 600; color: var(--cyan); }
 .game-card .desc { font-size: 12px; color: var(--dim); margin-top: 2px; }
 
@@ -434,16 +438,6 @@ body::after {
 	font-size: 14px;
 	caret-color: var(--mg);
 }
-.prompt-bar .cursor {
-	display: inline-block;
-	width: 9px;
-	height: 17px;
-	background: var(--mg);
-	margin-left: 1px;
-	animation: blink 1s step-end infinite;
-	vertical-align: middle;
-}
-@keyframes blink { 50% { opacity: 0; } }
 
 /* Subtle scanlines (off by default per handout; can be toggled via prop or /neofetch etc) */
 .scanlines {
