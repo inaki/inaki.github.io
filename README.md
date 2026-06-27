@@ -52,8 +52,12 @@ In [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages** �
 | Project name | `inakito` |
 | Production branch | `main` |
 | Build command | `npm run build` |
-| Build output directory | `.svelte-kit/cloudflare` |
+| Deploy command | `npm run deploy` |
 | Node version | `22` |
+
+If your Cloudflare UI uses separate **build** + **deploy** steps (Workers CI flow), use those two commands — not `npx wrangler deploy`.
+
+Classic Pages Git UI instead uses **build output directory** `.svelte-kit/cloudflare` with no deploy command.
 
 **Environment variables** (Production):
 
