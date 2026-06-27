@@ -43,7 +43,7 @@ export const PROJECTS: Project[] = [
 		year: '2026',
 		description: 'A fast, retro, fully-interactive personal site powered by a real xterm.js instance. Because why have a boring homepage when you can ssh into someone\'s life?',
 		tech: ['SvelteKit', 'TypeScript', 'xterm.js', '@xterm/addons', 'Tailwind', 'Cloudflare Pages'],
-		url: 'https://inakito.com'
+		url: 'https://inaki.to'
 	},
 	{
 		id: 'claude-kit',

@@ -346,6 +346,12 @@ import ContactCard from './ContactCard.svelte';
 			return;
 		}
 
+		// Let the arcade handle keys while a game card is open
+		const activeGame = history[history.length - 1];
+		if (activeGame?.type === 'rich' && activeGame.id?.startsWith('game-')) {
+			return;
+		}
+
 		// Arrow history only when menu is closed
 		if (e.key === 'ArrowUp') {
 			e.preventDefault();
@@ -408,7 +414,7 @@ import ContactCard from './ContactCard.svelte';
 
 		// Click anywhere on the body to focus prompt (nice shell feel)
 		const focusOnBody = (e: MouseEvent) => {
-			if ((e.target as HTMLElement).closest('.pill, .game-card, button')) return;
+			if ((e.target as HTMLElement).closest('.pill, .game-card, button, .game-canvas-wrap, canvas')) return;
 			focusPrompt();
 		};
 		document.addEventListener('click', focusOnBody);

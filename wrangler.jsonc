@@ -3,5 +3,6 @@
 	"name": "inakito",
 	"compatibility_date": "2026-06-13",
 	"compatibility_flags": ["nodejs_als"],
-	"pages_build_output_dir": ".svelte-kit/cloudflare"
+	"pages_build_output_dir": ".svelte-kit/cloudflare",
+	// Custom domain: inaki.to (configure in Cloudflare Pages dashboard)
 }
