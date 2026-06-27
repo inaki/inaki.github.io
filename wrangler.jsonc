@@ -1,8 +1,15 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "inakito",
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"assets": {
+		"directory": ".svelte-kit/cloudflare",
+		"binding": "ASSETS"
+	},
 	"compatibility_date": "2026-06-13",
 	"compatibility_flags": ["nodejs_als"],
-	"pages_build_output_dir": ".svelte-kit/cloudflare",
-	// Custom domain: inaki.to (configure in Cloudflare Pages dashboard)
+	"observability": {
+		"enabled": true
+	}
+	// Custom domain: inaki.to (Workers & Pages → inakito → Custom domains)
 }

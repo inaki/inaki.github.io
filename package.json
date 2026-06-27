@@ -6,9 +6,9 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "wrangler types && vite build",
-		"deploy": "wrangler pages deploy .svelte-kit/cloudflare --project-name=inakito",
+		"deploy": "wrangler deploy",
 		"build:cloudflare": "npm run build && npm run deploy",
-		"preview": "wrangler pages dev .svelte-kit/cloudflare --port 4173",
+		"preview": "wrangler dev --port 4173",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "wrangler types --check && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
