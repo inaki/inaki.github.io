@@ -3,7 +3,6 @@
 	import type { ComponentType } from 'svelte';
 	import ResumeCard from './ResumeCard.svelte';
 	import GamePanel from './GamePanel.svelte';
-	import MusicPlayer from './MusicPlayer.svelte';
 	import SlashMenu from './SlashMenu.svelte';
 import GitHubProfile from './GitHubProfile.svelte';
 import WhoAmICard from './WhoAmICard.svelte';
@@ -200,11 +199,6 @@ import ContactCard from './ContactCard.svelte';
 			return;
 		}
 
-		if (cmd === '/music') {
-			pushRich('music', MusicPlayer, { onClose: () => focusPrompt() });
-			return;
-		}
-
 		if (cmd === '/game') {
 			gamePickerIndex = 0;
 			// Show the arcade picker grid (rendered inline in the template)
@@ -235,7 +229,7 @@ import ContactCard from './ContactCard.svelte';
 		}
 
 		if (cmd === '/help') {
-			showSlashMenu = true;
+			showSlashMenu = false;
 			slashIndex = 0;
 			// The help list is rendered as a static card via the 'help' id branch in the template
 			pushRich('help', null);
@@ -439,8 +433,6 @@ import ContactCard from './ContactCard.svelte';
 					<ResumeCard onExport={entry.props?.onExport} />
 				{:else if entry.id.startsWith('game-')}
 					<GamePanel game={entry.props?.game} onClose={entry.props?.onClose} onEscape={entry.props?.onEscape} />
-				{:else if entry.id === 'music'}
-					<MusicPlayer onClose={entry.props?.onClose} />
 				{:else if entry.id === 'help'}
 					<!-- Static help list card (the interactive floating menu appears when typing /) -->
 					<div class="output-card">

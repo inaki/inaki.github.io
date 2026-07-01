@@ -68,7 +68,6 @@
 			<span class="cmd">/experience</span>
 			<span class="cmd">/github</span>
 			<span class="cmd">/resume</span>
-			<span class="cmd">/music</span>
 			<span class="cmd">/game</span>
 		</div>
 

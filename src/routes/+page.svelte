@@ -39,7 +39,7 @@
 			</div>
 		</div>
 
-		<!-- The living terminal: mixed text + rich HTML cards (resume, games, music, etc) -->
+		<!-- The living terminal: mixed text + rich HTML cards (resume, games, etc) -->
 		<TerminalShell bind:this={shellRef} />
 
 		<!-- Subtle scanlines layer (handout: off by default) -->

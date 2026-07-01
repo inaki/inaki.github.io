@@ -200,7 +200,7 @@ export const GITHUB_PROJECTS: GitHubProject[] = [
 
 // Quick command pills shown on boot (from mock)
 export const QUICK_COMMANDS = [
-	"/resume", "/experience", "/currently", "/github", "/contact", "/music", "/game", "/theme"
+	"/resume", "/experience", "/currently", "/github", "/contact", "/game", "/theme"
 ];
 
 // Command metadata for /help and slash menu (from handout page 06)
@@ -217,7 +217,6 @@ export const COMMAND_META: CommandMetaItem[] = [
 	{ cmd: "/linkedin", desc: "open my LinkedIn profile" },
 	{ cmd: "/contact", desc: "get in touch" },
 	{ cmd: "/hobbies", desc: "what I do for fun" },
-	{ cmd: "/music", desc: "a tiny neon music player" },
 	{ cmd: "/game", desc: "play snake, maze or pong" },
 	{ cmd: "/theme", desc: "toggle light / dark" },
 	{ cmd: "/clear", desc: "clear the terminal" }
