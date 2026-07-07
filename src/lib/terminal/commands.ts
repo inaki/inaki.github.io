@@ -7,7 +7,7 @@ import type { Command, CommandRegistry, Project, Skill } from './types';
 
 export const ABOUT_TEXT = `Inaki (inakito)
 
-Senior Design Engineer — I bridge design and engineering,
+Senior Product Engineer — I bridge design and engineering,
 turning intent into interfaces people trust.
 
 I build things that feel fast, look sharp, and get out of the way.
@@ -192,7 +192,7 @@ export const commands: Command[] = [
 		handler: () => {
 			// In real usage we can trigger a download or open in new tab
 			// For now just give instructions + toast will be triggered from caller if needed
-			return `Résumé: ${RESUME_URL}\nUse /export to open the print view and save as PDF.`;
+			return `Résumé: ${RESUME_URL}\nUse the export button on the résumé card to save as PDF.`;
 		}
 	},
 	{

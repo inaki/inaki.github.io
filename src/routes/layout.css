@@ -38,7 +38,7 @@
 	--scanline: rgba(255,255,255,0.025);
 }
 
-/* LIGHT palette (one keystroke away via /theme or header button) */
+/* LIGHT palette (toggle via header button) */
 :root.light,
 [data-theme="light"] {
 	--mg: #c81f9e;
@@ -369,16 +369,21 @@ body::after {
 	left: 4px;
 	right: 4px;
 	/* No max-height and no overflow so all items are visible at once */
-	background: #0b0117;
+	background: var(--win);
+	color: var(--text);
 	border: 1px solid var(--border);
 	border-radius: 12px;
-	box-shadow: 0 20px 60px -10px rgba(0,0,0,0.6);
+	box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.6);
 	z-index: 50;
-	color-scheme: dark;
 
 	/* Completely hide any scrollbar (we show everything without scrolling) */
 	scrollbar-width: none;
-	overflow: visible;
+	overflow: hidden;
+}
+
+:root.light .slash-menu,
+[data-theme='light'] .slash-menu {
+	box-shadow: 0 16px 40px -12px rgba(36, 16, 56, 0.16);
 }
 
 .slash-menu::-webkit-scrollbar {
@@ -406,8 +411,8 @@ body::after {
 }
 .slash-menu .row.selected,
 .slash-menu button.row.selected {
-	background: rgba(255,43,214,0.08);
-	border-left: 3px solid var(--mg);
+	background: color-mix(in srgb, var(--mg) 10%, transparent);
+	box-shadow: inset 3px 0 0 var(--mg);
 }
 .slash-menu .cmd { color: var(--mg); min-width: 92px; font-weight: 600; }
 .slash-menu .desc { color: var(--dim); }

@@ -1,17 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { ComponentType } from 'svelte';
+
+	let { onOpenHelp }: { onOpenHelp?: () => void } = $props();
 	import ResumeCard from './ResumeCard.svelte';
 	import GamePanel from './GamePanel.svelte';
 	import SlashMenu from './SlashMenu.svelte';
 import GitHubProfile from './GitHubProfile.svelte';
 import WhoAmICard from './WhoAmICard.svelte';
-import CurrentlyCard from './CurrentlyCard.svelte';
-import ExperienceCard from './ExperienceCard.svelte';
-import HobbiesCard from './HobbiesCard.svelte';
 import ContactCard from './ContactCard.svelte';
 	import {
-		HANDLE, OWNER, ROLE, BIO, CURRENTLY, EXPERIENCE, QUICK_COMMANDS, COMMAND_META, ALIASES, EASTER_EGGS, GITHUB_PROJECTS, CONTACT
+		HANDLE, OWNER, ROLE, BIO, QUICK_COMMANDS, COMMAND_META, ALIASES, EASTER_EGGS, GITHUB_PROJECTS, CONTACT
 	} from '$lib/content';
 	import { exportResumePdf } from '$lib/resume/export';
 	import bannerArt from '$lib/assets/banner.txt?raw';
@@ -70,7 +69,6 @@ import ContactCard from './ContactCard.svelte';
 		}
 	});
 
-	// Dispatch theme changes globally so layout + any other parts react
 	function setTheme(next: 'dark' | 'light') {
 		theme = next;
 		const root = document.documentElement;
@@ -81,7 +79,6 @@ import ContactCard from './ContactCard.svelte';
 			root.classList.remove('light');
 			root.removeAttribute('data-theme');
 		}
-		// live update xterm if it was ever mounted (kept for future)
 		(document as any).__INAKI_THEME__ = next;
 	}
 
@@ -121,7 +118,7 @@ import ContactCard from './ContactCard.svelte';
 		});
 	}
 
-	function focusPrompt() {
+	export function focusPrompt() {
 		requestAnimationFrame(() => inputEl?.focus());
 	}
 
@@ -145,13 +142,6 @@ import ContactCard from './ContactCard.svelte';
 			history = [];
 			return;
 		}
-		if (cmd === '/theme') {
-			const next = theme === 'dark' ? 'light' : 'dark';
-			setTheme(next);
-			pushText([`theme ← ${next}. ${next === 'light' ? 'easy on the eyes.' : 'neon engaged.'}`]);
-			return;
-		}
-
 		// Rich commands → real HTML cards inside the scrollback
 		if (cmd === '/resume' || cmd === '/cv') {
 			pushRich('resume', ResumeCard, {
@@ -160,16 +150,6 @@ import ContactCard from './ContactCard.svelte';
 					pushText([`opening résumé export — click Download PDF or Print in the new tab.`]);
 				}
 			});
-			return;
-		}
-
-		if (cmd === '/experience' || cmd === '/exp') {
-			pushRich('experience', ExperienceCard);
-			return;
-		}
-
-		if (cmd === '/currently' || cmd === '/now') {
-			pushRich('currently', CurrentlyCard, { text: CURRENTLY });
 			return;
 		}
 
@@ -186,11 +166,6 @@ import ContactCard from './ContactCard.svelte';
 		if (cmd === '/linkedin' || cmd === '/in') {
 			window.open(CONTACT.linkedin, '_blank');
 			pushText(['opening LinkedIn…']);
-			return;
-		}
-
-		if (cmd === '/hobbies') {
-			pushRich('hobbies', HobbiesCard);
 			return;
 		}
 
@@ -231,14 +206,7 @@ import ContactCard from './ContactCard.svelte';
 		if (cmd === '/help') {
 			showSlashMenu = false;
 			slashIndex = 0;
-			// The help list is rendered as a static card via the 'help' id branch in the template
-			pushRich('help', null);
-			return;
-		}
-
-		if (cmd === '/export') {
-			exportResumePdf();
-			pushText([`opening résumé export — click Download PDF or Print in the new tab.`]);
+			onOpenHelp?.();
 			return;
 		}
 
@@ -391,11 +359,9 @@ import ContactCard from './ContactCard.svelte';
 		runCommand(cmd);
 	}
 
-	// Expose a couple things for the outer chrome (theme button etc)
 	export function toggleThemeFromChrome() {
 		const next = theme === 'dark' ? 'light' : 'dark';
 		setTheme(next);
-		pushText([`theme ← ${next}.`]);
 	}
 
 	export function runFromOutside(cmd: string) {
@@ -433,22 +399,6 @@ import ContactCard from './ContactCard.svelte';
 					<ResumeCard onExport={entry.props?.onExport} />
 				{:else if entry.id.startsWith('game-')}
 					<GamePanel game={entry.props?.game} onClose={entry.props?.onClose} onEscape={entry.props?.onEscape} />
-				{:else if entry.id === 'help'}
-					<!-- Static help list card (the interactive floating menu appears when typing /) -->
-					<div class="output-card">
-						<div class="kicker mb-2">AVAILABLE COMMANDS</div>
-						<div class="grid grid-cols-1 gap-x-4 gap-y-1 text-sm">
-							{#each COMMAND_META as c}
-								<div class="flex items-baseline gap-2">
-									<span class="font-medium text-[var(--cyan)] tabular-nums w-20">{c.cmd}</span>
-									<span class="text-[var(--dim)] text-xs flex-1">{c.desc}</span>
-								</div>
-							{/each}
-						</div>
-						<div class="mt-3 text-[10px] text-[var(--dim)] border-t border-[var(--border)] pt-2">
-							Type any command or use ↑↓ in the live menu.
-						</div>
-					</div>
 				{:else if entry.id === 'quick-pills'}
 					<!-- Boot pills -->
 					<div class="mt-2 mb-1 flex flex-wrap gap-2">
@@ -456,7 +406,6 @@ import ContactCard from './ContactCard.svelte';
 							<button class="pill" onclick={() => clickPill(c)}>{c}</button>
 						{/each}
 					</div>
-					<div class="text-[10px] text-[var(--dim)]">tip: type / anytime for the full menu.</div>
 				{:else if entry.id === 'games'}
 					<!-- Game picker grid -->
 					<div class="output-card">
@@ -481,12 +430,6 @@ import ContactCard from './ContactCard.svelte';
 					<GitHubProfile projects={entry.props?.projects} />
 				{:else if entry.id === 'whoami'}
 					<WhoAmICard />
-				{:else if entry.id === 'currently'}
-					<CurrentlyCard text={entry.props?.text} />
-				{:else if entry.id === 'experience'}
-					<ExperienceCard />
-				{:else if entry.id === 'hobbies'}
-					<HobbiesCard />
 				{:else if entry.id === 'contact'}
 					<ContactCard onEscape={() => focusPrompt()} onSent={() => focusPrompt()} />
 				{:else}

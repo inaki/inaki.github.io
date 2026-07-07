@@ -2,8 +2,8 @@
 
 export const OWNER = "Iñaki Aranzadi";
 export const HANDLE = "inaki@portfolio";
-export const ROLE = "Senior Design Engineer";
-export const TITLE = "Senior Design Engineer · React · TypeScript · Design Systems";
+export const ROLE = "Senior Product Engineer";
+export const TITLE = "Senior Product Engineer · React · TypeScript · Design Systems";
 
 export const TAGLINE = "I bridge design and engineering — turning intent into interfaces people trust.";
 export const TAGLINE_DETAIL = "React/TypeScript/Design Systems. Obsessed with craft that feels inevitable.";
@@ -22,10 +22,6 @@ I translate intent into interface: design fidelity, system thinking, and the cra
 
 Type / to summon commands, or tap one:`;
 
-export const CURRENTLY = `Full rebuild mode at Herald — rethinking chat-centric flows from the ground up and asking what this product wants to be when it grows up.
-
-Just shipped a CLI for the super users who'd rather type than click. V2 is on the way with the best stack I can justify — same north star as always: if it doesn't feel right for the human on the other side, it doesn't ship.`;
-
 export type ExperienceEntry = {
 	role: string;
 	company: string;
@@ -35,10 +31,10 @@ export type ExperienceEntry = {
 
 export const EXPERIENCE: ExperienceEntry[] = [
 	{
-		role: "Design Engineer",
+		role: "Senior Product Engineer",
 		company: "Herald",
 		dates: "Jan 2025 – Present",
-		note: "Design Engineer on Herald's AI content platform — rebuilding product flows beyond chat-centric UX, shipping CLI tools for power users (v2 in progress). End-to-end surfaces for research synthesis, collaborative writing, tone-of-voice, fact-checking, and publishing. React, TypeScript, shadcn/ui, Tailwind."
+		note: "Senior Product Engineer on Herald's AI content platform — rebuilding product flows beyond chat-centric UX, shipping CLI tools for power users (v2 in progress). End-to-end surfaces for research synthesis, collaborative writing, tone-of-voice, fact-checking, and publishing. React, TypeScript, shadcn/ui, Tailwind."
 	},
 	{
 		role: "Senior Frontend Engineer",
@@ -131,7 +127,7 @@ export const VOLUNTEERING = [
 ];
 
 export const RESUME_SUMMARY =
-	"Senior Design Engineer building the human layer on AI-powered products. A decade of design-system craft at Williams-Sonoma, NextRequest, Afterpay, and Optimizely — now at Herald, owning editorial workflows and interfaces where powerful models meet people who need to trust what they ship. Building AI first, designing for humans.";
+	"Senior Product Engineer building the human layer on AI-powered products. A decade of design-system craft at Williams-Sonoma, NextRequest, Afterpay, and Optimizely — now at Herald, owning editorial workflows and interfaces where powerful models meet people who need to trust what they ship. Building AI first, designing for humans.";
 
 export const RESUME_LOCATION = "SF Bay Area · Puerto Rico · Remote";
 
@@ -200,25 +196,20 @@ export const GITHUB_PROJECTS: GitHubProject[] = [
 
 // Quick command pills shown on boot (from mock)
 export const QUICK_COMMANDS = [
-	"/resume", "/experience", "/currently", "/github", "/contact", "/game", "/theme"
+	"/whoami", "/resume", "/github", "/contact"
 ];
 
 // Command metadata for /help and slash menu (from handout page 06)
 export type CommandMetaItem = { cmd: string; desc: string };
 
 export const COMMAND_META: CommandMetaItem[] = [
-	{ cmd: "/help", desc: "list everything you can type" },
+	{ cmd: "/help", desc: "open the how-it-works guide" },
 	{ cmd: "/whoami", desc: "who is Iñaki, in 5 seconds" },
-	{ cmd: "/currently", desc: "what I am building right now" },
-	{ cmd: "/experience", desc: "the career timeline" },
 	{ cmd: "/resume", desc: "the full résumé card" },
-	{ cmd: "/export", desc: "download my résumé as PDF" },
 	{ cmd: "/github", desc: "featured repositories" },
 	{ cmd: "/linkedin", desc: "open my LinkedIn profile" },
 	{ cmd: "/contact", desc: "get in touch" },
-	{ cmd: "/hobbies", desc: "what I do for fun" },
 	{ cmd: "/game", desc: "play snake, maze or pong" },
-	{ cmd: "/theme", desc: "toggle light / dark" },
 	{ cmd: "/clear", desc: "clear the terminal" }
 ];
 
@@ -226,8 +217,6 @@ export const EASTER_EGGS = ["/sudo", "/coffee", "/matrix", "/neofetch"];
 
 // Aliases
 export const ALIASES: Record<string, string> = {
-	"/now": "/currently",
-	"/exp": "/experience",
 	"/cv": "/resume",
 	"/gh": "/github",
 	"/in": "/linkedin",

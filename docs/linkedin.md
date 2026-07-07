@@ -1,31 +1,30 @@
 # LinkedIn Profile Overhaul
 
-> **Current positioning (Jun 2026):** **Senior Design Engineer** — the engineer at the
+> **Current positioning (Jul 2026):** **Senior Product Engineer** — the engineer at the
 > design/engineering boundary who ships the human layer on complex systems (especially AI).
-> This is a better fit than "Product Engineer" for Iñaki's actual edge: a decade of design
-> systems + UI craft, now applied to AI surfaces at RunLLM.
+> A decade of design systems + UI craft, now applied to AI surfaces at Herald.
 >
-> Sections 7–8 are the live copy. Sections 1–6 are the earlier Product Engineer draft —
+> Sections 7–8 are the live copy. Sections 1–6 are earlier positioning drafts —
 > kept for reference if targeting ATS keyword screens.
 
 ---
 
-## 7. Senior Design Engineer — Headline (≤220 chars)
+## 7. Senior Product Engineer — Headline (≤220 chars)
 
-**Senior Design Engineer | Design Systems · AI Surfaces**
+**Senior Product Engineer | Design Systems · AI Surfaces**
 I bridge design and engineering — turning intent into interfaces people trust. Craft that feels inevitable.
 
 Shorter option:
 
-> Senior Design Engineer · The human layer on top of AI. Designer's-favorite engineer, obsessed with craft that feels inevitable.
+> Senior Product Engineer · The human layer on top of AI. Designer's-favorite engineer, obsessed with craft that feels inevitable.
 
 ---
 
-## 8. Senior Design Engineer — About Section
+## 8. Senior Product Engineer — About Section
 
 Most of the hard problems in AI right now aren't in the model — they're in the six inches between the model and the person using it. That's the layer I build.
 
-I'm a **Senior Design Engineer** who ships the human surface of complex systems: the interactions, flows, and pixel-level craft that turn raw capability into something people actually trust and reach for. Frontend roots, full-stack reach, and the engineer designers want in the room — because I treat the experience as the product, not the wrapper.
+I'm a **Senior Product Engineer** who ships the human surface of complex systems: the interactions, flows, and pixel-level craft that turn raw capability into something people actually trust and reach for. Frontend roots, full-stack reach, and the engineer designers want in the room — because I treat the experience as the product, not the wrapper.
 
 At **RunLLM**, I take our AI support agent from design through production — React + Mantine on the surface, full-stack underneath when the experience needs it (APIs, data, AI orchestration). I'm the engineer in the room with design, making complex AI feel inevitable rather than assembled.
 
@@ -34,11 +33,11 @@ Before AI was the whole conversation, I spent a decade earning the craft that ma
 If your model is great but the product doesn't *feel* great yet, that gap is my job.
 
 🌐 github.com/inaki
-📍 Open to Senior Design Engineer, UX Engineering, and Design Systems roles (SF Bay Area, Puerto Rico, Remote)
+📍 Open to Senior Product Engineer, UX Engineering, and Design Systems roles (SF Bay Area, Puerto Rico, Remote)
 
 ### Recommended Skills (pin the top 8–10)
 
-- Design Engineering
+- Product Engineering
 - Design Systems
 - User Experience (UX)
 - React
@@ -51,9 +50,9 @@ If your model is great but the product doesn't *feel* great yet, that gap is my 
 
 ---
 
-## Archive — Product Engineer positioning (earlier draft)
+## Archive — Senior Product Engineer positioning (earlier drafts)
 
-> **Goal:** Position Iñaki as an **AI-First Product Engineer** for today's AI-dominated
+> **Goal:** Position Iñaki as a **Senior Product Engineer** for today's AI-dominated
 > industry, while keeping pre-Herald experience focused purely on strong frontend/product
 > craft (no retrofitted AI mentions).
 >
@@ -63,7 +62,7 @@ If your model is great but the product doesn't *feel* great yet, that gap is my 
 
 ## 1. Profile Headline (220 characters max)
 
-**Product Engineer | AI-First Architecture**
+**Senior Product Engineer | AI-First Architecture**
 I build the surfaces between people and complex AI systems. Obsessed with craft that feels inevitable.
 
 ---
@@ -72,7 +71,7 @@ I build the surfaces between people and complex AI systems. Obsessed with craft 
 
 I build the surfaces between people and complex AI systems.
 
-As a Product Engineer with deep frontend and full-stack expertise, I design and ship **AI-first architectures** that prioritize pixel-perfect craft, intuitive interactions, and exceptional user experiences. Obsessed with making powerful technology feel inevitable and effortless.
+As a Senior Product Engineer with deep frontend and full-stack expertise, I design and ship **AI-first architectures** that prioritize pixel-perfect craft, intuitive interactions, and exceptional user experiences. Obsessed with making powerful technology feel inevitable and effortless.
 
 Currently at **RunLLM**, I architect and develop delightful user interfaces and product surfaces for complex AI systems. My focus has evolved from pure frontend implementation to end-to-end product development: AI-driven architecture decisions, high-fidelity user flows, and ensuring every detail serves the human experience.
 
@@ -87,7 +86,7 @@ Passionate about scalable architecture, AI-augmented development workflows, and 
 
 ## 3. Experience Section (updated entries)
 
-### Product Engineer
+### Senior Product Engineer
 **RunLLM · Full-time**
 _Jan 2025 – Present · 1 yr 6 mos_
 San Francisco Bay Area · Hybrid
@@ -210,7 +209,7 @@ Cayey, Puerto Rico
 - **Featured Section:** Add your GitHub (github.com/inaki), personal projects (Jerni.ai, kuantu, design systems, etc.), and any recent AI-related work or prototypes.
 - **Profile Photo:** Professional headshot with good lighting, modern/tech vibe.
 - **Banner Image:** Clean, minimal design with subtle interface/AI elements (dark mode preferred to match your whoami screenshot style).
-- **Open to Work:** Enable the green banner with title "Product Engineer | AI-First Architecture" and locations (SF Bay Area, Puerto Rico, Remote).
+- **Open to Work:** Enable the green banner with title "Senior Product Engineer | AI-First Architecture" and locations (SF Bay Area, Puerto Rico, Remote).
 - **Custom URL:** Keep `linkedin.com/in/inaki-aranzadi`
 
 ---
@@ -226,17 +225,17 @@ Cayey, Puerto Rico
 
 ### Alternate Headline (≤220 chars)
 
-> Product Engineer · I ship the human layer on top of LLM systems — the designer's-favorite engineer making AI feel inevitable.
+> Senior Product Engineer · I ship the human layer on top of LLM systems — the designer's-favorite engineer making AI feel inevitable.
 
 Shorter option:
 
-> Product Engineer · The human layer on top of AI. Designer's-favorite engineer, obsessed with craft that feels inevitable.
+> Senior Product Engineer · The human layer on top of AI. Designer's-favorite engineer, obsessed with craft that feels inevitable.
 
 ### Alternate About Section
 
 Most of the hard problems in AI right now aren't in the model — they're in the six inches between the model and the person using it. That's the layer I build.
 
-I'm a Product Engineer who ships the **human surface of AI systems**: the interactions, flows, and pixel-level craft that turn raw model capability into something people actually trust and reach for. Frontend roots, full-stack reach, and the engineer designers want in the room — because I treat the experience as the product, not the wrapper.
+I'm a Senior Product Engineer who ships the **human surface of AI systems**: the interactions, flows, and pixel-level craft that turn raw model capability into something people actually trust and reach for. Frontend roots, full-stack reach, and the engineer designers want in the room — because I treat the experience as the product, not the wrapper.
 
 At **RunLLM**, I take our AI support agent from idea to production — React + Mantine on the surface, increasingly full-stack underneath (APIs, data, AI orchestration). I partner tightly with design so the result feels inevitable rather than assembled, and I optimize for the things that actually move the product: value, differentiation, and trust.
 
@@ -262,5 +261,5 @@ If your model is great but the product doesn't *feel* great yet, that gap is my 
 ## Narrative summary
 
 This overhaul creates a cohesive, forward-looking narrative: **strong engineering craft
-background + clear evolution into AI-first Product Engineering at RunLLM.** Two positioning
+background + clear evolution into senior product engineering at Herald.** Two positioning
 variants are provided — pick per audience (see Section 6).

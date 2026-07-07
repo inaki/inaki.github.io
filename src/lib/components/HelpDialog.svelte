@@ -29,52 +29,41 @@
 	<!-- Dialog -->
 	<div class="help-dialog" role="dialog" aria-modal="true" aria-labelledby="help-title">
 		<div class="help-head">
-			<div>
-				<div class="kicker">getting started</div>
-				<h2 id="help-title">welcome — this is a real terminal</h2>
-			</div>
+			<h2 id="help-title">How it works</h2>
 			<button class="help-close" onclick={onClose} title="close" aria-label="close help">
 				<X size={16} />
 			</button>
 		</div>
 
-		<p class="lede">
-			Most sites you scroll. This one you <em>drive</em>. Type a command, hit enter, watch the page
-			talk back. No wrong moves — poke around.
-		</p>
-
 		<ul class="help-list">
 			<li>
 				<span class="key">/</span>
-				<span>Hit <b>slash</b> anytime to summon the command menu, then type to filter.</span>
+				<span>Open command menu</span>
 			</li>
 			<li>
 				<span class="key">↑ ↓</span>
-				<span>Arrow keys browse the menu — and your command history when it's closed.</span>
+				<span>Browse menu & history</span>
 			</li>
 			<li>
 				<span class="key">tab</span>
-				<span>Autocompletes the highlighted command. <b>enter</b> runs it.</span>
+				<span>Autocomplete — enter runs it</span>
 			</li>
 			<li>
 				<span class="key">click</span>
-				<span>The pills under the banner are shortcuts — tap one to skip the typing.</span>
+				<span>Tap pills to run shortcuts</span>
 			</li>
 		</ul>
 
-		<div class="kicker mt-1">good first commands</div>
+		<div class="kicker">good first commands</div>
 		<div class="help-cmds">
 			<span class="cmd">/whoami</span>
-			<span class="cmd">/experience</span>
-			<span class="cmd">/github</span>
 			<span class="cmd">/resume</span>
-			<span class="cmd">/game</span>
+			<span class="cmd">/github</span>
+			<span class="cmd">/contact</span>
 		</div>
 
 		<p class="foot">
-			Prefer the light? The <b>moon</b> up top flips the theme (or type <span class="cmd">/theme</span
-			>). Stuck? <span class="cmd">/clear</span> resets the screen. And yes — there are a couple of
-			easter eggs. 🕹️
+			<span class="cmd">/clear</span> resets the screen · type <span class="cmd">/</span> for all commands
 		</p>
 	</div>
 {/if}
@@ -123,10 +112,10 @@
 
 	.help-head {
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		justify-content: space-between;
 		gap: 12px;
-		margin-bottom: 12px;
+		margin-bottom: 14px;
 	}
 
 	.kicker {
@@ -166,36 +155,22 @@
 		border-color: var(--mg);
 	}
 
-	.lede {
-		font-size: 13px;
-		line-height: 1.5;
-		color: var(--text);
-		margin: 0 0 14px;
-	}
-	.lede em {
-		font-style: normal;
-		color: var(--cyan);
-	}
-
 	.help-list {
 		list-style: none;
 		margin: 0 0 16px;
 		padding: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 9px;
+		gap: 8px;
 	}
 	.help-list li {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		gap: 12px;
 		font-size: 13px;
-		line-height: 1.45;
-		color: var(--dim);
-	}
-	.help-list li b {
+		line-height: 1;
 		color: var(--text);
-		font-weight: 600;
+		white-space: nowrap;
 	}
 	.key {
 		flex: none;
@@ -243,7 +218,4 @@
 		padding: 1px 7px;
 	}
 
-	.mt-1 {
-		margin-top: 4px;
-	}
 </style>

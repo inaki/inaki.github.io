@@ -13,6 +13,11 @@
 	function openHelp() {
 		helpOpen = true;
 	}
+
+	function closeHelp() {
+		helpOpen = false;
+		shellRef?.focusPrompt?.();
+	}
 </script>
 
 <div class="flex min-h-screen items-center justify-center bg-[var(--bg)] p-2">
@@ -40,14 +45,14 @@
 		</div>
 
 		<!-- The living terminal: mixed text + rich HTML cards (resume, games, etc) -->
-		<TerminalShell bind:this={shellRef} />
+		<TerminalShell bind:this={shellRef} onOpenHelp={openHelp} />
 
 		<!-- Subtle scanlines layer (handout: off by default) -->
 		<!-- <div class="scanlines"></div> -->
 	</div>
 </div>
 
-<HelpDialog open={helpOpen} onClose={() => (helpOpen = false)} />
+<HelpDialog open={helpOpen} onClose={closeHelp} />
 
 <!-- Very subtle global hint -->
 <div class="fixed bottom-2 right-3 text-[10px] text-[var(--dim)] hidden lg:block pointer-events-none">
