@@ -2,8 +2,8 @@
 
 export const OWNER = "Iñaki Aranzadi";
 export const HANDLE = "inaki@portfolio";
-export const ROLE = "Senior Product Engineer";
-export const TITLE = "Senior Product Engineer · React · TypeScript · Design Systems";
+export const ROLE = "Senior Design Engineer";
+export const TITLE = "Senior Design Engineer · React · TypeScript · Design Systems";
 
 export const TAGLINE = "I bridge design and engineering — turning intent into interfaces people trust.";
 export const TAGLINE_DETAIL = "React/TypeScript/Design Systems. Obsessed with craft that feels inevitable.";
@@ -31,10 +31,10 @@ export type ExperienceEntry = {
 
 export const EXPERIENCE: ExperienceEntry[] = [
 	{
-		role: "Senior Product Engineer",
+		role: "Senior Design Engineer",
 		company: "Herald",
 		dates: "Jan 2025 – Present",
-		note: "Senior Product Engineer on Herald's AI content platform — rebuilding product flows beyond chat-centric UX, shipping CLI tools for power users (v2 in progress). End-to-end surfaces for research synthesis, collaborative writing, tone-of-voice, fact-checking, and publishing. React, TypeScript, shadcn/ui, Tailwind."
+		note: "Senior Design Engineer on Herald's AI content platform — rebuilding product flows beyond chat-centric UX, shipping CLI tools for power users (v2 in progress). End-to-end surfaces for research synthesis, collaborative writing, tone-of-voice, fact-checking, and publishing. React, TypeScript, shadcn/ui, Tailwind."
 	},
 	{
 		role: "Senior Frontend Engineer",
@@ -127,7 +127,7 @@ export const VOLUNTEERING = [
 ];
 
 export const RESUME_SUMMARY =
-	"Senior Product Engineer building the human layer on AI-powered products. A decade of design-system craft at Williams-Sonoma, NextRequest, Afterpay, and Optimizely — now at Herald, owning editorial workflows and interfaces where powerful models meet people who need to trust what they ship. Building AI first, designing for humans.";
+	"Senior Design Engineer building the human layer on AI-powered products. A decade of design-system craft at Williams-Sonoma, NextRequest, Afterpay, and Optimizely — now at Herald, owning editorial workflows and interfaces where powerful models meet people who need to trust what they ship. Building AI first, designing for humans.";
 
 export const RESUME_LOCATION = "SF Bay Area · Puerto Rico · Remote";
 
