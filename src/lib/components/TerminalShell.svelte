@@ -1,19 +1,27 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { ComponentType } from 'svelte';
 
-	let { onOpenHelp }: { onOpenHelp?: () => void } = $props();
+	let {
+		onOpenHelp,
+		onThemeChange
+	}: {
+		onOpenHelp?: () => void;
+		onThemeChange?: (theme: Theme) => void;
+	} = $props();
 	import ResumeCard from './ResumeCard.svelte';
 	import GamePanel from './GamePanel.svelte';
 	import SlashMenu from './SlashMenu.svelte';
-import GitHubProfile from './GitHubProfile.svelte';
-import WhoAmICard from './WhoAmICard.svelte';
-import ContactCard from './ContactCard.svelte';
+	import GitHubProfile from './GitHubProfile.svelte';
+	import WhoAmICard from './WhoAmICard.svelte';
+	import ContactCard from './ContactCard.svelte';
+	import BlogCard from './BlogCard.svelte';
 	import {
 		HANDLE, OWNER, ROLE, BIO, QUICK_COMMANDS, COMMAND_META, ALIASES, EASTER_EGGS, GITHUB_PROJECTS, CONTACT
 	} from '$lib/content';
 	import { exportResumePdf } from '$lib/resume/export';
 	import bannerArt from '$lib/assets/banner.txt?raw';
+	import { listPosts } from '$lib/blog/meta';
+	import { initTheme, setTheme as applyTheme, type Theme } from '$lib/theme';
 
 	// History entries can be plain text or rich component descriptors
 	// Using any for Comp to be compatible with Svelte 5 runes components
@@ -26,13 +34,16 @@ import ContactCard from './ContactCard.svelte';
 	let showSlashMenu = $state(false);
 	let slashIndex = $state(0);
 	let gamePickerIndex = $state(0);
+	/** Keyboard nav for BlogCard: 0..n-1 posts, n = open full blog. Inactive when false. */
+	let blogPickerIndex = $state(0);
+	let blogPickerActive = $state(false);
 	let commandHistory: string[] = $state([]);
 	let historyPos = $state(-1);
 
 	let shellEl = $state<HTMLDivElement | null>(null);
 	let inputEl = $state<HTMLInputElement | null>(null);
 
-	let theme: 'dark' | 'light' = $state('dark');
+	let theme: Theme = $state('dark');
 
 	// Filtered commands for slash autocomplete
 	let filteredCommands = $derived.by(() => {
@@ -69,17 +80,10 @@ import ContactCard from './ContactCard.svelte';
 		}
 	});
 
-	function setTheme(next: 'dark' | 'light') {
+	function setTheme(next: Theme) {
 		theme = next;
-		const root = document.documentElement;
-		if (next === 'light') {
-			root.classList.add('light');
-			root.setAttribute('data-theme', 'light');
-		} else {
-			root.classList.remove('light');
-			root.removeAttribute('data-theme');
-		}
-		(document as any).__INAKI_THEME__ = next;
+		applyTheme(next);
+		onThemeChange?.(next);
 	}
 
 	// Boot the beautiful initial screen exactly like the mocks
@@ -140,7 +144,12 @@ import ContactCard from './ContactCard.svelte';
 		// Specials first
 		if (cmd === '/clear' || cmd === 'clear') {
 			history = [];
+			blogPickerActive = false;
 			return;
+		}
+		// New command dismisses blog keyboard nav (except re-running /blog, which re-enables it)
+		if (cmd !== '/blog' && cmd !== '/posts' && cmd !== '/writing') {
+			blogPickerActive = false;
 		}
 		// Rich commands → real HTML cards inside the scrollback
 		if (cmd === '/resume' || cmd === '/cv') {
@@ -171,6 +180,20 @@ import ContactCard from './ContactCard.svelte';
 
 		if (cmd === '/contact') {
 			pushRich('contact', ContactCard);
+			return;
+		}
+
+		if (cmd === '/blog' || cmd === '/posts' || cmd === '/writing') {
+			const all = listPosts();
+			const posts = all.slice(0, 5);
+			blogPickerIndex = 0;
+			blogPickerActive = true;
+			pushRich('blog', BlogCard, {
+				posts,
+				total: all.length
+			});
+			// Keep prompt focused so ↑↓ / enter / tab work like the arcade picker
+			focusPrompt();
 			return;
 		}
 
@@ -295,6 +318,56 @@ import ContactCard from './ContactCard.svelte';
 					return;
 				}
 			}
+
+			// Blog card keyboard navigation (first post selected after /blog)
+			if (
+				blogPickerActive &&
+				lastEntry &&
+				lastEntry.type === 'rich' &&
+				lastEntry.id === 'blog'
+			) {
+				const posts = (lastEntry.props?.posts ?? []) as { slug: string }[];
+				// Selectable: each post + trailing “open full blog”
+				const optionCount = Math.max(1, posts.length + 1);
+
+				if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+					e.preventDefault();
+					blogPickerIndex = (blogPickerIndex - 1 + optionCount) % optionCount;
+					return;
+				}
+				if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+					e.preventDefault();
+					blogPickerIndex = (blogPickerIndex + 1) % optionCount;
+					return;
+				}
+				if (e.key === 'Enter') {
+					e.preventDefault();
+					if (blogPickerIndex < posts.length) {
+						const slug = posts[blogPickerIndex]?.slug;
+						if (slug) window.location.assign(`/blog/${slug}`);
+					} else {
+						window.location.assign('/blog');
+					}
+					return;
+				}
+				// Tab: leave picker, keep/return focus to the terminal prompt
+				if (e.key === 'Tab') {
+					e.preventDefault();
+					blogPickerActive = false;
+					focusPrompt();
+					return;
+				}
+				if (e.key === 'Escape') {
+					e.preventDefault();
+					blogPickerActive = false;
+					focusPrompt();
+					return;
+				}
+				// Any other typing exits picker mode so the prompt behaves normally
+				if (e.key.length === 1 && !e.metaKey && !e.ctrlKey && !e.altKey) {
+					blogPickerActive = false;
+				}
+			}
 		}
 
 		// Normal Enter: run whatever is currently in the input
@@ -360,8 +433,12 @@ import ContactCard from './ContactCard.svelte';
 	}
 
 	export function toggleThemeFromChrome() {
-		const next = theme === 'dark' ? 'light' : 'dark';
+		const next: Theme = theme === 'dark' ? 'light' : 'dark';
 		setTheme(next);
+	}
+
+	export function getTheme(): Theme {
+		return theme;
 	}
 
 	export function runFromOutside(cmd: string) {
@@ -369,12 +446,18 @@ import ContactCard from './ContactCard.svelte';
 	}
 
 	onMount(() => {
-		setTheme('dark');
+		theme = initTheme();
+		onThemeChange?.(theme);
 		boot();
 
 		// Click anywhere on the body to focus prompt (nice shell feel)
 		const focusOnBody = (e: MouseEvent) => {
-			if ((e.target as HTMLElement).closest('.pill, .game-card, button, .game-canvas-wrap, canvas')) return;
+			if (
+				(e.target as HTMLElement).closest(
+					'.pill, .game-card, button, .game-canvas-wrap, canvas, a, input, textarea, select, label'
+				)
+			)
+				return;
 			focusPrompt();
 		};
 		document.addEventListener('click', focusOnBody);
@@ -432,6 +515,14 @@ import ContactCard from './ContactCard.svelte';
 					<WhoAmICard />
 				{:else if entry.id === 'contact'}
 					<ContactCard onEscape={() => focusPrompt()} onSent={() => focusPrompt()} />
+				{:else if entry.id === 'blog'}
+					<BlogCard
+						posts={entry.props?.posts}
+						total={entry.props?.total}
+						selectedIndex={blogPickerActive && idx === history.length - 1
+							? blogPickerIndex
+							: -1}
+					/>
 				{:else}
 					<!-- Unknown rich entry (developer only) -->
 					<div class="output-card text-[var(--dim)] text-xs">rich content placeholder</div>

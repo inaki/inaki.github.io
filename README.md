@@ -18,7 +18,7 @@ cp .env.example .env   # add RESEND_API_KEY for /contact
 npm run dev
 ```
 
-Try `/help`, `/whoami`, `/resume`, `/github`, `/contact`, `/game`.
+Try `/help`, `/whoami`, `/resume`, `/blog`, `/github`, `/contact`, `/game`.
 
 ## Build
 
@@ -107,16 +107,31 @@ Pushes to `main` deploy automatically.
 - [ ] Old `inaki.github.io` GitHub Pages disabled or repo archived
 - [ ] LinkedIn / GitHub profile links point to `https://inaki.to`
 
+## Blog
+
+Posts live in `content/blog/*.md` (Markdown + frontmatter). See `content/blog/README.md` for the authoring format.
+
+- Index: `/blog`
+- Post: `/blog/[slug]`
+- RSS: `/blog/rss.xml`
+- Terminal: `/blog` (aliases `/posts`, `/writing`)
+
 ## Project structure
 
 ```
+content/blog/               # Markdown posts (git-backed)
 src/
 ├── lib/
+│   ├── blog/               # parse, meta, posts, render
 │   ├── content.ts          # résumé, projects, commands copy
-│   ├── site.ts             # inaki.to URL + SEO
-│   └── components/         # TerminalShell, ResumeDocument, games…
+│   ├── site.ts             # inaki.to URL helpers
+│   ├── seo.ts              # titles, OG, Person JSON-LD
+│   ├── theme.ts            # dark/light shared helper
+│   └── components/         # TerminalShell, BlogCard, ResumeDocument, games…
 ├── routes/
 │   ├── +page.svelte        # main terminal UI
+│   ├── blog/               # index, [slug], rss.xml
+│   ├── sitemap.xml/        # sitemap
 │   ├── resume/             # print/PDF résumé page
 │   └── api/contact/        # Resend handler
 static/                     # favicon, google verification

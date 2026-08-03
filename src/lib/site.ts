@@ -1,5 +1,10 @@
 export const SITE_URL = 'https://inaki.to';
 export const SITE_NAME = 'inaki.to';
-export const SITE_TITLE = 'Iñaki Aranzadi — Senior Design Engineer';
-export const SITE_DESCRIPTION =
-	'Interactive terminal portfolio for Iñaki Aranzadi — Senior Design Engineer building AI-first products with human-centered design.';
+
+/** Join SITE_URL + path without double slashes. */
+export function absoluteUrl(path = '/'): string {
+	const base = SITE_URL.replace(/\/$/, '');
+	if (!path || path === '/') return base;
+	const p = path.startsWith('/') ? path : `/${path}`;
+	return `${base}${p}`;
+}

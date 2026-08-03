@@ -196,7 +196,7 @@ export const GITHUB_PROJECTS: GitHubProject[] = [
 
 // Quick command pills shown on boot (from mock)
 export const QUICK_COMMANDS = [
-	"/whoami", "/resume", "/github", "/contact"
+	"/whoami", "/resume", "/blog", "/github", "/contact"
 ];
 
 // Command metadata for /help and slash menu (from handout page 06)
@@ -206,6 +206,7 @@ export const COMMAND_META: CommandMetaItem[] = [
 	{ cmd: "/help", desc: "open the how-it-works guide" },
 	{ cmd: "/whoami", desc: "who is Iñaki, in 5 seconds" },
 	{ cmd: "/resume", desc: "the full résumé card" },
+	{ cmd: "/blog", desc: "notes on craft & systems" },
 	{ cmd: "/github", desc: "featured repositories" },
 	{ cmd: "/linkedin", desc: "open my LinkedIn profile" },
 	{ cmd: "/contact", desc: "get in touch" },
@@ -220,6 +221,8 @@ export const ALIASES: Record<string, string> = {
 	"/cv": "/resume",
 	"/gh": "/github",
 	"/in": "/linkedin",
+	"/posts": "/blog",
+	"/writing": "/blog",
 	"/cls": "/clear"
 };
 

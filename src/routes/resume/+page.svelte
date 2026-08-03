@@ -1,13 +1,18 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import ResumeDocument from '$lib/components/ResumeDocument.svelte';
+	import SeoMeta from '$lib/components/SeoMeta.svelte';
 	import { downloadResumePdf, printResume, resumePdfFilename } from '$lib/resume/export';
-	import { OWNER } from '$lib/content';
+	import { RESUME_DESCRIPTION, RESUME_TITLE, resumeJsonLd } from '$lib/seo';
+	import { absoluteUrl } from '$lib/site';
 
 	let autoExport = $state(false);
 	let sheetEl = $state<HTMLElement | null>(null);
 	let downloading = $state(false);
 	let status = $state('');
+
+	const resumeUrl = absoluteUrl('/resume');
+	const jsonLd = resumeJsonLd();
 
 	onMount(() => {
 		autoExport = new URLSearchParams(window.location.search).get('export') === '1';
@@ -44,9 +49,15 @@
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
 		rel="stylesheet"
 	/>
-	<title>{OWNER} — Résumé</title>
-	<meta name="robots" content="noindex" />
 </svelte:head>
+
+<SeoMeta
+	title={RESUME_TITLE}
+	description={RESUME_DESCRIPTION}
+	url={resumeUrl}
+	type="profile"
+	{jsonLd}
+/>
 
 <div class="resume-page">
 	<div class="resume-toolbar" class:export-mode={autoExport}>

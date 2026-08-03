@@ -58,6 +58,7 @@
 		<div class="help-cmds">
 			<span class="cmd">/whoami</span>
 			<span class="cmd">/resume</span>
+			<span class="cmd">/blog</span>
 			<span class="cmd">/github</span>
 			<span class="cmd">/contact</span>
 		</div>
