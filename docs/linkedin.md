@@ -1,265 +1,234 @@
-# LinkedIn Profile Overhaul
+# LinkedIn — agent-aligned profile copy
 
-> **Current positioning (Jul 2026):** **Senior Product Engineer** — the engineer at the
-> design/engineering boundary who ships the human layer on complex systems (especially AI).
-> A decade of design systems + UI craft, now applied to AI surfaces at Herald.
+> **Canonical title (Aug 2026):** **Senior Design Engineer**  
+> Matches [inaki.to](https://inaki.to), [inaki.to/resume](https://inaki.to/resume), and site SEO.  
+> Recruiting agents and LinkedIn search stitch **headline + About + current role title + skills + website**. Keep those five consistent.
 >
-> Sections 7–8 are the live copy. Sections 1–6 are earlier positioning drafts —
-> kept for reference if targeting ATS keyword screens.
+> Paste sections below into LinkedIn. Archive at the bottom keeps older Product Engineer drafts for reference only — **do not use them live.**
 
 ---
 
-## 7. Senior Product Engineer — Headline (≤220 chars)
+## Why this alignment matters
 
-**Senior Product Engineer | Design Systems · AI Surfaces**
-I bridge design and engineering — turning intent into interfaces people trust. Craft that feels inevitable.
+| Surface | Signal agents use |
+|---------|-------------------|
+| **Headline** | First title match for “Design Engineer”, “design systems”, “AI UX” |
+| **Current job title** | Strongest “who is this now?” field |
+| **About** | Embedding / keyword blob (stack, companies, narrative) |
+| **Website** | Enrichment crawl → your SSR résumé & portfolio |
+| **Featured** | Explicit URLs into `/`, `/resume`, `/blog` |
+| **Skills (pinned)** | Filter + ranking facets |
 
-Shorter option:
-
-> Senior Product Engineer · The human layer on top of AI. Designer's-favorite engineer, obsessed with craft that feels inevitable.
-
----
-
-## 8. Senior Product Engineer — About Section
-
-Most of the hard problems in AI right now aren't in the model — they're in the six inches between the model and the person using it. That's the layer I build.
-
-I'm a **Senior Product Engineer** who ships the human surface of complex systems: the interactions, flows, and pixel-level craft that turn raw capability into something people actually trust and reach for. Frontend roots, full-stack reach, and the engineer designers want in the room — because I treat the experience as the product, not the wrapper.
-
-At **RunLLM**, I take our AI support agent from design through production — React + Mantine on the surface, full-stack underneath when the experience needs it (APIs, data, AI orchestration). I'm the engineer in the room with design, making complex AI feel inevitable rather than assembled.
-
-Before AI was the whole conversation, I spent a decade earning the craft that makes this work: design systems, component libraries, and large-scale frontend at Williams-Sonoma, NextRequest, Afterpay, Walmart Labs, Optimizely, and Gap Inc. That foundation is exactly why the surfaces I build now feel finished instead of demo-grade.
-
-If your model is great but the product doesn't *feel* great yet, that gap is my job.
-
-🌐 github.com/inaki
-📍 Open to Senior Product Engineer, UX Engineering, and Design Systems roles (SF Bay Area, Puerto Rico, Remote)
-
-### Recommended Skills (pin the top 8–10)
-
-- Product Engineering
-- Design Systems
-- User Experience (UX)
-- React
-- TypeScript
-- Frontend Architecture
-- User Interface Design
-- AI / LLM Product Surfaces
-- Prototyping
-- Full-Stack Development
+**Mismatch to avoid:** site says Design Engineer while LinkedIn still says Product Engineer / RunLLM. That splits identity and dilutes match scores.
 
 ---
 
-## Archive — Senior Product Engineer positioning (earlier drafts)
+## 1. Headline (≤220 characters)
 
-> **Goal:** Position Iñaki as a **Senior Product Engineer** for today's AI-dominated
-> industry, while keeping pre-Herald experience focused purely on strong frontend/product
-> craft (no retrofitted AI mentions).
->
-> Copy and paste section by section.
+### Primary (recommended)
 
----
+```
+Senior Design Engineer | Design Systems · React · AI UX
+I bridge design and engineering — human-layer interfaces people trust.
+```
 
-## 1. Profile Headline (220 characters max)
+(~128 chars — room for LinkedIn auto-suffixes)
 
-**Senior Product Engineer | AI-First Architecture**
-I build the surfaces between people and complex AI systems. Obsessed with craft that feels inevitable.
+### Shorter
 
----
+```
+Senior Design Engineer · Design Systems · AI product surfaces · React/TS
+```
 
-## 2. About Section (copy-paste directly)
+### Search-max (if you want broader keyword capture)
 
-I build the surfaces between people and complex AI systems.
+```
+Senior Design Engineer | UX Engineering · Design Systems · React · TypeScript · AI
+```
 
-As a Senior Product Engineer with deep frontend and full-stack expertise, I design and ship **AI-first architectures** that prioritize pixel-perfect craft, intuitive interactions, and exceptional user experiences. Obsessed with making powerful technology feel inevitable and effortless.
-
-Currently at **RunLLM**, I architect and develop delightful user interfaces and product surfaces for complex AI systems. My focus has evolved from pure frontend implementation to end-to-end product development: AI-driven architecture decisions, high-fidelity user flows, and ensuring every detail serves the human experience.
-
-Previously, I led design system initiatives, component libraries, large-scale frontend migrations, and delivered polished user experiences at Williams-Sonoma, NextRequest, Afterpay, Walmart Labs, Optimizely, Gap Inc., and other leading companies. I thrive at the intersection of engineering excellence, product intuition, and obsessive attention to user-centered design.
-
-Passionate about scalable architecture, AI-augmented development workflows, and building products that don't just work — they feel magical.
-
-🌐 github.com/inaki
-📍 Open to AI Product Engineering and Full-Stack Product roles (SF Bay Area, Puerto Rico, Remote)
+**Rule:** Lead with **Senior Design Engineer**. Put secondary titles (UX Engineering, frontend) in About/skills — not as the primary headline.
 
 ---
 
-## 3. Experience Section (updated entries)
+## 2. About (copy-paste)
 
-### Senior Product Engineer
-**RunLLM · Full-time**
-_Jan 2025 – Present · 1 yr 6 mos_
-San Francisco Bay Area · Hybrid
+Most of the hard problems in AI right now aren’t in the model — they’re in the six inches between the model and the person using it. That’s the layer I build.
 
-- Architect and develop **AI-first user interfaces** that bridge complex AI capabilities with intuitive, high-craft product experiences.
-- Focus on end-to-end product development, architecture decisions, and obsessive attention to user experience details.
-- Collaborate closely with engineering and product teams to translate sophisticated AI backend systems into seamless, delightful user surfaces.
-- Champion modern frontend practices and design system consistency to accelerate development velocity while maintaining exceptional craft.
+I’m a **Senior Design Engineer** who ships the human surface of complex products: interactions, flows, and pixel-level craft that turn raw capability into something people trust. Frontend roots, full-stack reach, and the engineer designers want in the room — because the experience *is* the product.
 
-### Senior Frontend Engineer
-**Joy · Contract**
-_Feb 2022 – Oct 2022 · 9 mos_
-San Francisco Bay Area · Remote
+At **Herald**, I own design-engineering for our AI content platform — product flows beyond chat-centric UX, editorial and collaborative writing surfaces, and CLI tools for power users. React, TypeScript, shadcn/ui, Tailwind. Building AI first, designing for humans.
 
-- Led frontend architecture and feature development for a visually stunning wedding planning platform, creating intuitive and delightful user experiences.
-- Built and maintained a comprehensive design system with reusable components, improving consistency and developer velocity.
-- Streamlined development workflows using modern CI/CD practices.
+Before AI was the whole conversation, I spent a decade on design systems and high-craft frontend at **Williams-Sonoma**, **NextRequest**, **Afterpay**, **Walmart Labs**, **Optimizely**, and **Gap Inc.** That foundation is why the surfaces I ship feel finished — not demo-grade.
 
-### Senior Frontend Engineer
-**Williams-Sonoma, Inc. · Contract**
-_Jul 2021 – Feb 2022 · 8 mos_
-San Francisco Bay Area
+**Open to:** Senior Design Engineer, UX Engineering, and Design Systems roles · SF Bay Area · Puerto Rico · Remote
 
-- Developed and maintained the Design System, component library, and documentation for multiple Williams Sonoma brands.
-- Created consistent, efficient, and reusable components using modern styling approaches.
-- Collaborated with cross-functional teams to deliver high-quality user interfaces across desktop and mobile.
-
-### Senior Frontend Engineer
-**NextRequest · Contract**
-_Jan 2020 – Jul 2021 · 1 yr 7 mos_
-San Francisco Bay Area
-
-- Led frontend development and spearheaded migration of the core application to modern technologies.
-- Designed and maintained the design system and published npm packages for internal use.
-- Improved development processes with Storybook, component testing, and automated pipelines.
-
-### Senior UI / Frontend Engineer
-**Afterpay Touch**
-_Mar 2019 – Oct 2019 · 8 mos_
-San Francisco Bay Area
-
-- Contributed to the consumer-facing mobile applications (iOS and Android) for North America, UK, and Oceania markets.
-- Played a key role in design system development and delivered exceptional user experiences in a fast-paced environment.
-
-### Senior UI/Frontend Engineer
-**Walmart Labs**
-_Mar 2018 – Nov 2018 · 9 mos_
-San Francisco Bay Area
-
-- Developed cutting-edge internal tools and consumer-facing features for Walmart and Jet.
-- Led design and development of tools for the replenishment team, improving operational efficiency.
-- Contributed to design system initiatives and modern frontend architecture.
-
-### Senior UI Engineer
-**Optimizely**
-_Jun 2017 – Mar 2018 · 10 mos_
-San Francisco Bay Area
-
-- Collaborated with the design team to build and evolve the Optimizely Design System and React component library.
-- Contributed to A/B testing products while maintaining high standards of UI craft and consistency.
-
-### Senior Frontend/UI Engineer
-**Gap Inc.**
-_Nov 2016 – Jun 2017 · 8 mos_
-San Francisco Bay Area
-
-- Implemented modern frontend technologies and led development of internal tools to improve team productivity.
-- Enhanced UI/UX across products in collaboration with cross-functional teams.
-
-### Senior Frontend Engineer
-**Williams-Sonoma, Inc.**
-_Aug 2016 – Nov 2016 · 4 mos_
-San Francisco Bay Area
-
-- Supported frontend development for multiple Williams Sonoma brands across desktop and mobile web.
-- Implemented and improved user interfaces using emerging technologies.
-
-### Fullstack Developer
-**Autodesk**
-_Jan 2016 – Jul 2016 · 7 mos_
-San Francisco Bay Area
-
-- Contributed to web application development, dependency updates, and e-commerce features.
-- Worked with modern JavaScript ecosystems and payment integrations.
-
-### Fullstack Javascript Developer Fellow
-**Code for America**
-_Jan 2015 – Dec 2015 · 1 yr_
-San Francisco Bay Area
-
-- Led development of three civic technology web applications to support urban farming initiatives.
-- Handled full product lifecycle: design, prototyping, user testing, and iteration.
-
-### Clinical Psychologist
-**Puerto Rico Department of Health**
-_Jan 2006 – Jan 2012 · 6 yrs 1 mo_
-Cayey, Puerto Rico
-
-- Led interdisciplinary teams, case management, intervention planning, and organizational system transformation.
+🌐 https://inaki.to  
+📄 Résumé → https://inaki.to/resume  
+✍️ Writing → https://inaki.to/blog  
+💻 github.com/inaki
 
 ---
 
-## 4. Recommended Skills (pin the top 8–10)
+## 3. Current experience — Herald
 
-- Product Engineering
-- AI-First Architecture
-- User Experience (UX)
-- Design Systems
-- React
-- TypeScript
-- Frontend Architecture
-- Full-Stack Development
-- Product Development
-- User Interface Design
+**Title:** Senior Design Engineer  
+**Company:** Herald  
+**Type:** Full-time  
+**Dates:** Jan 2025 – Present  
+**Location:** San Francisco Bay Area · Hybrid / Remote as applicable
 
----
+### Description (bullets)
 
-## 5. Additional Profile Tips
+- Senior Design Engineer on Herald’s AI content platform — product surfaces for research synthesis, collaborative writing, tone-of-voice, fact-checking, and publishing.
+- Rebuild flows beyond chat-centric UX so powerful models meet people who need to trust what they ship.
+- Ship CLI / TUI tools for power users (v2 in progress); dual-track web + terminal craft.
+- Own design–engineering partnership: system thinking, component quality, and high-fidelity UI in React, TypeScript, shadcn/ui, and Tailwind.
+- Prior craft: design systems and large-scale frontend at Williams-Sonoma, NextRequest, Afterpay, Optimizely, and more.
 
-- **Featured Section:** Add your GitHub (github.com/inaki), personal projects (Jerni.ai, kuantu, design systems, etc.), and any recent AI-related work or prototypes.
-- **Profile Photo:** Professional headshot with good lighting, modern/tech vibe.
-- **Banner Image:** Clean, minimal design with subtle interface/AI elements (dark mode preferred to match your whoami screenshot style).
-- **Open to Work:** Enable the green banner with title "Senior Product Engineer | AI-First Architecture" and locations (SF Bay Area, Puerto Rico, Remote).
-- **Custom URL:** Keep `linkedin.com/in/inaki-aranzadi`
+*(Keep older roles as already on LinkedIn; only force-title alignment on the current role. Optional polish for top historical roles is in §7.)*
 
 ---
 
-## 6. Alternate positioning — the "human layer" angle
+## 4. Contact / website fields
 
-> **Why this variant:** "AI-First Architecture" is a strong hook, but in 2026 nearly every
-> engineer claims some version of it, so it no longer differentiates. Your actual edge is
-> rarer and more credible: you're the **designer's-favorite engineer who ships the human
-> layer on top of LLM systems** — and your portfolio literally demonstrates it. This variant
-> leans into craft + the people-facing surface of AI, which is harder to fake and exactly
-> what AI product teams are short on.
+| Field | Value |
+|-------|--------|
+| **Website (primary)** | `https://inaki.to` — label: **Portfolio** |
+| **Website (optional 2)** | `https://inaki.to/resume` — label: **Résumé** |
+| **Website (optional 3)** | `https://github.com/inaki` — label: **GitHub** |
+| **Custom LinkedIn URL** | `linkedin.com/in/inaki-aranzadi` |
 
-### Alternate Headline (≤220 chars)
-
-> Senior Product Engineer · I ship the human layer on top of LLM systems — the designer's-favorite engineer making AI feel inevitable.
-
-Shorter option:
-
-> Senior Product Engineer · The human layer on top of AI. Designer's-favorite engineer, obsessed with craft that feels inevitable.
-
-### Alternate About Section
-
-Most of the hard problems in AI right now aren't in the model — they're in the six inches between the model and the person using it. That's the layer I build.
-
-I'm a Senior Product Engineer who ships the **human surface of AI systems**: the interactions, flows, and pixel-level craft that turn raw model capability into something people actually trust and reach for. Frontend roots, full-stack reach, and the engineer designers want in the room — because I treat the experience as the product, not the wrapper.
-
-At **RunLLM**, I take our AI support agent from idea to production — React + Mantine on the surface, increasingly full-stack underneath (APIs, data, AI orchestration). I partner tightly with design so the result feels inevitable rather than assembled, and I optimize for the things that actually move the product: value, differentiation, and trust.
-
-Before AI was the whole conversation, I spent a decade earning the craft that makes this work: design systems, component libraries, and large-scale frontend at Williams-Sonoma, NextRequest, Afterpay, Walmart Labs, Optimizely, and Gap Inc. That foundation is exactly why the AI surfaces I build now feel finished instead of demo-grade.
-
-If your model is great but the product doesn't *feel* great yet, that gap is my job.
-
-🌐 github.com/inaki
-📍 Open to AI Product Engineering and Full-Stack Product roles (SF Bay Area, Puerto Rico, Remote)
-
-### How to choose
-
-- **Use Section 1–2 (AI-First Architecture)** if you're targeting roles that screen on keyword
-  match (recruiters, ATS, "AI architect" listings). It's broader and more searchable.
-- **Use Section 6 (human layer)** if you're targeting design-forward AI product teams, founders,
-  and hiring managers who read the whole profile. It's more memorable and harder to commoditize.
-- **Best of both:** keep the AI-First headline for searchability, but swap in the human-layer
-  About — the opening line ("the six inches between the model and the person") is the kind of
-  thing people quote back to you in interviews.
+Agents that only follow one “website” link should land on **inaki.to** (SSR profile + links to résumé/blog).
 
 ---
 
-## Narrative summary
+## 5. Featured section (order matters)
 
-This overhaul creates a cohesive, forward-looking narrative: **strong engineering craft
-background + clear evolution into senior product engineering at Herald.** Two positioning
-variants are provided — pick per audience (see Section 6).
+Pin in this order so crawlers and humans hit proof fast:
+
+1. **Portfolio** — https://inaki.to  
+2. **Résumé** — https://inaki.to/resume  
+3. **Writing** — https://inaki.to/blog (or a strong post, e.g. design systems)  
+4. **GitHub** — https://github.com/inaki  
+
+Optional: one Herald-safe public artifact or a blog post on CLI craft.
+
+---
+
+## 6. Skills to pin (top 8–10)
+
+Order for filters recruiters/agents use:
+
+1. Design Systems  
+2. React  
+3. TypeScript  
+4. User Experience (UX)  
+5. UX Engineering *(add if available / as custom)*  
+6. Frontend Architecture  
+7. User Interface Design  
+8. AI / LLM Product Surfaces *(or Generative AI + Product Design)*  
+9. Tailwind CSS  
+10. Full-Stack Development  
+
+Also endorse / list if present: Design Engineering, Prototyping, Vue.js, GraphQL, CI/CD.
+
+**Deprioritize as *pinned*:** pure “Product Engineering” as the #1 skill if it fights Design Engineer positioning — keep it unpinned or lower so primary identity stays design-engineering.
+
+---
+
+## 7. Open to Work / job preferences
+
+**Titles to list (exact phrases help LinkedIn search):**
+
+- Senior Design Engineer  
+- Design Engineer  
+- UX Engineer  
+- Senior Frontend Engineer  
+- Design Systems Engineer  
+
+**Locations:** SF Bay Area, Puerto Rico, Remote  
+
+**Open to:** Full-time; Remote; Hybrid (Bay Area)
+
+---
+
+## 8. Historical roles — light polish (optional)
+
+Only if you edit them: keep **original titles** (honest) but lead bullets with design-system / craft language that agents already associate with you.
+
+### Senior Frontend Engineer · Joy  
+- High-craft product surfaces and a reusable design system — React, TypeScript, GraphQL, documented components, CI/CD.
+
+### Senior Frontend Engineer · Williams-Sonoma  
+- Design system, component library, and docs across Williams Sonoma brands — Vue, TypeScript, Tailwind.
+
+### Senior Frontend Engineer · NextRequest  
+- Frontend architecture and migration; owned design system and published npm packages — Vue, Storybook, Chromatic, Cypress.
+
+### Senior UI Engineer · Optimizely  
+- Embedded with design on the Optimizely Design System — React components, Storybook pattern library.
+
+---
+
+## 9. GitHub profile (same entity)
+
+Align so GitHub ↔ LinkedIn ↔ site resolve as one person:
+
+| Field | Suggested |
+|-------|-----------|
+| **Name** | Iñaki Aranzadi |
+| **Bio** | Senior Design Engineer · Design systems, React/TS, AI product surfaces · https://inaki.to |
+| **Company** | @Herald *(or current)* |
+| **Location** | SF Bay Area · Puerto Rico · Remote |
+| **Website** | https://inaki.to |
+| **Social** | LinkedIn URL if offered |
+
+---
+
+## 10. 15-minute apply checklist
+
+- [ ] Headline = Senior Design Engineer + design systems / React / AI UX  
+- [ ] About pasted (§2) with **inaki.to**, **/resume**, **/blog**  
+- [ ] Current role title = **Senior Design Engineer** at **Herald** (not RunLLM / Product Engineer)  
+- [ ] Website = https://inaki.to  
+- [ ] Featured: portfolio, résumé, blog, GitHub  
+- [ ] Skills pinned per §6  
+- [ ] Open to Work titles include Design Engineer variants  
+- [ ] GitHub bio/website match (§9)  
+- [ ] Spot-check: Google “Iñaki Aranzadi” and open LinkedIn — titles match site  
+
+---
+
+## 11. Agent keyword map (what you want to match)
+
+Use these phrases naturally (already in §2–3); no stuffing:
+
+- Senior Design Engineer  
+- Design systems / design system  
+- UX engineering  
+- AI product surfaces / AI UX / human layer  
+- React · TypeScript  
+- Frontend · full-stack  
+- Collaborative writing / editorial workflows *(Herald-specific)*  
+- CLI / TUI *(differentiator)*  
+- Companies: Herald, Williams-Sonoma, Afterpay, Optimizely, NextRequest  
+
+---
+
+## Archive — do not use live (Senior Product Engineer / RunLLM era)
+
+<details>
+<summary>Old headline / About / RunLLM drafts (historical)</summary>
+
+### Old primary positioning
+Senior Product Engineer | Design Systems · AI Surfaces  
+
+About centered on **Senior Product Engineer** and **RunLLM** AI support agent (React + Mantine). Useful only if revisiting product-eng keyword screens; **conflicts with current site + résumé.**
+
+### Old Open to Work
+Senior Product Engineer | AI-First Architecture  
+
+### Note
+Site, résumé, SEO, and this doc now standardize on **Senior Design Engineer @ Herald**. Archive kept only so past positioning isn’t lost.
+
+</details>
