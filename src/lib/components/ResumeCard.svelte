@@ -34,8 +34,6 @@
 	}
 
 	.resume-body {
-		max-height: min(72vh, 720px);
-		overflow-y: auto;
-		padding-right: 4px;
+		overflow: visible;
 	}
 </style>

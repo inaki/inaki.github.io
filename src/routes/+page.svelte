@@ -81,7 +81,7 @@
 				/>
 			</div>
 
-			<!-- SSR crawlable profile + primary links (visible strip + full detail for bots) -->
+			<!-- SSR crawlable profile (visually hidden; identity lives in the terminal) -->
 			<SeoProfile />
 		</div>
 	</div>

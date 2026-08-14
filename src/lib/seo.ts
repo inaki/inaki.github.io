@@ -22,7 +22,7 @@ export const SITE_TITLE = `${OWNER} — ${ROLE} | Design Systems, React, AI UX`;
 
 /** Hire-intent meta description. */
 export const SITE_DESCRIPTION =
-	'Senior Design Engineer building AI-first product surfaces and design systems. A decade of frontend craft at Herald, Williams-Sonoma, Afterpay, and Optimizely. SF Bay Area · Puerto Rico · Remote.';
+	'Senior Frontend UI/UX Engineer building AI-first product surfaces and design systems. A decade of frontend craft at Herald, Williams-Sonoma, Afterpay, and Optimizely. SF Bay Area · Puerto Rico · Remote.';
 
 export const RESUME_TITLE = `${OWNER} — Résumé | ${ROLE}`;
 
@@ -30,13 +30,13 @@ export const RESUME_DESCRIPTION = RESUME_SUMMARY;
 
 export const BLOG_TITLE = `Writing — ${OWNER} | Design Systems & AI UX`;
 export const BLOG_DESCRIPTION =
-	'Notes on design systems, AI UX, terminal craft, and shipping interfaces people trust — from a Senior Design Engineer.';
+	'Notes on design systems, AI UX, terminal craft, and shipping interfaces people trust — from a Senior Frontend UI/UX Engineer.';
 
 export const PERSON_ID = `${SITE_URL}/#person`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 export const SITE_KEYWORDS = [
-	'Senior Design Engineer',
+	'Senior Frontend UI/UX Engineer',
 	'Design Systems',
 	'React',
 	'TypeScript',

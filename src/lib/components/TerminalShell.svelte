@@ -159,6 +159,13 @@
 					pushText([`opening résumé export — click Download PDF or Print in the new tab.`]);
 				}
 			});
+			// Full-height card: pin its header in the terminal scroll instead of jumping to the footer.
+			requestAnimationFrame(() => {
+				requestAnimationFrame(() => {
+					const cards = shellEl?.querySelectorAll('.resume-card');
+					cards?.[cards.length - 1]?.scrollIntoView({ block: 'start' });
+				});
+			});
 			return;
 		}
 

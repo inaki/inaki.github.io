@@ -7,7 +7,7 @@ import type { Command, CommandRegistry, Project, Skill } from './types';
 
 export const ABOUT_TEXT = `Inaki (inakito)
 
-Senior Design Engineer — I bridge design and engineering,
+Senior Frontend UI/UX Engineer — I bridge design and engineering,
 turning intent into interfaces people trust.
 
 I build things that feel fast, look sharp, and get out of the way.

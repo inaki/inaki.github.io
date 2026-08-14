@@ -1,6 +1,6 @@
 # LinkedIn — agent-aligned profile copy
 
-> **Canonical title (Aug 2026):** **Senior Design Engineer**  
+> **Canonical title (Aug 2026):** **Senior Frontend UI/UX Engineer**  
 > Matches [inaki.to](https://inaki.to), [inaki.to/resume](https://inaki.to/resume), and site SEO.  
 > Recruiting agents and LinkedIn search stitch **headline + About + current role title + skills + website**. Keep those five consistent.
 >
@@ -12,14 +12,14 @@
 
 | Surface | Signal agents use |
 |---------|-------------------|
-| **Headline** | First title match for “Design Engineer”, “design systems”, “AI UX” |
+| **Headline** | First title match for “Frontend UI/UX Engineer”, “design systems”, “AI UX” |
 | **Current job title** | Strongest “who is this now?” field |
 | **About** | Embedding / keyword blob (stack, companies, narrative) |
 | **Website** | Enrichment crawl → your SSR résumé & portfolio |
 | **Featured** | Explicit URLs into `/`, `/resume`, `/blog` |
 | **Skills (pinned)** | Filter + ranking facets |
 
-**Mismatch to avoid:** site says Design Engineer while LinkedIn still says Product Engineer / RunLLM. That splits identity and dilutes match scores.
+**Mismatch to avoid:** site says Senior Frontend UI/UX Engineer while LinkedIn still says Product Engineer / RunLLM. That splits identity and dilutes match scores.
 
 ---
 
@@ -28,7 +28,7 @@
 ### Primary (recommended)
 
 ```
-Senior Design Engineer | Design Systems · React · AI UX
+Senior Frontend UI/UX Engineer | Design Systems · React · AI UX
 I bridge design and engineering — human-layer interfaces people trust.
 ```
 
@@ -37,16 +37,16 @@ I bridge design and engineering — human-layer interfaces people trust.
 ### Shorter
 
 ```
-Senior Design Engineer · Design Systems · AI product surfaces · React/TS
+Senior Frontend UI/UX Engineer · Design Systems · AI product surfaces · React/TS
 ```
 
 ### Search-max (if you want broader keyword capture)
 
 ```
-Senior Design Engineer | UX Engineering · Design Systems · React · TypeScript · AI
+Senior Frontend UI/UX Engineer | UX Engineering · Design Systems · React · TypeScript · AI
 ```
 
-**Rule:** Lead with **Senior Design Engineer**. Put secondary titles (UX Engineering, frontend) in About/skills — not as the primary headline.
+**Rule:** Lead with **Senior Frontend UI/UX Engineer**. Put secondary titles (UX Engineering, design engineer) in About/skills — not as the primary headline.
 
 ---
 
@@ -54,13 +54,13 @@ Senior Design Engineer | UX Engineering · Design Systems · React · TypeScript
 
 Most of the hard problems in AI right now aren’t in the model — they’re in the six inches between the model and the person using it. That’s the layer I build.
 
-I’m a **Senior Design Engineer** who ships the human surface of complex products: interactions, flows, and pixel-level craft that turn raw capability into something people trust. Frontend roots, full-stack reach, and the engineer designers want in the room — because the experience *is* the product.
+I’m a **Senior Frontend UI/UX Engineer** who ships the human surface of complex products: interactions, flows, and pixel-level craft that turn raw capability into something people trust. Frontend roots, full-stack reach, and the engineer designers want in the room — because the experience *is* the product.
 
 At **Herald**, I own design-engineering for our AI content platform — product flows beyond chat-centric UX, editorial and collaborative writing surfaces, and CLI tools for power users. React, TypeScript, shadcn/ui, Tailwind. Building AI first, designing for humans.
 
 Before AI was the whole conversation, I spent a decade on design systems and high-craft frontend at **Williams-Sonoma**, **NextRequest**, **Afterpay**, **Walmart Labs**, **Optimizely**, and **Gap Inc.** That foundation is why the surfaces I ship feel finished — not demo-grade.
 
-**Open to:** Senior Design Engineer, UX Engineering, and Design Systems roles · SF Bay Area · Puerto Rico · Remote
+**Open to:** Senior Frontend UI/UX Engineer, UX Engineering, and Design Systems roles · SF Bay Area · Puerto Rico · Remote
 
 🌐 https://inaki.to  
 📄 Résumé → https://inaki.to/resume  
@@ -71,7 +71,7 @@ Before AI was the whole conversation, I spent a decade on design systems and hig
 
 ## 3. Current experience — Herald
 
-**Title:** Senior Design Engineer  
+**Title:** Senior Frontend UI/UX Engineer  
 **Company:** Herald  
 **Type:** Full-time  
 **Dates:** Jan 2025 – Present  
@@ -79,7 +79,7 @@ Before AI was the whole conversation, I spent a decade on design systems and hig
 
 ### Description (bullets)
 
-- Senior Design Engineer on Herald’s AI content platform — product surfaces for research synthesis, collaborative writing, tone-of-voice, fact-checking, and publishing.
+- Senior Frontend UI/UX Engineer on Herald’s AI content platform — product surfaces for research synthesis, collaborative writing, tone-of-voice, fact-checking, and publishing.
 - Rebuild flows beyond chat-centric UX so powerful models meet people who need to trust what they ship.
 - Ship CLI / TUI tools for power users (v2 in progress); dual-track web + terminal craft.
 - Own design–engineering partnership: system thinking, component quality, and high-fidelity UI in React, TypeScript, shadcn/ui, and Tailwind.
@@ -132,7 +132,7 @@ Order for filters recruiters/agents use:
 
 Also endorse / list if present: Design Engineering, Prototyping, Vue.js, GraphQL, CI/CD.
 
-**Deprioritize as *pinned*:** pure “Product Engineering” as the #1 skill if it fights Design Engineer positioning — keep it unpinned or lower so primary identity stays design-engineering.
+**Deprioritize as *pinned*:** pure “Product Engineering” as the #1 skill if it fights Frontend UI/UX Engineer positioning — keep it unpinned or lower so primary identity stays frontend UI/UX.
 
 ---
 
@@ -140,10 +140,10 @@ Also endorse / list if present: Design Engineering, Prototyping, Vue.js, GraphQL
 
 **Titles to list (exact phrases help LinkedIn search):**
 
-- Senior Design Engineer  
-- Design Engineer  
-- UX Engineer  
+- Senior Frontend UI/UX Engineer  
 - Senior Frontend Engineer  
+- UX Engineer  
+- Design Engineer  
 - Design Systems Engineer  
 
 **Locations:** SF Bay Area, Puerto Rico, Remote  
@@ -177,7 +177,7 @@ Align so GitHub ↔ LinkedIn ↔ site resolve as one person:
 | Field | Suggested |
 |-------|-----------|
 | **Name** | Iñaki Aranzadi |
-| **Bio** | Senior Design Engineer · Design systems, React/TS, AI product surfaces · https://inaki.to |
+| **Bio** | Senior Frontend UI/UX Engineer · Design systems, React/TS, AI product surfaces · https://inaki.to |
 | **Company** | @Herald *(or current)* |
 | **Location** | SF Bay Area · Puerto Rico · Remote |
 | **Website** | https://inaki.to |
@@ -187,13 +187,13 @@ Align so GitHub ↔ LinkedIn ↔ site resolve as one person:
 
 ## 10. 15-minute apply checklist
 
-- [ ] Headline = Senior Design Engineer + design systems / React / AI UX  
+- [ ] Headline = Senior Frontend UI/UX Engineer + design systems / React / AI UX  
 - [ ] About pasted (§2) with **inaki.to**, **/resume**, **/blog**  
-- [ ] Current role title = **Senior Design Engineer** at **Herald** (not RunLLM / Product Engineer)  
+- [ ] Current role title = **Senior Frontend UI/UX Engineer** at **Herald** (not RunLLM / Product Engineer)  
 - [ ] Website = https://inaki.to  
 - [ ] Featured: portfolio, résumé, blog, GitHub  
 - [ ] Skills pinned per §6  
-- [ ] Open to Work titles include Design Engineer variants  
+- [ ] Open to Work titles include Frontend UI/UX Engineer variants  
 - [ ] GitHub bio/website match (§9)  
 - [ ] Spot-check: Google “Iñaki Aranzadi” and open LinkedIn — titles match site  
 
@@ -203,7 +203,7 @@ Align so GitHub ↔ LinkedIn ↔ site resolve as one person:
 
 Use these phrases naturally (already in §2–3); no stuffing:
 
-- Senior Design Engineer  
+- Senior Frontend UI/UX Engineer  
 - Design systems / design system  
 - UX engineering  
 - AI product surfaces / AI UX / human layer  
@@ -229,6 +229,6 @@ About centered on **Senior Product Engineer** and **RunLLM** AI support agent (R
 Senior Product Engineer | AI-First Architecture  
 
 ### Note
-Site, résumé, SEO, and this doc now standardize on **Senior Design Engineer @ Herald**. Archive kept only so past positioning isn’t lost.
+Site, résumé, SEO, and this doc now standardize on **Senior Frontend UI/UX Engineer @ Herald**. Archive kept only so past positioning isn’t lost.
 
 </details>
