@@ -71,40 +71,15 @@ export const EXPERIENCE: ExperienceEntry[] = [
 		company: "Optimizely",
 		dates: "Jun 2017 – Mar 2018",
 		note: "Embedded with the design team on the Optimizely Design System — React components, OUI framework, Storybook pattern library."
-	},
-	{
-		role: "Senior Frontend/UI Engineer",
-		company: "Gap Inc.",
-		dates: "Nov 2016 – Jun 2017",
-		note: "React and Angular UI/UX improvements; led internal dev-productivity tools."
-	},
-	{
-		role: "Senior Frontend Engineer",
-		company: "Williams-Sonoma",
-		dates: "Aug 2016 – Nov 2016",
-		note: "Frontend for six Williams Sonoma stores — desktop and mobile web, emerging UI technologies."
-	},
-	{
-		role: "Fullstack Developer",
-		company: "Autodesk",
-		dates: "Jan 2016 – Jul 2016",
-		note: "Full-stack web and e-commerce — dependency migrations, BDD testing, PayPal integrations."
-	},
-	{
-		role: "Fullstack Javascript Developer Fellow",
-		company: "Code for America",
-		dates: "Jan 2015 – Dec 2015",
-		note: "Three civic apps for urban farming — led design, prototyping, user testing, and iteration. Flask, AngularJS, Postgres."
-	},
-	{
-		role: "Clinical Psychologist",
-		company: "Puerto Rico Dept. of Health",
-		dates: "Jan 2006 – Jan 2012",
-		note: "Interdisciplinary leadership, case management, intervention planning, and organizational transformation."
 	}
 ];
 
 export const EDUCATION = [
+	{
+		school: "Code for America",
+		dates: "2015",
+		detail: "Fullstack JavaScript Developer Fellowship — civic tech design, prototyping, and user testing"
+	},
 	{
 		school: "University of Deusto",
 		dates: "1999 – 2004",
@@ -152,6 +127,13 @@ export const GITHUB_MORE_URL = "https://github.com/inaki?tab=repositories";
 
 export const GITHUB_PROJECTS: GitHubProject[] = [
 	{
+		name: "talaria",
+		desc: "Unofficial native TUI host for Hermes Agent.",
+		url: "https://github.com/inaki/talaria",
+		lang: "Rust",
+		updated: "Aug 2026"
+	},
+	{
 		name: "clarx",
 		desc: "AI-first codebase standard — analysis engine, semantic UI kit, and CLI.",
 		url: "https://github.com/Gernika-Labs/clarx",
@@ -184,13 +166,6 @@ export const GITHUB_PROJECTS: GitHubProject[] = [
 		url: "https://github.com/inaki/kuantu",
 		lang: "TypeScript",
 		updated: "May 2026"
-	},
-	{
-		name: "docstree",
-		desc: "Simple app to view your Google Drive documents.",
-		url: "https://github.com/inaki/docstree",
-		lang: "TypeScript",
-		updated: "Dec 2025"
 	}
 ];
 
