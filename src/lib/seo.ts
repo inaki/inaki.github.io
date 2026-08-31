@@ -22,7 +22,7 @@ export const SITE_TITLE = `${OWNER} — ${ROLE} | Design Systems, React, AI UX`;
 
 /** Hire-intent meta description. */
 export const SITE_DESCRIPTION =
-	'Senior Frontend UI/UX Engineer building AI-first product surfaces and design systems. A decade of frontend craft at Herald, Williams-Sonoma, Afterpay, and Optimizely. SF Bay Area · Puerto Rico · Remote.';
+	'Senior Frontend UI/UX Engineer building AI-first product surfaces and design systems. A decade of frontend craft at Herald, Williams-Sonoma, Afterpay, and Optimizely. SF Bay Area · Remote.';
 
 export const RESUME_TITLE = `${OWNER} — Résumé | ${ROLE}`;
 

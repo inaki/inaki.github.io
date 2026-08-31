@@ -4,7 +4,6 @@
 		TITLE,
 		WHOAMI_MOTTO,
 		RESUME_SUMMARY,
-		RESUME_LOCATION,
 		EXPERIENCE,
 		EDUCATION,
 		CERTS,
@@ -30,7 +29,6 @@
 			<span class="sep">·</span>
 			<span>cal.com/inakito</span>
 		</div>
-		<p class="doc-location">{RESUME_LOCATION}</p>
 	</header>
 
 	<section class="doc-section">
@@ -166,12 +164,6 @@
 	.sep {
 		margin: 0 5px;
 		opacity: 0.55;
-	}
-
-	.doc-location {
-		margin: 4px 0 0;
-		font-size: 11px;
-		color: var(--doc-muted);
 	}
 
 	.doc-section + .doc-section {

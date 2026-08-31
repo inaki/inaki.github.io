@@ -60,7 +60,7 @@ At **Herald**, I own design-engineering for our AI content platform — product 
 
 Before AI was the whole conversation, I spent a decade on design systems and high-craft frontend at **Williams-Sonoma**, **NextRequest**, **Afterpay**, **Walmart Labs**, **Optimizely**, and **Gap Inc.** That foundation is why the surfaces I ship feel finished — not demo-grade.
 
-**Open to:** Senior Frontend UI/UX Engineer, UX Engineering, and Design Systems roles · SF Bay Area · Puerto Rico · Remote
+**Open to:** Senior Frontend UI/UX Engineer, UX Engineering, and Design Systems roles · SF Bay Area · Remote
 
 🌐 https://inaki.to  
 📄 Résumé → https://inaki.to/resume  
@@ -81,7 +81,7 @@ Before AI was the whole conversation, I spent a decade on design systems and hig
 
 - Senior Frontend UI/UX Engineer on Herald’s AI content platform — product surfaces for research synthesis, collaborative writing, tone-of-voice, fact-checking, and publishing.
 - Rebuild flows beyond chat-centric UX so powerful models meet people who need to trust what they ship.
-- Ship CLI / TUI tools for power users (v2 in progress); dual-track web + terminal craft.
+- Ship CLI / TUI tools for power users; dual-track web + terminal craft.
 - Own design–engineering partnership: system thinking, component quality, and high-fidelity UI in React, TypeScript, shadcn/ui, and Tailwind.
 - Prior craft: design systems and large-scale frontend at Williams-Sonoma, NextRequest, Afterpay, Optimizely, and more.
 
@@ -146,7 +146,7 @@ Also endorse / list if present: Design Engineering, Prototyping, Vue.js, GraphQL
 - Design Engineer  
 - Design Systems Engineer  
 
-**Locations:** SF Bay Area, Puerto Rico, Remote  
+**Locations:** SF Bay Area, Remote  
 
 **Open to:** Full-time; Remote; Hybrid (Bay Area)
 
@@ -179,7 +179,7 @@ Align so GitHub ↔ LinkedIn ↔ site resolve as one person:
 | **Name** | Iñaki Aranzadi |
 | **Bio** | Senior Frontend UI/UX Engineer · Design systems, React/TS, AI product surfaces · https://inaki.to |
 | **Company** | @Herald *(or current)* |
-| **Location** | SF Bay Area · Puerto Rico · Remote |
+| **Location** | SF Bay Area · Remote |
 | **Website** | https://inaki.to |
 | **Social** | LinkedIn URL if offered |
 
