@@ -63,7 +63,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
 	{
 		role: "Senior UI/Frontend Engineer",
 		company: "Walmart Labs",
-		dates: "Mar 2018 – Nov 2018",
+		dates: "Mar 2018 – Feb 2019",
 		note: "Internal tools and consumer features for Walmart/Jet; led design and build of replenishment-team tooling. React/Redux, Electron."
 	},
 	{
@@ -71,15 +71,28 @@ export const EXPERIENCE: ExperienceEntry[] = [
 		company: "Optimizely",
 		dates: "Jun 2017 – Mar 2018",
 		note: "Embedded with the design team on the Optimizely Design System — React components, OUI framework, Storybook pattern library."
+	},
+	{
+		role: "Senior Frontend/UI Engineer",
+		company: "Gap Inc.",
+		dates: "Jul 2016 – Jun 2017",
+		note: "React and Angular 2 UI/UX work on the storefront; led internal dev-productivity tools."
+	},
+	{
+		role: "Fullstack Developer",
+		company: "Autodesk",
+		dates: "Jan 2016 – Jul 2016",
+		note: "Full-stack web and e-commerce — dependency migrations, BDD testing, PayPal integrations. Node, jQuery, Sass."
+	},
+	{
+		role: "Fullstack Javascript Developer Fellow",
+		company: "Code for America",
+		dates: "Jan 2015 – Dec 2015",
+		note: "Three civic apps for urban farming — led design, prototyping, user testing, and iteration. Flask, AngularJS, Postgres."
 	}
 ];
 
 export const EDUCATION = [
-	{
-		school: "Code for America",
-		dates: "2015",
-		detail: "Fullstack JavaScript Developer Fellowship — civic tech design, prototyping, and user testing"
-	},
 	{
 		school: "University of Deusto",
 		dates: "1999 – 2004",
