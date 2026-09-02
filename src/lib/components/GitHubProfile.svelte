@@ -10,6 +10,7 @@
 		if (l.includes('svelte')) return '#ff3e00';
 		if (l.includes('typescript') || l.includes('ts')) return '#3178c6';
 		if (l.includes('go')) return '#00add8';
+		if (l.includes('rust')) return '#dea584';
 		if (l.includes('javascript') || l.includes('js')) return '#f1e05a';
 		return '#9a8cba';
 	}
